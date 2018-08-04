@@ -152,19 +152,19 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-个性化 UIAlertController" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-获取 当前显示的 UIViewController" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/gexinghuaUIAlertController.html">个性化 UIAlertController</a>
+      <a class="article-title" href="/huoqudangqianxianshideUIViewController.html">获取 当前显示的 UIViewController</a>
     </h1>
   
 
         
-        <a href="/gexinghuaUIAlertController.html" class="archive-article-date">
+        <a href="/huoqudangqianxianshideUIViewController.html" class="archive-article-date">
   	<time datetime="2016-07-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-01</time>
 </a>
         
@@ -172,10 +172,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>系统的 UIAlertController 封装的很漂亮，用block代替之前 UIAlertView 的代理，用起来更方便的，但是其曝露出来的接口也不多如果要个性化一些东西，比如字体大小、颜色就不是很方便了，下面总结一下 UIAlertController 更改字体的方法，以作备忘：</p>
-        
-          <a class="article-more-a" href="/gexinghuaUIAlertController.html#more">更多 >></a>
-        
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">UIViewController * findBestVC(UIViewController *vc) &#123;</span><br><span class="line">    if (vc.presentedViewController) &#123;</span><br><span class="line">        return findBestVC(vc.presentedViewController);</span><br><span class="line">    &#125; else if ([vc isKindOfClass:[UISplitViewController class]]) &#123;</span><br><span class="line">        UISplitViewController *sp = (UISplitViewController *)vc;</span><br><span class="line">        return sp.viewControllers.count &gt; 0 ? findBestVC(sp.viewControllers.lastObject) : vc;</span><br><span class="line">    &#125; else if ([vc isKindOfClass:[UINavigationController class]]) &#123;</span><br><span class="line">        UINavigationController *na = (UINavigationController *)vc;</span><br><span class="line">        return na.viewControllers.count &gt; 0 ? findBestVC(na.topViewController) : vc;</span><br><span class="line">    &#125; else if ([vc isKindOfClass:[UITabBarController class]]) &#123;</span><br><span class="line">        UITabBarController *ta = (UITabBarController *)vc;</span><br><span class="line">        return ta.viewControllers.count &gt; 0 ? findBestVC(ta.selectedViewController) : vc;</span><br><span class="line">    &#125;</span><br><span class="line">    return vc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">UIViewController * currentVC() &#123;</span><br><span class="line">    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;</span><br><span class="line">    return findBestVC(rootVC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只需要调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIViewController *VC = currentVC();</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+
       
 
       
@@ -187,75 +188,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/gexinghuaUIAlertController.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-DW 破解方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/DWpojiefangfa.html">DW 破解方法</a>
-    </h1>
-  
-
-        
-        <a href="/DWpojiefangfa.html" class="archive-article-date">
-  	<time datetime="2016-07-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装破解方法-断网破解"><a href="#安装破解方法-断网破解" class="headerlink" title="安装破解方法(断网破解):"></a>安装破解方法(断网破解):</h3><blockquote>
-<p>开始先请先断开网络连接,断网!!!</p>
-</blockquote>
-<p>1、软件下载完成后,打开软件包如上图4个文件(第1个是安装文件夹,第2个是汉化包,第3个是破解文件,第4个是hosts修改工具).<br>
-        
-          <a class="article-more-a" href="/DWpojiefangfa.html#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/DWpojiefangfa.html">展开全文 >></a>
+          <a class="article-more-a" href="/huoqudangqianxianshideUIViewController.html">展开全文 >></a>
         </p>
       
 
@@ -350,29 +283,32 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-让时间不再随系统设置而改变" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-DW 破解方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/rangshijianbuzaisuixitongshezhiergaibian.html">让时间不再随系统设置而改变</a>
+      <a class="article-title" href="/DWpojiefangfa.html">DW 破解方法</a>
     </h1>
   
 
         
-        <a href="/rangshijianbuzaisuixitongshezhiergaibian.html" class="archive-article-date">
-  	<time datetime="2016-07-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-16</time>
+        <a href="/DWpojiefangfa.html" class="archive-article-date">
+  	<time datetime="2016-07-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>加上 timezone 就好了。</p>
+        <h3 id="安装破解方法-断网破解"><a href="#安装破解方法-断网破解" class="headerlink" title="安装破解方法(断网破解):"></a>安装破解方法(断网破解):</h3><blockquote>
+<p>开始先请先断开网络连接,断网!!!</p>
+</blockquote>
+<p>1、软件下载完成后,打开软件包如上图4个文件(第1个是安装文件夹,第2个是汉化包,第3个是破解文件,第4个是hosts修改工具).<br>
         
-          <a class="article-more-a" href="/rangshijianbuzaisuixitongshezhiergaibian.html#more">更多 >></a>
+          <a class="article-more-a" href="/DWpojiefangfa.html#more">更多 >></a>
         
       
 
@@ -385,7 +321,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/rangshijianbuzaisuixitongshezhiergaibian.html">展开全文 >></a>
+          <a class="article-more-a" href="/DWpojiefangfa.html">展开全文 >></a>
         </p>
       
 
@@ -520,6 +456,71 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/XMPPFrameworkjianjie.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-让时间不再随系统设置而改变" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/rangshijianbuzaisuixitongshezhiergaibian.html">让时间不再随系统设置而改变</a>
+    </h1>
+  
+
+        
+        <a href="/rangshijianbuzaisuixitongshezhiergaibian.html" class="archive-article-date">
+  	<time datetime="2016-07-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>加上 timezone 就好了。</p>
+        
+          <a class="article-more-a" href="/rangshijianbuzaisuixitongshezhiergaibian.html#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/rangshijianbuzaisuixitongshezhiergaibian.html">展开全文 >></a>
         </p>
       
 
@@ -760,19 +761,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-XMPP备忘笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SourceTree 许可证书下载地址" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/XMPPbeiwangbiji.html">XMPP备忘笔记</a>
+      <a class="article-title" href="/SourceTreexukezhengshuxiazaidizhi.html">SourceTree 许可证书下载地址</a>
     </h1>
   
 
         
-        <a href="/XMPPbeiwangbiji.html" class="archive-article-date">
+        <a href="/SourceTreexukezhengshuxiazaidizhi.html" class="archive-article-date">
   	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
 </a>
         
@@ -780,75 +781,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="xmpp中文翻译计划：-http-wiki-jabbercn-org-E9-A6-96-E9-A1-B5"><a href="#xmpp中文翻译计划：-http-wiki-jabbercn-org-E9-A6-96-E9-A1-B5" class="headerlink" title="xmpp中文翻译计划： http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5"></a>xmpp中文翻译计划： <em><a href="http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5</a></em></h4><h5 id="XEP-0004-数据表单"><a href="#XEP-0004-数据表单" class="headerlink" title="XEP-0004: 数据表单"></a>XEP-0004: 数据表单</h5><p>摘要: 本文定义了一个XMPP扩展协议用于数据表单，可以用于worklows如服务配置以及特定应用的数据描述和报告。这个协议包括表单处理的轻量级语义(如 请求,响应,提交和取消),定义了几种常见的字段类型(布尔、单个或多个选择的列表选项、单行或多行
-        
-          <a class="article-more-a" href="/XMPPbeiwangbiji.html#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/XMPPbeiwangbiji.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pem文件转p12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/pemwenjianzhuanp12.html">pem文件转p12</a>
-    </h1>
-  
-
-        
-        <a href="/pemwenjianzhuanp12.html" class="archive-article-date">
-  	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>p12 -&gt; pem </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cer.p12:　　　　openssl pkcs12 -clcerts -nokeys -out cer.pem -in cer.p12</span><br><span class="line"></span><br><span class="line">key.p12:　　　　openssl pkcs12 -nocerts -out key.pem -in key.p12</span><br></pre></td></tr></table></figure>
-<p><br><br>合：<figure class="highlight plain"><figcaption><span>cer.pem key.pem > cer_key.pem  ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line">pem -&gt; p12</span><br></pre></td></tr></table></figure></p>
-<p>openssl pkcs12 -export -in apns_dev.pem -out paypal.p12<br><code>`</code></p>
+        <p><a href="https://my.atlassian.com/products/index?sen=4646570#license_4646570" target="_blank" rel="noopener">https://my.atlassian.com/products/index?sen=4646570#license_4646570</a></p>
 
       
 
@@ -861,7 +794,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/pemwenjianzhuanp12.html">展开全文 >></a>
+          <a class="article-more-a" href="/SourceTreexukezhengshuxiazaidizhi.html">展开全文 >></a>
         </p>
       
 
@@ -957,19 +890,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-SourceTree 许可证书下载地址" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-pem文件转p12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/SourceTreexukezhengshuxiazaidizhi.html">SourceTree 许可证书下载地址</a>
+      <a class="article-title" href="/pemwenjianzhuanp12.html">pem文件转p12</a>
     </h1>
   
 
         
-        <a href="/SourceTreexukezhengshuxiazaidizhi.html" class="archive-article-date">
+        <a href="/pemwenjianzhuanp12.html" class="archive-article-date">
   	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
 </a>
         
@@ -977,7 +910,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://my.atlassian.com/products/index?sen=4646570#license_4646570" target="_blank" rel="noopener">https://my.atlassian.com/products/index?sen=4646570#license_4646570</a></p>
+        <p>p12 -&gt; pem </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cer.p12:　　　　openssl pkcs12 -clcerts -nokeys -out cer.pem -in cer.p12</span><br><span class="line"></span><br><span class="line">key.p12:　　　　openssl pkcs12 -nocerts -out key.pem -in key.p12</span><br></pre></td></tr></table></figure>
+<p><br><br>合：<figure class="highlight plain"><figcaption><span>cer.pem key.pem > cer_key.pem  ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line">pem -&gt; p12</span><br></pre></td></tr></table></figure></p>
+<p>openssl pkcs12 -export -in apns_dev.pem -out paypal.p12<br><code>`</code></p>
 
       
 
@@ -990,7 +926,136 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/SourceTreexukezhengshuxiazaidizhi.html">展开全文 >></a>
+          <a class="article-more-a" href="/pemwenjianzhuanp12.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-XMPP备忘笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/XMPPbeiwangbiji.html">XMPP备忘笔记</a>
+    </h1>
+  
+
+        
+        <a href="/XMPPbeiwangbiji.html" class="archive-article-date">
+  	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="xmpp中文翻译计划：-http-wiki-jabbercn-org-E9-A6-96-E9-A1-B5"><a href="#xmpp中文翻译计划：-http-wiki-jabbercn-org-E9-A6-96-E9-A1-B5" class="headerlink" title="xmpp中文翻译计划： http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5"></a>xmpp中文翻译计划： <em><a href="http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5</a></em></h4><h5 id="XEP-0004-数据表单"><a href="#XEP-0004-数据表单" class="headerlink" title="XEP-0004: 数据表单"></a>XEP-0004: 数据表单</h5><p>摘要: 本文定义了一个XMPP扩展协议用于数据表单，可以用于worklows如服务配置以及特定应用的数据描述和报告。这个协议包括表单处理的轻量级语义(如 请求,响应,提交和取消),定义了几种常见的字段类型(布尔、单个或多个选择的列表选项、单行或多行
+        
+          <a class="article-more-a" href="/XMPPbeiwangbiji.html#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/XMPPbeiwangbiji.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-utf8转码 网址转码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/utf8zhuanmawangzhizhuanma.html">utf8转码 网址转码</a>
+    </h1>
+  
+
+        
+        <a href="/utf8zhuanmawangzhizhuanma.html" class="archive-article-date">
+  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSString *name = @&quot;联通测试&quot;;</span><br><span class="line">NSString *utfName = [name stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];</span><br><span class="line">NSString *tempName = [utfName stringByRemovingPercentEncoding];</span><br></pre></td></tr></table></figure>
+<p>打印：utf:%E8%81%94%E9%80%9A%E6%B5%8B%E8%AF%95    temp:联通测试<br> %8B%E8%AF%95    temp:联通测试</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/utf8zhuanmawangzhizhuanma.html">展开全文 >></a>
         </p>
       
 
@@ -1056,74 +1121,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/tongguoHexozaiGithubshangdajianbokeforMac.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mac 下搭建服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Macxiadajianfuwuqi.html">Mac 下搭建服务器</a>
-    </h1>
-  
-
-        
-        <a href="/Macxiadajianfuwuqi.html" class="archive-article-date">
-  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、开启服务器 Apache。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k start</span><br></pre></td></tr></table></figure>
-<p>打开浏览器，在地址栏输入 localhost，如果出现 It works! 那么第一步已经成功了，如果没成功—出门左转自己找答案云，我也不懂，嘿嘿 </p>
-<p>2、修改配置文件，路径是 /etc/apache2/httpd.conf ，可以用终端，也可以用别的软件打开，我用 Sublime Text 打开了，相比用终端打开的好处就是可以快速定位要改的配置的位置了。</p>
-        
-          <a class="article-more-a" href="/Macxiadajianfuwuqi.html#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Macxiadajianfuwuqi.html">展开全文 >></a>
         </p>
       
 
@@ -1313,14 +1310,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
               </li>
              
@@ -1337,18 +1326,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">FMDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -1361,7 +1338,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">FMDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1381,19 +1374,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拼音</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1405,11 +1394,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
               </li>
              
               <li class="article-tag-list-item">

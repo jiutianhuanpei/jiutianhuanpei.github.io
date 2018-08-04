@@ -1178,19 +1178,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-把异步方法改写为同步方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-iOS 画圈圈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/bayibufangfagaixieweitongbufangfa.html">把异步方法改写为同步方法</a>
+      <a class="article-title" href="/iOShuaquanquan.html">iOS 画圈圈</a>
     </h1>
   
 
         
-        <a href="/bayibufangfagaixieweitongbufangfa.html" class="archive-article-date">
+        <a href="/iOShuaquanquan.html" class="archive-article-date">
   	<time datetime="2016-11-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-17</time>
 </a>
         
@@ -1198,9 +1198,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>用到的是 GCD信号量。</p>
+        <p>一、重写 <code>- (void)drawRect:(CGRect)rect</code></p>
         
-          <a class="article-more-a" href="/bayibufangfagaixieweitongbufangfa.html#more">更多 >></a>
+          <a class="article-more-a" href="/iOShuaquanquan.html#more">更多 >></a>
         
       
 
@@ -1214,7 +1214,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">信号量</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">drawRect</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CGContextRef</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UIBezierPath</a>
         		</li>
       		
 		</ul>
@@ -1224,7 +1232,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/bayibufangfagaixieweitongbufangfa.html">展开全文 >></a>
+          <a class="article-more-a" href="/iOShuaquanquan.html">展开全文 >></a>
         </p>
       
 
@@ -1270,9 +1278,7 @@ var _hmt = _hmt || [];
     	<div class="footer-left">
     		&copy; 2018 沈红榜
     	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+      	
     </div>
   </div>
 </footer>
@@ -1392,15 +1398,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1420,6 +1426,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
               </li>
              
@@ -1432,23 +1442,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CGContextRef</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">UIBezierPath</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1464,7 +1458,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+                <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CGContextRef</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UIBezierPath</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1480,7 +1486,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1492,19 +1498,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">系统版本控制</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">通知权限</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wifi</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">系统版本控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">通知权限</a>
               </li>
              
               <li class="article-tag-list-item">

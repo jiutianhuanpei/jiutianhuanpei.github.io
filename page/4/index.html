@@ -152,19 +152,19 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-个性化 UIAlertController" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-获取 当前显示的 UIViewController" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/gexinghuaUIAlertController.html">个性化 UIAlertController</a>
+      <a class="article-title" href="/huoqudangqianxianshideUIViewController.html">获取 当前显示的 UIViewController</a>
     </h1>
   
 
         
-        <a href="/gexinghuaUIAlertController.html" class="archive-article-date">
+        <a href="/huoqudangqianxianshideUIViewController.html" class="archive-article-date">
   	<time datetime="2016-07-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-01</time>
 </a>
         
@@ -172,10 +172,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>系统的 UIAlertController 封装的很漂亮，用block代替之前 UIAlertView 的代理，用起来更方便的，但是其曝露出来的接口也不多如果要个性化一些东西，比如字体大小、颜色就不是很方便了，下面总结一下 UIAlertController 更改字体的方法，以作备忘：</p>
-        
-          <a class="article-more-a" href="/gexinghuaUIAlertController.html#more">更多 >></a>
-        
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">UIViewController * findBestVC(UIViewController *vc) &#123;</span><br><span class="line">    if (vc.presentedViewController) &#123;</span><br><span class="line">        return findBestVC(vc.presentedViewController);</span><br><span class="line">    &#125; else if ([vc isKindOfClass:[UISplitViewController class]]) &#123;</span><br><span class="line">        UISplitViewController *sp = (UISplitViewController *)vc;</span><br><span class="line">        return sp.viewControllers.count &gt; 0 ? findBestVC(sp.viewControllers.lastObject) : vc;</span><br><span class="line">    &#125; else if ([vc isKindOfClass:[UINavigationController class]]) &#123;</span><br><span class="line">        UINavigationController *na = (UINavigationController *)vc;</span><br><span class="line">        return na.viewControllers.count &gt; 0 ? findBestVC(na.topViewController) : vc;</span><br><span class="line">    &#125; else if ([vc isKindOfClass:[UITabBarController class]]) &#123;</span><br><span class="line">        UITabBarController *ta = (UITabBarController *)vc;</span><br><span class="line">        return ta.viewControllers.count &gt; 0 ? findBestVC(ta.selectedViewController) : vc;</span><br><span class="line">    &#125;</span><br><span class="line">    return vc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">UIViewController * currentVC() &#123;</span><br><span class="line">    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;</span><br><span class="line">    return findBestVC(rootVC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只需要调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UIViewController *VC = currentVC();</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+
       
 
       
@@ -187,7 +188,72 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/gexinghuaUIAlertController.html">展开全文 >></a>
+          <a class="article-more-a" href="/huoqudangqianxianshideUIViewController.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-系统自带的语音合成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/xitongzidaideyuyinhecheng.html">系统自带的语音合成</a>
+    </h1>
+  
+
+        
+        <a href="/xitongzidaideyuyinhecheng.html" class="archive-article-date">
+  	<time datetime="2016-07-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>为备忘，直接上代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">AVSpeechUtterance *utt = [AVSpeechUtterance speechUtteranceWithString:@&quot;明天晚上吃啥&quot;];</span><br><span class="line"></span><br><span class="line">NSArray *voices = [AVSpeechSynthesisVoice speechVoices];</span><br><span class="line">NSLog(@&quot;%@&quot;, voices);   //打印所有语言</span><br><span class="line"></span><br><span class="line">AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:@&quot;zh-HK&quot;];    //粤语测试</span><br><span class="line">utt.voice = voice;</span><br><span class="line"></span><br><span class="line">AVSpeechSynthesizer *speech = [[AVSpeechSynthesizer alloc] init];</span><br><span class="line"></span><br><span class="line">[speech speakUtterance:utt];</span><br></pre></td></tr></table></figure>
+<p>类需要引用 AVFoundation 框架。需要引用 AVFoundation 框架。需要引用 AVFoundation 框架。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/xitongzidaideyuyinhecheng.html">展开全文 >></a>
         </p>
       
 
@@ -256,71 +322,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/DWpojiefangfa.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-系统自带的语音合成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/xitongzidaideyuyinhecheng.html">系统自带的语音合成</a>
-    </h1>
-  
-
-        
-        <a href="/xitongzidaideyuyinhecheng.html" class="archive-article-date">
-  	<time datetime="2016-07-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为备忘，直接上代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">AVSpeechUtterance *utt = [AVSpeechUtterance speechUtteranceWithString:@&quot;明天晚上吃啥&quot;];</span><br><span class="line"></span><br><span class="line">NSArray *voices = [AVSpeechSynthesisVoice speechVoices];</span><br><span class="line">NSLog(@&quot;%@&quot;, voices);   //打印所有语言</span><br><span class="line"></span><br><span class="line">AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:@&quot;zh-HK&quot;];    //粤语测试</span><br><span class="line">utt.voice = voice;</span><br><span class="line"></span><br><span class="line">AVSpeechSynthesizer *speech = [[AVSpeechSynthesizer alloc] init];</span><br><span class="line"></span><br><span class="line">[speech speakUtterance:utt];</span><br></pre></td></tr></table></figure>
-<p>类需要引用 AVFoundation 框架。需要引用 AVFoundation 框架。需要引用 AVFoundation 框架。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/xitongzidaideyuyinhecheng.html">展开全文 >></a>
         </p>
       
 
@@ -1321,6 +1322,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -1330,10 +1335,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">UIBezierPath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">

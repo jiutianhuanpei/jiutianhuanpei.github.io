@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="最近朋友的项目做到了音频合成及识别的功能，工作之余也稍加研究了一番，成果涉及三个方面：  音频前后拼接 音频混合 音视频合成">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-25T08:31:06.035Z">
+<meta property="og:updated_time" content="2018-10-25T08:33:37.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音视频合成">
 <meta name="twitter:description" content="最近朋友的项目做到了音频合成及识别的功能，工作之余也稍加研究了一番，成果涉及三个方面：  音频前后拼接 音频混合 音视频合成">
@@ -200,9 +200,7 @@ var _hmt = _hmt || [];
 <p>接触过视频处理或者音频处理的应该知道，视频轨是放置视频片段的地方，而音轨则是放置音频片段的地方，一段音频可以由单个或多个视频组成，一段视频是由视频轨和音频轨组合而成。</p>
 </blockquote>
 <blockquote>
-<blockquote>
 <p>而 <em><code>AVAssetTrack</code></em> 就可以理解为从音频或视频资源中提取的音轨或视频轨。</p>
-</blockquote>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AVAssetTrack *linhaiTrack = [linhaiAsset tracksWithMediaType:AVMediaTypeAudio].firstObject;</span><br><span class="line">AVAssetTrack *fengyeTrack = [fengyeAsset tracksWithMediaType:AVMediaTypeAudio].firstObject;</span><br><span class="line">AVAssetTrack *dujieTrack = [videoAsset tracksWithMediaType:AVMediaTypeVideo].firstObject;</span><br></pre></td></tr></table></figure>
 <p><strong>以上：</strong>分别提取出了两段音频的音轨和视频的视频轨，视频的音轨则被弃用。从这也可以引申出另一个小项目：<em>导出一段视频中的音频文件</em>，暂时不做研究。</p>
@@ -526,23 +524,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Cocoapods</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">framework</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">富文本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">字符串搜索</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,11 +544,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">富文本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">字符串搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+                <a href="javascript:void(0)" class="js-tag color5">gRPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,7 +564,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gRPC</a>
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,15 +580,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,18 +612,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拼音</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
               </li>
              
@@ -646,6 +628,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拼音</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">系统版本控制</a>
               </li>
              
@@ -654,11 +648,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -670,7 +668,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
               </li>
             
             <div class="clearfix"></div>

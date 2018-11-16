@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>获取app系统配置 | 沈红榜的博客</title>
+  <title>UITableView 和 UIScrollView 手势冲突解决方案 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、获取icon 123NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];NSArray *iconsArray = infoDict[@&amp;quot;CFBundleIcons&amp;quot;][@&amp;quot;CFBundlePrimaryIcon&amp;quot;][@&amp;quot;CFBundleIconFiles&amp;quot;]">
+  <meta name="description" content="最近一期项目中新增了分页展示的页面，类似于今日头条或者知乎首页那种，可以左右分屏滑动，每屏上都是table来展示数据。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="获取app系统配置">
-<meta property="og:url" content="https://www.shenhongbang.cc/huoquappxitongpeizhi.html">
+<meta property="og:title" content="UITableView 和 UIScrollView 手势冲突解决方案">
+<meta property="og:url" content="https://www.shenhongbang.cc/UITableViewAndUIScrollViewGesturesConflict.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="一、获取icon 123NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];NSArray *iconsArray = infoDict[@&amp;quot;CFBundleIcons&amp;quot;][@&amp;quot;CFBundlePrimaryIcon&amp;quot;][@&amp;quot;CFBundleIconFiles&amp;quot;]">
+<meta property="og:description" content="最近一期项目中新增了分页展示的页面，类似于今日头条或者知乎首页那种，可以左右分屏滑动，每屏上都是table来展示数据。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-15T13:53:51.480Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fx9x52kuyrj31cm042myt.jpg">
+<meta property="og:updated_time" content="2018-11-16T07:13:22.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="获取app系统配置">
-<meta name="twitter:description" content="一、获取icon 123NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];NSArray *iconsArray = infoDict[@&amp;quot;CFBundleIcons&amp;quot;][@&amp;quot;CFBundlePrimaryIcon&amp;quot;][@&amp;quot;CFBundleIconFiles&amp;quot;]">
+<meta name="twitter:title" content="UITableView 和 UIScrollView 手势冲突解决方案">
+<meta name="twitter:description" content="最近一期项目中新增了分页展示的页面，类似于今日头条或者知乎首页那种，可以左右分屏滑动，每屏上都是table来展示数据。">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fx9x52kuyrj31cm042myt.jpg">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -154,33 +156,48 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-获取app系统配置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-UITableView和UIScrollView 手势冲突解决方案" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      获取app系统配置
+      UITableView 和 UIScrollView 手势冲突解决方案
     </h1>
   
 
         
-        <a href="/huoquappxitongpeizhi.html" class="archive-article-date">
-  	<time datetime="2017-04-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
+        <a href="/UITableViewAndUIScrollViewGesturesConflict.html" class="archive-article-date">
+  	<time datetime="2018-11-16T06:29:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一、获取icon</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];</span><br><span class="line">NSArray *iconsArray = infoDict[@&quot;CFBundleIcons&quot;][@&quot;CFBundlePrimaryIcon&quot;][@&quot;CFBundleIconFiles&quot;];</span><br><span class="line">UIImage *icon = [UIImage imageNamed:[iconsArray lastObject]];</span><br></pre></td></tr></table></figure>
+        <p>最近一期项目中新增了分页展示的页面，类似于今日头条或者知乎首页那种，可以左右分屏滑动，每屏上都是table来展示数据。</p>
 <a id="more"></a>
-<p><br><br>二、获取版本号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@&quot;CFBundleShortVersionString&quot;];</span><br><span class="line">NSString *build = [[[NSBundle mainBundle] infoDictionary] objectForKey:@&quot;CFBundleVersion&quot;];</span><br></pre></td></tr></table></figure>
-<p><br><br>三、获取app启动图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">NSDictionary *info = [NSBundle mainBundle].infoDictionary;</span><br><span class="line">    </span><br><span class="line">NSArray *launchImages = info[@&quot;UILaunchImages&quot;];</span><br><span class="line">    </span><br><span class="line">NSString *imageName = nil;</span><br><span class="line">    </span><br><span class="line">for (NSDictionary *dic in launchImages) &#123;</span><br><span class="line">	CGSize size = CGSizeFromString(dic[@&quot;UILaunchImageSize&quot;]);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">	 if (CGSizeEqualToSize(size, [UIScreen mainScreen].bounds.size) &amp;&amp;</span><br><span class="line">		[@&quot;Portrait&quot; isEqualToString:dic[@&quot;UILaunchImageOrientation&quot;]]) &#123;</span><br><span class="line">		imageName = dic[@&quot;UILaunchImageName&quot;];</span><br><span class="line">        break;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">UIImage *launchImage = [UIImage imageNamed:imageName];</span><br></pre></td></tr></table></figure>
+<p>可以比较容易的就能找到实现文案：底层一个 UIScrollView，然后在 scrollView 上添加多个 talbeView，再把 scrollview的 <code>pagingEnabled</code> 属性置为 <code>true</code>，让其左右滑动的时候有分页感就成了。</p>
+<p>如果项目仅如头条或知乎这种消息展示类的需求，这些已经足够了，但是，我们的需求是要 TableViewCell 具有左滑删除的功能…………添加相关代码…………测试…………没反应…………而在快速左滑的时候有时候还可以滑出删除按钮……</p>
+<p>有一定开发经验的可能已经知道了，左滑删除 和 scrollView 的滑动手势冲突，导致左滑删除的唤出不太合功能要求，解决方法在网上一搜一大把，如下：</p>
+<p><br></p>
+<p>首先创建一个 <em>UIScrollView</em> 的子类</p>
+<p>并让其遵循 <code>&lt;UIGestureRecognizerDelegate&gt;</code> 协议，实现 <code>- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer;</code> 这个方法。 这样当手势左滑的时候不会被 scrollView 拦截，而是会传递给它的子视图 UITableView，再传递给 Cell 触发滑动显示删除按钮。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer &#123;</span><br><span class="line">    </span><br><span class="line">    if (gestureRecognizer.state != 0) &#123;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>把底层的 scrollView 换成刚创建的 UIScrollView 子类对象，这样 cell 就可以响应滑动删除的手势了。</p>
+<p>但是，虽然可以响应滑动删除的手势，UI 效果却并不理想，在滑动的时候删除按钮出现了，scrollView 也随着手势的滑动而发生了偏移，这个效果并不太好。</p>
+<p>网上也有解决文案，就是把 scrollView 的 <code>bounces</code> 属性置为 <code>false</code>，即当 scrollview 滑动到边界时不会发生回弹效果。</p>
+<p>加上这个属性之后，位于右侧的 tableView 在滑动删除的时候，效果完美，但位于左侧的 tableView 则还是没有任何改善。网上的关于 UITableView 和 UIScrollView 的手势冲突的文章一般也就到这里就没了，并没有提出一个解决方案，唯有一篇文章提到了，并且给出了一个相当好的解决方案</p>
+<blockquote>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fx9x52kuyrj31cm042myt.jpg" alt=""></p>
+</blockquote>
+<p>当然，开发都会有暴揍产品的想法，不过我们还要在技术的道路上走下去，用技术解决遇到的一切问题。</p>
+<p>直接贴代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath &#123;</span><br><span class="line">    _scrollView.scrollEnabled = false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath &#123;</span><br><span class="line">    _scrollView.scrollEnabled = true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>两个代理回调，在 tableView 即将处于可编辑状态时，禁用 scrollView 的滚动能力，在 tableView 的编辑状态结束时，再重新开启 scrollView 的滚动能力。</p>
+<p>效果完美，解决 ！ 😋</p>
 
       
 
@@ -270,7 +287,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/huoquappxitongpeizhi.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/UITableViewAndUIScrollViewGesturesConflict.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +301,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/jiluShareExtensiondekaifa.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          记录 Share Extension 的开发
-        
-      </div>
-    </a>
   
-  
-    <a href="/iOSjiami.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS 加密</div>
+    <a href="/yinshipinghecheng.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">音视频合成</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -338,7 +346,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="获取app系统配置" ></div> 
+  <div id="SOHUCS" sid="UITableView和UIScrollView 手势冲突解决方案" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

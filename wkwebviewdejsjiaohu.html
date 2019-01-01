@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>Archives | 沈红榜的博客</title>
+  <title>WKWebView的JS交互 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="沈红榜的博客">
-<meta property="og:url" content="https://www.shenhongbang.cc/archives/page/5/index.html">
+  <meta name="description" content="最近又双叕换了项目组，相比上一个项目的庞大体量来说，这个项目实在太轻量了，但相应的，很多组件就需要自己来写，对一个渴望进步（不喜欢用别人的老旧代码）的程序员来说，这是一个很好的机会来接触、总结一些技术点。就网页加载方面吧，不可避免的遇到了JS交互，总结一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WKWebView的JS交互">
+<meta property="og:url" content="https://www.shenhongbang.cc/wkwebviewdejsjiaohu.html">
 <meta property="og:site_name" content="沈红榜的博客">
+<meta property="og:description" content="最近又双叕换了项目组，相比上一个项目的庞大体量来说，这个项目实在太轻量了，但相应的，很多组件就需要自己来写，对一个渴望进步（不喜欢用别人的老旧代码）的程序员来说，这是一个很好的机会来接触、总结一些技术点。就网页加载方面吧，不可避免的遇到了JS交互，总结一下">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-01T13:49:26.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="沈红榜的博客">
+<meta name="twitter:title" content="WKWebView的JS交互">
+<meta name="twitter:description" content="最近又双叕换了项目组，相比上一个项目的庞大体量来说，这个项目实在太轻量了，但相应的，很多组件就需要自己来写，对一个渴望进步（不喜欢用别人的老旧代码）的程序员来说，这是一个很好的机会来接触、总结一些技术点。就网页加载方面吧，不可避免的遇到了JS交互，总结一下">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -150,214 +154,203 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-WKWebView的JS交互" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WKWebView的JS交互
+    </h1>
+  
+
+        
+        <a href="/wkwebviewdejsjiaohu.html" class="archive-article-date">
+  	<time datetime="2019-01-01T13:20:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近又双叕换了项目组，相比上一个项目的庞大体量来说，这个项目实在太轻量了，但相应的，很多组件就需要自己来写，对一个渴望进步（不喜欢用别人的老旧代码）的程序员来说，这是一个很好的机会来接触、总结一些技术点。就网页加载方面吧，不可避免的遇到了JS交互，总结一下</p>
+<a id="more"></a>
+<p>以前在用 UIWebView 的时候，都是用三方库 <a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">WebViewJavascriptBridge</a> 来实现的，由于不想在项目中引入不必要的三方控件，所以也研究一下原生的实现方法，发现实现也是比较简单的。</p>
+<p>说明一下，由于 UIWebView 在 iOS12 的时候即将作废，而 WKWebView 在 iOS8 的时候开始启用，也有消息说苹果爸爸会在今年3月份之后要求用 Xcode10.1 之后的版本打包，且iOS版本要在 ios11之上，所以就不研究 UIWebView 了。</p>
+<p>好了，干货开始，先贴代码：</p>
+<p>JS 代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;哈喽&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">	&lt;meta charset="utf-8" name="viewport" content="width=device-width"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">            </span></span><br><span class="line"><span class="string">            function clickedBtn() &#123;</span></span><br><span class="line"><span class="string">            		&lt;!--h5Share 就是在OC中注册的方法名--&gt;</span></span><br><span class="line"><span class="string">                window.webkit.messageHandlers.h5Share.postMessage(&#123;</span></span><br><span class="line"><span class="string">                    "</span>key<span class="string">" : "</span>This is value<span class="string">"</span></span><br><span class="line"><span class="string">                &#125;);</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">            &lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">    &lt;h1&gt;测试一下&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">	&lt;button onclick="</span>clickedBtn()<span class="string">"&gt;这是一个按钮&lt;/button&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里有个坑，就是 <code>postMessage</code> 的参数不能不写，如果真没参数，要写成 <code>postMessage(null)</code>，否则在OC里调不起方法，由于h5只懂一点点，所以我也不知道啥原因。</p>
+</blockquote>
+<p>再贴 OC 代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];</span><br><span class="line">config.userContentController = [WKUserContentController new];</span><br><span class="line">_webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:config];</span><br><span class="line">_webView.UIDelegate = self;</span><br><span class="line">_webView.navigationDelegate = self;</span><br><span class="line">[_webView loadRequest:[NSURLRequest requestWithURL:[NSBundle.mainBundle URLForResource:@&quot;aa&quot; withExtension:@&quot;html&quot;]]];</span><br><span class="line"></span><br><span class="line">[self.view addSubview:_webView];</span><br><span class="line"></span><br><span class="line">//注册js方法</span><br><span class="line">[_webView.configuration.userContentController addScriptMessageHandler:self name:@&quot;h5Share&quot;];</span><br></pre></td></tr></table></figure>
+<p>需要实现 WKScriptMessageHandler 的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message &#123;</span><br><span class="line"></span><br><span class="line">    if ([message.name isEqualToString:@&quot;h5Share&quot;]) &#123;</span><br><span class="line">        </span><br><span class="line">        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@&quot;点击了js按钮，参数是：&quot; message:[message.body description] preferredStyle:UIAlertControllerStyleAlert];</span><br><span class="line">        [alert addAction:[UIAlertAction actionWithTitle:@&quot;Sure&quot; style:UIAlertActionStyleCancel handler:nil]];</span><br><span class="line">        [self presentViewController:alert animated:true completion:nil];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上是让 JS 调用 OC 端的方法，例子里就是 JS 唤起 OC 端的弹窗。</p>
+<p>然后还有 OC 调用 JS 方法，这个之后研究之后再补充吧。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你可以请我喝杯咖啡么<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/appleDocshiyong.html" class="archive-article-date">
-  	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/appleDocshiyong.html">appleDoc 使用</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/wkwebviewdejsjiaohu.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/SourceTreexukezhengshuxiazaidizhi.html" class="archive-article-date">
-  	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/UITableViewAndUIScrollViewGesturesConflict.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UITableView 和 UIScrollView 手势冲突解决方案</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/SourceTreexukezhengshuxiazaidizhi.html">SourceTree 许可证书下载地址</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/tongguoHexozaiGithubshangdajianbokeforMac.html" class="archive-article-date">
-  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/tongguoHexozaiGithubshangdajianbokeforMac.html">通过Hexo在Github上搭建博客 for Mac</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Macxiadajianfuwuqi.html" class="archive-article-date">
-  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Macxiadajianfuwuqi.html">Mac 下搭建服务器</a>
-    </h1>
+  <div id="SOHUCS" sid="WKWebView的JS交互" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyt8S4D0e",
+        conf: "7669546b28edafeaff3de4926ef9cb6c"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Pycharm2016zhucema.html" class="archive-article-date">
-  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Pycharm2016zhucema.html">Pycharm 2016 注册码</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/shengchengweiyidesuijizifuchuan.html" class="archive-article-date">
-  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/shengchengweiyidesuijizifuchuan.html">生成唯一的随机字符串</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/utf8zhuanmawangzhizhuanma.html" class="archive-article-date">
-  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/utf8zhuanmawangzhizhuanma.html">utf8转码 网址转码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
-    </nav>
   
 
 
@@ -379,8 +372,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

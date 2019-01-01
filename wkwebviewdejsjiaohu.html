@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="最近又双叕换了项目组，相比上一个项目的庞大体量来说，这个项目实在太轻量了，但相应的，很多组件就需要自己来写，对一个渴望进步（不喜欢用别人的老旧代码）的程序员来说，这是一个很好的机会来接触、总结一些技术点。就网页加载方面吧，不可避免的遇到了JS交互，总结一下">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-01T13:49:26.256Z">
+<meta property="og:updated_time" content="2019-01-01T13:53:03.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WKWebView的JS交互">
 <meta name="twitter:description" content="最近又双叕换了项目组，相比上一个项目的庞大体量来说，这个项目实在太轻量了，但相应的，很多组件就需要自己来写，对一个渴望进步（不喜欢用别人的老旧代码）的程序员来说，这是一个很好的机会来接触、总结一些技术点。就网页加载方面吧，不可避免的遇到了JS交互，总结一下">
@@ -180,7 +180,7 @@ var _hmt = _hmt || [];
 <p>说明一下，由于 UIWebView 在 iOS12 的时候即将作废，而 WKWebView 在 iOS8 的时候开始启用，也有消息说苹果爸爸会在今年3月份之后要求用 Xcode10.1 之后的版本打包，且iOS版本要在 ios11之上，所以就不研究 UIWebView 了。</p>
 <p>好了，干货开始，先贴代码：</p>
 <p>JS 代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;哈喽&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">	&lt;meta charset="utf-8" name="viewport" content="width=device-width"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">            </span></span><br><span class="line"><span class="string">            function clickedBtn() &#123;</span></span><br><span class="line"><span class="string">            		&lt;!--h5Share 就是在OC中注册的方法名--&gt;</span></span><br><span class="line"><span class="string">                window.webkit.messageHandlers.h5Share.postMessage(&#123;</span></span><br><span class="line"><span class="string">                    "</span>key<span class="string">" : "</span>This is value<span class="string">"</span></span><br><span class="line"><span class="string">                &#125;);</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">            &lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">    &lt;h1&gt;测试一下&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">	&lt;button onclick="</span>clickedBtn()<span class="string">"&gt;这是一个按钮&lt;/button&gt;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;title&gt;哈喽&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">	&lt;meta charset="utf-8" name="viewport" content="width=device-width"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">            </span></span><br><span class="line"><span class="string">            function clickedBtn() &#123;</span></span><br><span class="line"><span class="string">                window.webkit.messageHandlers.h5Share.postMessage(&#123;</span></span><br><span class="line"><span class="string">                    "</span>key<span class="string">" : "</span>This is value<span class="string">"</span></span><br><span class="line"><span class="string">                &#125;);</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">    &lt;h1&gt;测试一下&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">	&lt;button onclick="</span>clickedBtn()<span class="string">"&gt;这是一个按钮&lt;/button&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这里有个坑，就是 <code>postMessage</code> 的参数不能不写，如果真没参数，要写成 <code>postMessage(null)</code>，否则在OC里调不起方法，由于h5只懂一点点，所以我也不知道啥原因。</p>
 </blockquote>
@@ -483,15 +483,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,6 +523,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
@@ -536,14 +540,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">UIBezierPath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,6 +571,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拼音</a>
               </li>
              
@@ -599,11 +599,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
+                <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

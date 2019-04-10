@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>Cocoapods 打包 framework | 沈红榜的博客</title>
+  <title>Archives: 2019/4 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、基于pod自动创建 这个网上有很多的教程，可以说网上能搜到的都是这个版本的，都是各种拷贝，鄙视之……">
-<meta name="keywords" content="Cocoapods,framework">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Cocoapods 打包 framework">
-<meta property="og:url" content="https://www.shenhongbang.cc/Cocoapodsdabaoframework.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="沈红榜的博客">
+<meta property="og:url" content="https://www.shenhongbang.cc/archives/2019/04/index.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="一、基于pod自动创建 这个网上有很多的教程，可以说网上能搜到的都是这个版本的，都是各种拷贝，鄙视之……">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-15T14:03:43.290Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cocoapods 打包 framework">
-<meta name="twitter:description" content="一、基于pod自动创建 这个网上有很多的教程，可以说网上能搜到的都是这个版本的，都是各种拷贝，鄙视之……">
+<meta name="twitter:title" content="沈红榜的博客">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -155,236 +150,49 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Cocoapods 打包 framework" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Cocoapods 打包 framework
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/hammerspoon_config.html" class="archive-article-date">
+  	<time datetime="2019-04-10T12:47:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/hammerspoon_config.html">Hammerspoon配置</a>
     </h1>
   
 
-        
-        <a href="/Cocoapodsdabaoframework.html" class="archive-article-date">
-  	<time datetime="2016-11-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一、基于pod自动创建</p>
-<p>这个网上有很多的教程，可以说网上能搜到的都是这个版本的，都是各种拷贝，鄙视之……</p>
-<a id="more"></a>
-<p>可以参考文章<a href="http://www.cnblogs.com/brycezhang/p/4117180.html" target="_blank" rel="noopener">使用CocoaPods开发并打包静态库</a>。</p>
-<p>二、手动创建</p>
-<p>1、先在 <a href="https://github.com" target="_blank" rel="noopener">github</a> 创建一个仓库，以 Objc 语言、MIT证书为例。</p>
-<p>2、Xcode 创建一个新的Framework工程，以 <code>SHBFramework</code>为例。</p>
-<p>3、把git仓库里的证书check到工程主目录，cd到此目录，通过 <code>ls -a</code> 查看有没有 <code>.git</code> 文件，如果没有，可以从别处拷贝一个过来。</p>
-<p>4、工程写入测试功能、暴露头文件。。。</p>
-<p>5、创建 <code>podspec</code> 文件，可以通过命令行<br><code>pod spec create SHBFramework</code>，也可以直接拷贝我的，然后再修改。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Pod::Spec.new do |s|</span><br><span class="line">  s.name             = &apos;SHBFramework&apos;</span><br><span class="line">  s.version          = &apos;0.0.4&apos;</span><br><span class="line">  s.summary          = &apos;A description of SHBFramework.&apos;</span><br><span class="line"></span><br><span class="line">  s.description      = &lt;&lt;-DESC</span><br><span class="line">This is a very very very long description.</span><br><span class="line">                       DESC</span><br><span class="line"></span><br><span class="line">  s.homepage         = &apos;https://github.com/jiutianhuanpei/&apos;</span><br><span class="line">  s.license          = &#123; :type =&gt; &apos;MIT&apos;, :file =&gt; &apos;LICENSE&apos; &#125;</span><br><span class="line">  s.author           = &#123; &apos;shenhongbang&apos; =&gt; &apos;shenhongbang@163.com&apos; &#125;</span><br><span class="line"></span><br><span class="line">  s.source           = &#123; :git =&gt; &apos;/Users/shenhongbang/Desktop/SHBFramework/&apos;, :tag =&gt; s.version.to_s &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  s.ios.deployment_target = &apos;8.0&apos;</span><br><span class="line"></span><br><span class="line">  s.source_files = &apos;SHBFramework/**/*&apos;</span><br><span class="line">  </span><br><span class="line">  # s.resource_bundles = &#123;</span><br><span class="line">  #   &apos;SHBLib&apos; =&gt; [&apos;SHBLib/Assets/*.png&apos;]</span><br><span class="line">  # &#125;</span><br><span class="line">  s.dependency &apos;AFNetworking&apos;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><ul>
-<li><code>s.source</code>是工程主目录。</li>
-<li><code>s.source_files</code>是代码位置，比如此工程代码在 <code>/Users/shenhongbang/Desktop/SHBFramework/SHBFramework/</code>此目录下。</li>
-</ul>
-<p>6、打包<br>要先把代码提交才能打包出对应的包。列举一些 git 的命令。</p>
-<p><code>git add .</code> 把文件添加到索引库</p>
-<p><code>git commit -m &#39;注释&#39;</code> 提交文件</p>
-<p><code>git tag 0.0.1 -m &#39;注释&#39;</code> 添加tag</p>
-<p>然后运行 <code>pod package SHBFramework.podspec  --force</code> 进行打包，<code>--force</code>是强制覆盖，还有一些别的参数可以自行搜索。</p>
-<p>打包成功后会在主目录新建一个 <code>SHBFramework-0.0.1</code> 的文件夹，打包好的 <code>framework</code> 就在其中<code>ios</code>内。</p>
-<h3 id="个人见解"><a href="#个人见解" class="headerlink" title="个人见解"></a>个人见解</h3><p>用这个方法打包方便与否，各人有各人的看法不便评价，个人认为其优势在于framework内引用第三方库时，比如<code>AFNworking</code>，在打包时它会把AFN改名，避免在引用工程内使用AFN时与其冲突。</p>
-<p>但也有不方便之处，也是在此，如果引用工程是直接把库拖入工程，则还需要工程安装AFN，不然framework会报找不到AFN的各种参数。</p>
-<p>所以这种方法打包如果能和cocoapods相结合，则是再完美不过。</p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>你可以请我喝杯咖啡么<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Cocoapods</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/Cocoapodsdabaoframework.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/shanchuyijingshangchuandaoCocoapodsshangdexiangmu.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          删除已经上传到Cocoapods上的项目
-        
-      </div>
-    </a>
   
   
-    <a href="/tijiaoFrameworkdaococoapods.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">提交 Framework 到 cocoapods</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#注："><span class="toc-number">1.</span> <span class="toc-text">注：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人见解"><span class="toc-number">2.</span> <span class="toc-text">个人见解</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Cocoapods 打包 framework" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyt8S4D0e",
-        conf: "7669546b28edafeaff3de4926ef9cb6c"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -405,8 +213,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

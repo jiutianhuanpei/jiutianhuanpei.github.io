@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="最近一期项目中新增了分页展示的页面，类似于今日头条或者知乎首页那种，可以左右分屏滑动，每屏上都是table来展示数据。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fx9x52kuyrj31cm042myt.jpg">
-<meta property="og:updated_time" content="2019-06-19T02:03:44.851Z">
+<meta property="og:image" content="https://www.shenhongbang.cc/UITableViewAndUIScrollViewGesturesConflict/001.jpg">
+<meta property="og:updated_time" content="2019-06-19T02:53:53.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableView 和 UIScrollView 手势冲突解决方案">
 <meta name="twitter:description" content="最近一期项目中新增了分页展示的页面，类似于今日头条或者知乎首页那种，可以左右分屏滑动，每屏上都是table来展示数据。">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fx9x52kuyrj31cm042myt.jpg">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/UITableViewAndUIScrollViewGesturesConflict/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -191,8 +191,9 @@ var _hmt = _hmt || [];
 <p>网上也有解决文案，就是把 scrollView 的 <code>bounces</code> 属性置为 <code>false</code>，即当 scrollview 滑动到边界时不会发生回弹效果。</p>
 <p>加上这个属性之后，位于右侧的 tableView 在滑动删除的时候，效果完美，但位于左侧的 tableView 则还是没有任何改善。网上的关于 UITableView 和 UIScrollView 的手势冲突的文章一般也就到这里就没了，并没有提出一个解决方案，唯有一篇文章提到了，并且给出了一个相当好的解决方案</p>
 <blockquote>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fx9x52kuyrj31cm042myt.jpg" alt=""></p>
+<p><img src="/UITableViewAndUIScrollViewGesturesConflict/001.jpg" alt=""></p>
 </blockquote>
+<!-- > ![](https://ws1.sinaimg.cn/large/006tNbRwly1fx9x52kuyrj31cm042myt.jpg)-->
 <p>当然，开发都会有暴揍产品的想法，不过我们还要在技术的道路上走下去，用技术解决遇到的一切问题。</p>
 <p>直接贴代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath &#123;</span><br><span class="line">    _scrollView.scrollEnabled = false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath &#123;</span><br><span class="line">    _scrollView.scrollEnabled = true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -548,6 +549,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -557,10 +562,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">UIBezierPath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">

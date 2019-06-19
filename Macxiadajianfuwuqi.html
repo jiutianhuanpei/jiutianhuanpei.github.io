@@ -15,15 +15,15 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="1、开启服务器 Apache。 1sudo apachectl -k start 打开浏览器，在地址栏输入 localhost，如果出现 It works! 那么第一步已经成功了，如果没成功—出门左转自己找答案云，我也不懂，嘿嘿  2、修改配置文件，路径是 /etc/apache2/httpd.conf ，可以用终端，也可以用别的软件打开，我用 Sublime Text 打开了，相比用终端打开的好">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620160646490-19879263.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620160715881-429011843.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620161205647-1967387054.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620163050100-891165228.png">
-<meta property="og:updated_time" content="2019-06-19T02:03:44.865Z">
+<meta property="og:image" content="https://www.shenhongbang.cc/Macxiadajianfuwuqi/001.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/Macxiadajianfuwuqi/002.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/Macxiadajianfuwuqi/003.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/Macxiadajianfuwuqi/004.png">
+<meta property="og:updated_time" content="2019-06-19T02:51:28.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 下搭建服务器">
 <meta name="twitter:description" content="1、开启服务器 Apache。 1sudo apachectl -k start 打开浏览器，在地址栏输入 localhost，如果出现 It works! 那么第一步已经成功了，如果没成功—出门左转自己找答案云，我也不懂，嘿嘿  2、修改配置文件，路径是 /etc/apache2/httpd.conf ，可以用终端，也可以用别的软件打开，我用 Sublime Text 打开了，相比用终端打开的好">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620160646490-19879263.png">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/Macxiadajianfuwuqi/001.png">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -185,20 +185,20 @@ var _hmt = _hmt || [];
 <p>2、修改配置文件，路径是 /etc/apache2/httpd.conf ，可以用终端，也可以用别的软件打开，我用 Sublime Text 打开了，相比用终端打开的好处就是可以快速定位要改的配置的位置了。</p>
 <a id="more"></a>
 <p>一共有三处要改的，如下图，把默认的路径换成自己定义的</p>
-<p><img src="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620160646490-19879263.png" alt=""></p>
-<p><img src="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620160715881-429011843.png" alt=""></p>
+<p><img src="/Macxiadajianfuwuqi/001.png" alt=""><br><!--![](http://images2015.cnblogs.com/blog/734489/201606/734489-20160620160646490-19879263.png)--></p>
+<p><img src="/Macxiadajianfuwuqi/002.png" alt=""><br><!--![](http://images2015.cnblogs.com/blog/734489/201606/734489-20160620160715881-429011843.png)--></p>
 <p>改完保存！</p>
 <p>3、重启服务器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k restart</span><br></pre></td></tr></table></figure>
 <p>4、测试</p>
 <p>在自己的文件夹里放置一张图片，命名 11.jpg。在浏览器地址输入伴输入<a href="http://127.0.0.1/11.jpg回车。" target="_blank" rel="noopener">http://127.0.0.1/11.jpg回车。</a></p>
 <p>可以看到图片已经是显示的了。服务器搭建完毕</p>
-<p><img src="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620161205647-1967387054.png" alt=""></p>
+<p><img src="/Macxiadajianfuwuqi/003.png" alt=""><br><!--![](http://images2015.cnblogs.com/blog/734489/201606/734489-20160620161205647-1967387054.png)--></p>
 <p>5、关闭Apache服务器，输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k stop</span><br></pre></td></tr></table></figure>
 <p>注：如果再用手机访问 <a href="http://127.0.0.1/11.jpg" target="_blank" rel="noopener">http://127.0.0.1/11.jpg</a> 是行不通的，要查看一下本机的ip，把127.0.0.1替换掉就行了。</p>
 <p>终端输入 ifconfig</p>
-<p><img src="http://images2015.cnblogs.com/blog/734489/201606/734489-20160620163050100-891165228.png" alt=""></p>
+<p><img src="/Macxiadajianfuwuqi/004.png" alt=""><br><!--![](http://images2015.cnblogs.com/blog/734489/201606/734489-20160620163050100-891165228.png)--></p>
 <p>这样我在手机里输入 <a href="http://172.16.17.151/11.jpg" target="_blank" rel="noopener">http://172.16.17.151/11.jpg</a> 就可以访问了。11.jpg 就可以访问了。</p>
 
       
@@ -303,18 +303,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/tongguoHexozaiGithubshangdajianbokeforMac.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/utf8zhuanmawangzhizhuanma.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          通过Hexo在Github上搭建博客 for Mac
+          utf8转码 网址转码
         
       </div>
     </a>
   
   
-    <a href="/utf8zhuanmawangzhizhuanma.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">utf8转码 网址转码</div>
+    <a href="/tongguoHexozaiGithubshangdajianbokeforMac.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">通过Hexo在Github上搭建博客 for Mac</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -550,6 +550,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -559,10 +563,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">UIBezierPath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">

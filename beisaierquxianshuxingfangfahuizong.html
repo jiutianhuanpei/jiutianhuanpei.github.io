@@ -16,18 +16,18 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="UIBezierPath主要用来绘制矢量图形，它是基于Core Graphics对CGPathRef数据类型和path绘图属性的一个封装，所以是需要图形上下文的（CGContextRef），所以一般UIBezierPath在drawRect中使用。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013150954851-1074410646.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013151124491-1677212440.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013144524069-20078922.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013144535319-961693814.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013165000054-1437718277.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013172626304-936217179.png">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013173704351-1059522850.png">
-<meta property="og:updated_time" content="2019-06-19T02:03:44.867Z">
+<meta property="og:image" content="https://www.shenhongbang.cc/beisaierquxianshuxingfangfahuizong/001.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/beisaierquxianshuxingfangfahuizong/002.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/beisaierquxianshuxingfangfahuizong/003.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/beisaierquxianshuxingfangfahuizong/004.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/beisaierquxianshuxingfangfahuizong/005.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/beisaierquxianshuxingfangfahuizong/006.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/beisaierquxianshuxingfangfahuizong/007.png">
+<meta property="og:updated_time" content="2019-06-19T02:12:11.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝塞尔曲线属性方法汇总">
 <meta name="twitter:description" content="UIBezierPath主要用来绘制矢量图形，它是基于Core Graphics对CGPathRef数据类型和path绘图属性的一个封装，所以是需要图形上下文的（CGContextRef），所以一般UIBezierPath在drawRect中使用。">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013150954851-1074410646.png">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/beisaierquxianshuxingfangfahuizong/001.png">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -201,8 +201,8 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <p>效果图：</p>
-<p><img src="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013150954851-1074410646.png" alt="">
-　　　　</p>
+<!--![](http://images2015.cnblogs.com/blog/799670/201510/799670-20151013150954851-1074410646.png)-->
+<p><img src="/beisaierquxianshuxingfangfahuizong/001.png" alt="">　　</p>
 <p>7.lineJoinStyle：拐角样式</p>
 <ul>
 <li><p>kCGLineJoinMiter：尖角</p>
@@ -212,13 +212,14 @@ var _hmt = _hmt || [];
 <li><p>kCGLineJoinBevel：缺角</p>
 </li>
 </ul>
-<p>效果图：<br><img src="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013151124491-1677212440.png" alt="">
-　　　　</p>
+<p>效果图：<br><!--![](http://images2015.cnblogs.com/blog/799670/201510/799670-20151013151124491-1677212440.png)--><br><img src="/beisaierquxianshuxingfangfahuizong/002.png" alt="">　　</p>
 <p>　　　</p>
 <p>8.miterLimit：最大斜接长度（只有在使用kCGLineJoinMiter是才有效）， 边角的角度越小，斜接长度就会越大</p>
-<p><img src="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013144524069-20078922.png" alt=""></p>
+<!--![](http://images2015.cnblogs.com/blog/799670/201510/799670-20151013144524069-20078922.png)
+-->
+<p><img src="/beisaierquxianshuxingfangfahuizong/003.png" alt=""></p>
 <p>为了避免斜接长度过长，使用lineLimit属性限制，如果斜接长度超过miterLimit，边角就会以KCALineJoinBevel类型来显示</p>
-<p><img src="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013144535319-961693814.png" alt=""></p>
+<p><img src="/beisaierquxianshuxingfangfahuizong/004.png" alt=""><br><!--![](http://images2015.cnblogs.com/blog/799670/201510/799670-20151013144535319-961693814.png)--></p>
 <p>9、flatness：弯曲路径的渲染精度，默认为0.6，越小精度越高，相应的更加消耗性能。</p>
 <p>10、usesEvenOddFillRule：单双数圈规则是否用于绘制路径，默认是NO。</p>
 <p>11、 UIRectCorner:角</p>
@@ -258,7 +259,8 @@ var _hmt = _hmt || [];
 <p>　　　　　startAngle-&gt;起始位置</p>
 <p>　　　　　endAngle-&gt;结束为止</p>
 <p>　　　　　clockwise-&gt;是否顺时针方向</p>
-<p>　　起始位置参考图：<br>　　<br><img src="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013165000054-1437718277.png" alt="">
+<p>　　起始位置参考图：</p>
+<p><img src="/beisaierquxianshuxingfangfahuizong/005.png" alt="">　　<br><!--![](http://images2015.cnblogs.com/blog/799670/201510/799670-20151013165000054-1437718277.png)-->
 　　　　　　</p>
 <p>7.通过已有路径创建路径:</p>
 <p>　　<code>+ (instancetype)bezierPathWithCGPath:(CGPathRef)CGPath</code></p>
@@ -280,13 +282,15 @@ var _hmt = _hmt || [];
 <p>　　参数：endPoint-&gt;终点</p>
 <p>　　　　　controlPoint1-&gt;控制点1</p>
 <p>　　　　　controlPoint2-&gt;控制点2</p>
-<p>参照图：<br><img src="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013172626304-936217179.png" alt="">
-　　　　</p>
+<p>参照图：</p>
+<p><img src="/beisaierquxianshuxingfangfahuizong/006.png" alt=""><br><!--![](http://images2015.cnblogs.com/blog/799670/201510/799670-20151013172626304-936217179.png)
+-->　　　　</p>
 <p>14.创建二次贝塞尔曲线：</p>
 <p>　　<code>- (void)addQuadCurveToPoint:(CGPoint)endPoint controlPoint:(CGPoint)controlPoint</code></p>
 <p>　　参数：endPoint-&gt;终点</p>
 <p>　　　　   controlPoint-&gt;控制点</p>
-<p>参照图：<br><img src="http://images2015.cnblogs.com/blog/799670/201510/799670-20151013173704351-1059522850.png" alt="">
+<p>参照图：</p>
+<p><img src="/beisaierquxianshuxingfangfahuizong/007.png" alt=""><br><!--![](http://images2015.cnblogs.com/blog/799670/201510/799670-20151013173704351-1059522850.png)-->
 　　　　　</p>
 <p>15.添加圆弧：</p>
 <p>　　<code>- (void)addArcWithCenter:(CGPoint)center radius:(CGFloat)radius startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle clockwise:(BOOL)clockwise</code></p>
@@ -441,18 +445,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/rangzijidexiangmuzhichiCarthage.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/huoquapptongzhiquanxianshifoukaiqi.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          让自己的项目支持 Carthage
+          获取app通知权限是否开启
         
       </div>
     </a>
   
   
-    <a href="/Xcodeshengjihouchajianshixiaodeyuanliyuxiufubanfa.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Xcode升级后插件失效的原理与修复办法</div>
+    <a href="/Cocoapodsdabaoframework.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cocoapods 打包 framework</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -688,6 +692,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -697,10 +705,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">UIBezierPath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">

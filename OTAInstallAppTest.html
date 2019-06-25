@@ -8,17 +8,19 @@
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
   <title>测试OTA安装App | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="来一个成功的测试按钮： 点击安装 点击安装">
+  <meta name="description" content="来一个成功的测试按钮： 点击安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="测试OTA安装App">
 <meta property="og:url" content="https://www.shenhongbang.cc/OTAInstallAppTest.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="来一个成功的测试按钮： 点击安装 点击安装">
+<meta property="og:description" content="来一个成功的测试按钮： 点击安装">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-25T06:12:06.423Z">
+<meta property="og:image" content="https://www.shenhongbang.cc/OTAInstallAppTest/001.png">
+<meta property="og:updated_time" content="2019-06-25T06:27:27.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测试OTA安装App">
-<meta name="twitter:description" content="来一个成功的测试按钮： 点击安装 点击安装">
+<meta name="twitter:description" content="来一个成功的测试按钮： 点击安装">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/OTAInstallAppTest/001.png">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -175,7 +177,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>来一个成功的测试按钮：</p>
-<p><a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/jiutianhuanpei/OTA_Zhuishu/master/hb.plist" target="_blank" rel="noopener">点击安装</a></p>
 <p><a href="itms-services://?action=download-manifest&amp;url=https://raw.githubusercontent.com/jiutianhuanpei/OTA_Zhuishu/master/hb.plist" target="_blank" rel="noopener">点击安装</a></p>
 <a id="more"></a>
 <p>这块的相关内容，网上有很多，都是利用苹果在 iOS4 时提供的 <code>itms-services:</code> 协议还做，但后来改了一点就是url必须是 https 的，如果有个人服务器最好，本文就用 github 来了，毕竟是 free 的。</p>
@@ -188,6 +189,7 @@ var _hmt = _hmt || [];
 </ul>
 </li>
 </ul>
+<p><br></p>
 <p><strong>第一步：</strong></p>
 <p>把 ipa 包、和两张图片上传到github，以获取它们对应的 url。</p>
 <p><strong>第二步：</strong>    </p>
@@ -198,10 +200,17 @@ var _hmt = _hmt || [];
 <p><strong>第三步：</strong></p>
 <p>编辑一个可以点击的页面，有个按钮用以触发 <code>itms-services:</code> 协议，后面跟的是plist文件的链接地址。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"itms-services://?action=download-manifest&amp;url=plist文件地址"</span>&gt;</span>点击安装<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其实只需要触发这个协议用行。</p>
+<p>这步可忽略，其实只需要触发这个协议就行，比如本篇文章开头的点击按钮，我用的是 Markdown 语法，就是这样写了：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">点击安装</span>](<span class="link">itms-services://?action=download-manifest&amp;url=https://raw.githubusercontent.com/jiutianhuanpei/OTA_Zhuishu/master/hb.plist</span>)</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <p><strong>重点：</strong></p>
-<p><code>itms-services</code> 协议后面 的链接，取法和两个图片的链接取法不一样，如果是直接点开 ipa 包取到的链接</p>
+<p><code>itms-services</code> 协议后面的链接，取法和两个图片的链接取法不一样，如果是直接点开 plist 文件取到的链接地址，点击安装的时候会提示 <code>无法连接到 github</code>。</p>
+<p>所以，它的正确取法是：点击 xxx.plist ，在 xxx.plist 文件的详情页点击右侧的 <strong>Raw</strong> 按钮，再去地址栏里取其链接。</p>
+<p><img src="/OTAInstallAppTest/001.png" alt=""></p>
+<p><br></p>
+<p><strong>第四步：</strong></p>
+<p>把上一步的 html 用手机打开，或者发布到你自己的服务器上，或者就像本篇博客一样，随便找个地方，可以用手机访问，并有一个逻辑来触发，或者说还请求 <code>itms-services:...</code> 这个链接就好了。</p>
+<p>Over ! 🤪</p>
 
       
 
@@ -575,10 +584,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
               </li>
              
@@ -588,6 +593,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
               </li>
              
               <li class="article-tag-list-item">

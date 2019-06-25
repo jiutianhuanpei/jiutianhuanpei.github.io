@@ -152,19 +152,19 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-iOS 关闭图片渲染" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CGContextRef 用法总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/iOSguanbitupianxuanran.html">iOS 关闭图片渲染</a>
+      <a class="article-title" href="/CGContextRefyongfazongjie.html">CGContextRef 用法总结</a>
     </h1>
   
 
         
-        <a href="/iOSguanbitupianxuanran.html" class="archive-article-date">
+        <a href="/CGContextRefyongfazongjie.html" class="archive-article-date">
   	<time datetime="2016-07-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-16</time>
 </a>
         
@@ -172,10 +172,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在为Button 设置背景图片的时候, 会发现显示的效果和UI给的图片不一样, 往往是把图片显示成为蓝色, 这是因为在新版的iOS中, 会自动对图片渲染.</p>
-<p>我们只要把图片渲染关掉就OK了</p>
+        <p><code>CGContextRef context = UIGraphicsGetCurrentContext();</code> 设置上下文</p>
+<p><code>CGContextMoveToPoint</code> 开始画线</p>
+<p><code>CGContextAddLineToPoint</code> 画直线</p>
+<p><code>CGContextAddEllipseInRect</code> 画一椭圆</p>
         
-          <a class="article-more-a" href="/iOSguanbitupianxuanran.html#more">更多 >></a>
+          <a class="article-more-a" href="/CGContextRefyongfazongjie.html#more">更多 >></a>
         
       
 
@@ -188,7 +190,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/iOSguanbitupianxuanran.html">展开全文 >></a>
+          <a class="article-more-a" href="/CGContextRefyongfazongjie.html">展开全文 >></a>
         </p>
       
 
@@ -426,6 +428,71 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-XMPP备忘笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/XMPPbeiwangbiji.html">XMPP备忘笔记</a>
+    </h1>
+  
+
+        
+        <a href="/XMPPbeiwangbiji.html" class="archive-article-date">
+  	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="xmpp中文翻译计划：-http-wiki-jabbercn-org-E9-A6-96-E9-A1-B5"><a href="#xmpp中文翻译计划：-http-wiki-jabbercn-org-E9-A6-96-E9-A1-B5" class="headerlink" title="xmpp中文翻译计划： http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5"></a>xmpp中文翻译计划： <em><a href="http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5</a></em></h4><h5 id="XEP-0004-数据表单"><a href="#XEP-0004-数据表单" class="headerlink" title="XEP-0004: 数据表单"></a>XEP-0004: 数据表单</h5><p>摘要: 本文定义了一个XMPP扩展协议用于数据表单，可以用于worklows如服务配置以及特定应用的数据描述和报告。这个协议包括表单处理的轻量级语义(如 请求,响应,提交和取消),定义了几种常见的字段类型(布尔、单个或多个选择的列表选项、单行或多行</p>
+        
+          <a class="article-more-a" href="/XMPPbeiwangbiji.html#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/XMPPbeiwangbiji.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pem文件转p12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -463,71 +530,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/pemwenjianzhuanp12.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-XMPP备忘笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/XMPPbeiwangbiji.html">XMPP备忘笔记</a>
-    </h1>
-  
-
-        
-        <a href="/XMPPbeiwangbiji.html" class="archive-article-date">
-  	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="xmpp中文翻译计划：-http-wiki-jabbercn-org-E9-A6-96-E9-A1-B5"><a href="#xmpp中文翻译计划：-http-wiki-jabbercn-org-E9-A6-96-E9-A1-B5" class="headerlink" title="xmpp中文翻译计划： http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5"></a>xmpp中文翻译计划： <em><a href="http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5" target="_blank" rel="noopener">http://wiki.jabbercn.org/%E9%A6%96%E9%A1%B5</a></em></h4><h5 id="XEP-0004-数据表单"><a href="#XEP-0004-数据表单" class="headerlink" title="XEP-0004: 数据表单"></a>XEP-0004: 数据表单</h5><p>摘要: 本文定义了一个XMPP扩展协议用于数据表单，可以用于worklows如服务配置以及特定应用的数据描述和报告。这个协议包括表单处理的轻量级语义(如 请求,响应,提交和取消),定义了几种常见的字段类型(布尔、单个或多个选择的列表选项、单行或多行</p>
-        
-          <a class="article-more-a" href="/XMPPbeiwangbiji.html#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/XMPPbeiwangbiji.html">展开全文 >></a>
         </p>
       
 
@@ -623,19 +625,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-Mac 下搭建服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-通过Hexo在Github上搭建博客 for Mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Macxiadajianfuwuqi.html">Mac 下搭建服务器</a>
+      <a class="article-title" href="/tongguoHexozaiGithubshangdajianbokeforMac.html">通过Hexo在Github上搭建博客 for Mac</a>
     </h1>
   
 
         
-        <a href="/Macxiadajianfuwuqi.html" class="archive-article-date">
+        <a href="/tongguoHexozaiGithubshangdajianbokeforMac.html" class="archive-article-date">
   	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
 </a>
         
@@ -643,12 +645,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、开启服务器 Apache。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k start</span><br></pre></td></tr></table></figure>
-<p>打开浏览器，在地址栏输入 localhost，如果出现 It works! 那么第一步已经成功了，如果没成功—出门左转自己找答案云，我也不懂，嘿嘿 </p>
-<p>2、修改配置文件，路径是 /etc/apache2/httpd.conf ，可以用终端，也可以用别的软件打开，我用 Sublime Text 打开了，相比用终端打开的好处就是可以快速定位要改的配置的位置了。</p>
+        <p>如果你能see到这个教程，说明你已经了解了一些hexo的资料……不了解也没啥，这是个教程，你可以照着来一遍，just this……</p>
         
-          <a class="article-more-a" href="/Macxiadajianfuwuqi.html#more">更多 >></a>
+          <a class="article-more-a" href="/tongguoHexozaiGithubshangdajianbokeforMac.html#more">更多 >></a>
         
       
 
@@ -661,71 +660,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Macxiadajianfuwuqi.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Pycharm 2016 注册码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Pycharm2016zhucema.html">Pycharm 2016 注册码</a>
-    </h1>
-  
-
-        
-        <a href="/Pycharm2016zhucema.html" class="archive-article-date">
-  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">43B4A73YYJ-eyJsaWNlbnNlSWQiOiI0M0I0QTczWVlKIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJBQyIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IkRQTiIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlBTIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiRE0iLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlJTMCIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlJDIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiUEMiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJSTSIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IldTIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiREIiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9XSwiaGFzaCI6IjMzOTgyOTkvMCIsImdyYWNlUGVyaW9kRGF5cyI6MCwiYXV0b1Byb2xvbmdhdGVkIjpmYWxzZSwiaXNBdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlfQ==-keaxIkRgXPKE4BR/ZTs7s7UkP92LBxRe57HvWamu1EHVXTcV1B4f/KNQIrpOpN6dgpjig5eMVMPmo7yMPl+bmwQ8pTZaCGFuLqCHD1ngo6ywHKIQy0nR249sAUVaCl2wGJwaO4JeOh1opUx8chzSBVRZBMz0/MGyygi7duYAff9JQqfH3p/BhDTNM8eKl6z5tnneZ8ZG5bG1XvqFTqWk4FhGsEWdK7B+He44hPjBxKQl2gmZAodb6g9YxfTHhVRKQY5hQ7KPXNvh3ikerHkoaL5apgsVBZJOTDE2KdYTnGLmqxghFx6L0ofqKI6hMr48ergMyflDk6wLNGWJvYHLWw==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==</span><br></pre></td></tr></table></figure>
-<p><br></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Pycharm2016zhucema.html">展开全文 >></a>
+          <a class="article-more-a" href="/tongguoHexozaiGithubshangdajianbokeforMac.html">展开全文 >></a>
         </p>
       
 
@@ -819,19 +754,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-通过Hexo在Github上搭建博客 for Mac" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Pycharm 2016 注册码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/tongguoHexozaiGithubshangdajianbokeforMac.html">通过Hexo在Github上搭建博客 for Mac</a>
+      <a class="article-title" href="/Pycharm2016zhucema.html">Pycharm 2016 注册码</a>
     </h1>
   
 
         
-        <a href="/tongguoHexozaiGithubshangdajianbokeforMac.html" class="archive-article-date">
+        <a href="/Pycharm2016zhucema.html" class="archive-article-date">
   	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
 </a>
         
@@ -839,9 +774,76 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如果你能see到这个教程，说明你已经了解了一些hexo的资料……不了解也没啥，这是个教程，你可以照着来一遍，just this……</p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">43B4A73YYJ-eyJsaWNlbnNlSWQiOiI0M0I0QTczWVlKIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJBQyIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IkRQTiIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlBTIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiRE0iLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlJTMCIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlJDIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiUEMiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJSTSIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IldTIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiREIiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9XSwiaGFzaCI6IjMzOTgyOTkvMCIsImdyYWNlUGVyaW9kRGF5cyI6MCwiYXV0b1Byb2xvbmdhdGVkIjpmYWxzZSwiaXNBdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlfQ==-keaxIkRgXPKE4BR/ZTs7s7UkP92LBxRe57HvWamu1EHVXTcV1B4f/KNQIrpOpN6dgpjig5eMVMPmo7yMPl+bmwQ8pTZaCGFuLqCHD1ngo6ywHKIQy0nR249sAUVaCl2wGJwaO4JeOh1opUx8chzSBVRZBMz0/MGyygi7duYAff9JQqfH3p/BhDTNM8eKl6z5tnneZ8ZG5bG1XvqFTqWk4FhGsEWdK7B+He44hPjBxKQl2gmZAodb6g9YxfTHhVRKQY5hQ7KPXNvh3ikerHkoaL5apgsVBZJOTDE2KdYTnGLmqxghFx6L0ofqKI6hMr48ergMyflDk6wLNGWJvYHLWw==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==</span><br></pre></td></tr></table></figure>
+<p><br></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Pycharm2016zhucema.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
-          <a class="article-more-a" href="/tongguoHexozaiGithubshangdajianbokeforMac.html#more">更多 >></a>
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mac 下搭建服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Macxiadajianfuwuqi.html">Mac 下搭建服务器</a>
+    </h1>
+  
+
+        
+        <a href="/Macxiadajianfuwuqi.html" class="archive-article-date">
+  	<time datetime="2016-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、开启服务器 Apache。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k start</span><br></pre></td></tr></table></figure>
+<p>打开浏览器，在地址栏输入 localhost，如果出现 It works! 那么第一步已经成功了，如果没成功—出门左转自己找答案云，我也不懂，嘿嘿 </p>
+<p>2、修改配置文件，路径是 /etc/apache2/httpd.conf ，可以用终端，也可以用别的软件打开，我用 Sublime Text 打开了，相比用终端打开的好处就是可以快速定位要改的配置的位置了。</p>
+        
+          <a class="article-more-a" href="/Macxiadajianfuwuqi.html#more">更多 >></a>
         
       
 
@@ -854,7 +856,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/tongguoHexozaiGithubshangdajianbokeforMac.html">展开全文 >></a>
+          <a class="article-more-a" href="/Macxiadajianfuwuqi.html">展开全文 >></a>
         </p>
       
 
@@ -1127,6 +1129,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -1136,14 +1146,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">UIBezierPath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">

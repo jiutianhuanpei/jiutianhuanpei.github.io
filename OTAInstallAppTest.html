@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="来一个成功的测试按钮： 点击安装 点击安装">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-25T06:10:23.533Z">
+<meta property="og:updated_time" content="2019-06-25T06:12:06.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测试OTA安装App">
 <meta name="twitter:description" content="来一个成功的测试按钮： 点击安装 点击安装">
@@ -196,12 +196,12 @@ var _hmt = _hmt || [];
 <p>需要修改的地方有：<code>display-image</code>、<code>full-size-image</code> 对应的两张图片的链接、版本号及App名称，还有 ipa 包的链接。</p>
 <p>修改之后，上传到github。</p>
 <p><strong>第三步：</strong></p>
-<p>编辑一个可以点击的页面，有个按钮用以触发 <code>itms-services:</code> 协议。</p>
+<p>编辑一个可以点击的页面，有个按钮用以触发 <code>itms-services:</code> 协议，后面跟的是plist文件的链接地址。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"itms-services://?action=download-manifest&amp;url=plist文件地址"</span>&gt;</span>点击安装<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其实只需要</p>
+<p>其实只需要触发这个协议用行。</p>
 <p><br></p>
 <p><strong>重点：</strong></p>
-<p>其中 ipa 包的链接，取法和两个图片的链接取法不一样，如果是直接点开 ipa 包取到的链接</p>
+<p><code>itms-services</code> 协议后面 的链接，取法和两个图片的链接取法不一样，如果是直接点开 ipa 包取到的链接</p>
 
       
 
@@ -527,10 +527,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
               </li>
              
@@ -540,6 +536,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MD5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,6 +575,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
               </li>
              
@@ -587,19 +591,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+                <a href="javascript:void(0)" class="js-tag color3">拼音</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拼音</a>
+                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,11 +615,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

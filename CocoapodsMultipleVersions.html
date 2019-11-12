@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions/002.png">
 <meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions/003.png">
 <meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions/004.png">
-<meta property="og:updated_time" content="2019-11-12T03:39:14.280Z">
+<meta property="og:updated_time" content="2019-11-12T07:17:18.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocoapods多版本共存使用">
 <meta name="twitter:description" content="由于公司项目比较老，所以依赖的 cocoapods 也有版本要求，如果升级的新的版本可能会引发各种问题。 而自己呢，平时会写一些小工具什么的上传到 cocoapods ，这个又要求 cocoapods-trunk 是最新的，所以每次都要先升级 cocoapods，上传完自己的库之后再把 cocoapods 降级。真的是太麻烦了，一直想找个pod多版本共存的解决方案，但大都是通过多gem版本来做的，">
@@ -182,8 +182,9 @@ var _hmt = _hmt || [];
       
         <p>由于公司项目比较老，所以依赖的 cocoapods 也有版本要求，如果升级的新的版本可能会引发各种问题。</p>
 <p>而自己呢，平时会写一些小工具什么的上传到 cocoapods ，这个又要求 <code>cocoapods-trunk</code> 是最新的，所以每次都要先升级 cocoapods，上传完自己的库之后再把 cocoapods 降级。真的是太麻烦了，一直想找个pod多版本共存的解决方案，但大都是通过多gem版本来做的，这个感觉比较 <strong>大</strong> 就一直没搞。直到前段时间 1.8.4 出来，说是用了CDN技术，install 过程会有极大的加速，才再次把寻求多版本共存的事提上日程。</p>
-<!--<video src="http://blog.cocoapods.org/assets/blog_img/CocoaPods-1.8.0/cocoapods-cdn-video.mp4" width="70%" autoplay="true"></video>
--->
+<a id="more"></a>
+<video style="width:70%" src="http://blog.cocoapods.org/assets/blog_img/CocoaPods-1.8.0/cocoapods-cdn-video.mp4" preload="preload" webkit-playsinline="true"></video>
+
 <p><br></p>
 <p>用命令 <code>gem list --local | grep cocoapods</code> 还查询已安装的<br>Cocoapods。</p>
 <p><img src="/CocoapodsMultipleVersions/001.png" alt=""></p>
@@ -494,6 +495,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Cocoapods</a>
               </li>
              
@@ -502,11 +507,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
+                <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,10 +523,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
@@ -530,11 +531,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gRPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,7 +579,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,15 +595,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,7 +619,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,19 +635,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -642,11 +643,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lame</a>
+                <a href="javascript:void(0)" class="js-tag color3">越狱</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">越狱</a>
+                <a href="javascript:void(0)" class="js-tag color5">lame</a>
               </li>
             
             <div class="clearfix"></div>

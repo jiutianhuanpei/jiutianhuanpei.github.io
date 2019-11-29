@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>Flutter环境配置填坑 | 沈红榜的博客</title>
+  <title>ApplePay初探 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网上有很多的环境配置教程，但都不在相同，根据其中一个很难走完一整个流程，所以把自己的配置过程作个记录。">
-<meta name="keywords" content="Flutter">
+  <meta name="description" content="在 iOS 系统下，苹果对虚拟物品的交易是要抽成的，这个也限制了虚拟物品交易的支付渠道必须是 ApplePay 了，作为开发者，能做的也就是把 ApplePay 集成进我们的 App 吧。">
+<meta name="keywords" content="ApplePay">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flutter环境配置填坑">
-<meta property="og:url" content="https://www.shenhongbang.cc/FlutterInstallErrors.html">
+<meta property="og:title" content="ApplePay初探">
+<meta property="og:url" content="https://www.shenhongbang.cc/ApplePayFirstExploration.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="网上有很多的环境配置教程，但都不在相同，根据其中一个很难走完一整个流程，所以把自己的配置过程作个记录。">
+<meta property="og:description" content="在 iOS 系统下，苹果对虚拟物品的交易是要抽成的，这个也限制了虚拟物品交易的支付渠道必须是 ApplePay 了，作为开发者，能做的也就是把 ApplePay 集成进我们的 App 吧。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T01:42:21.474Z">
+<meta property="og:updated_time" content="2019-11-29T07:47:19.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flutter环境配置填坑">
-<meta name="twitter:description" content="网上有很多的环境配置教程，但都不在相同，根据其中一个很难走完一整个流程，所以把自己的配置过程作个记录。">
+<meta name="twitter:title" content="ApplePay初探">
+<meta name="twitter:description" content="在 iOS 系统下，苹果对虚拟物品的交易是要抽成的，这个也限制了虚拟物品交易的支付渠道必须是 ApplePay 了，作为开发者，能做的也就是把 ApplePay 集成进我们的 App 吧。">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -155,47 +155,67 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Flutter安装填坑" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ApplePay初探" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Flutter环境配置填坑
+      ApplePay初探
     </h1>
   
 
         
-        <a href="/FlutterInstallErrors.html" class="archive-article-date">
-  	<time datetime="2019-06-18T01:39:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
+        <a href="/ApplePayFirstExploration.html" class="archive-article-date">
+  	<time datetime="2019-11-29T02:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>网上有很多的环境配置教程，但都不在相同，根据其中一个很难走完一整个流程，所以把自己的配置过程作个记录。</p>
+        <p>在 iOS 系统下，苹果对虚拟物品的交易是要抽成的，这个也限制了虚拟物品交易的支付渠道必须是 ApplePay 了，作为开发者，能做的也就是把 ApplePay 集成进我们的 App 吧。</p>
 <a id="more"></a>
-<p>按网上的教程，先用的是下载zip包解压的方法，但报了一个错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The Flutter directory is not a clone of the GitHub project.</span><br><span class="line">       The flutter tool requires Git in order to operate properly;</span><br><span class="line">       to set up Flutter, run the following command:</span><br><span class="line">       git clone -b stable https://github.com/flutter/flutter.git</span><br></pre></td></tr></table></figure>
-<p>这个方法 pass，根据提示，自己从git下载吧，根据自己心情，cd 到自己喜欢的文件夹，我放在了 /opt 文件夹下，放在这儿需要权限，所以下载前加上 sudo。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">sudo git clone https://github.com/flutter/flutter.git</span><br></pre></td></tr></table></figure>
-<p>千辛万苦下载之后，修改 <code>.bash_profile</code> 文件，添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;/opt/flutter/bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br></pre></td></tr></table></figure>
-<p>运行 <code>flutter -h</code> 还是提示无权限……</p>
-<p>好吧，虽然网上的教程大都这样写，其实是不能放在这里的，根据安装 cocoapods 的经验，我把 flutter 的文件夹移动到 <code>/usr/local/</code> 下，同时修改 <code>.bash_profile</code> 中的 <code>export PATH=&quot;/opt/flutter/bin:$PATH&quot;</code> 为 <code>export PATH=&quot;/usr/local/flutter/bin:$PATH&quot;</code>。</p>
-<p>需要运行 <code>source ~/.bash_profile</code> 让配置生效，如果用了 zsh，可以在 <code>~/.zshrc</code> 的最后一行添加 <code>source ~/.bash_profile</code>。</p>
-<p>再运行 <code>flutter -h</code> 这回应该就是可以了。再运行 <code>flutter doctor</code> 检测版本信息。</p>
-<p>之后就是网上的各种教程了。</p>
-<p>下面是各种坑：</p>
-<p>一：用 Android Studio 创建 flutter 工程时，一直卡在 <code>Creating flutter project</code> ，刚开始找的资料说是在下载相关的配置文件，所以我就一直傻傻地等……一直等了两个多钟头还在 Creating…… 果断强制退出了 AS，然后用命令行 <code>flutter create name</code> 创建出了一个 Flutter 工程，然后导入 AS，搞定。</p>
-<p>二：AS 添加好连接设备，跑的时候提示 <code>flutter SDK is not found in the specified location</code></p>
-<p>这个在网上有很多教程，但实在是坑人。他们说在 File –&gt; Setting 里有个 <code>Langurage &amp; Frameworks</code> 叭啦叭啦一大堆……其实 File 里根本就没这个选项，要找设置只有一个路径：<code>cmd + ,</code> 快捷键就可以唤出设置页面。</p>
-<p>如果直接设置 <code>Dart</code> 的 <code>Dart SDK path</code> 也是不行的，看着好像已经设置成功了，点击 OK 之后还是原来的样子；其实是要设置 <code>Flutter</code> 的 <code>Flutter SDK path</code> ，这个设置之后应该就好了。</p>
-<p>三：lib/main.dart: Warning: Interpreting this as package URI, ‘package:flutter_app/main.dart’.</p>
-<p>这个我也不太清楚是怎么解决的，就是删除了原工程，重新又建了一个，成功之后又根据终端里的提示运行了 <code>flutter run</code> 命令行，第一遍失败了，又运行了一遍，第二次成功后导入 AS 就可以了。</p>
-<p>四：全部都设置好之后，在连接的iPhone上跑的时候还会报错，这是因为没有设置Xcode工程的 Bundle Identifier 和 证书，打开 ios 文件夹下的 Xcode 工程，设置正确的 BundleID 和证书，再回到 Flutter 工程，运行就可以了。</p>
+<h3 id="一、配置环境"><a href="#一、配置环境" class="headerlink" title="一、配置环境"></a>一、配置环境</h3><ol>
+<li><p>登录 Apple 开发者页面，申请一个商业标识符 MerchantID，并跟工程的 BundleIdentifier 绑定，具体步骤可以在网上找下。</p>
+</li>
+<li><p>在 Xcode 上配置 ApplePay 支持。</p>
+<p> 如果是 Xcode11 之下，在 Capabilities 中打开 ApplePay 选项开关即可；</p>
+<p> 如果是 Xcode11，则需要在 Signing &amp; Capabilities 的左上角，点击 <code>+ Capability</code> 手动添加一个 ApplePay 选项。</p>
+</li>
+<li><p>在第2步的 AppleyPay 选项中，如果没有显示出 MerchantId，则需要手动在 <code>&lt;工程名&gt;.entitlements</code> 文件里的 <code>Merchant IDs</code> 下添加一个元素，填写在第1步中申请时填写的以 <code>merchant.</code> 开头的那个字符串。重启工程，就可以 ApplePay 选项中看到它了，显示为未找到的红色，不用管它。</p>
+</li>
+</ol>
+<p><br> </p>
+<h3 id="二、开发"><a href="#二、开发" class="headerlink" title="二、开发"></a>二、开发</h3><p>ApplePay 的 API 在 iOS10 系统前后有些区别，在 iOS10 之前是用 <code>PKPaymentAuthorizationViewController</code> 继承于 <code>UIViewController</code>，在 iOS10 之后用的是 <code>PKPaymentAuthorizationController</code> 继承于 <code>NSObject</code>。它们的 API 基本完全相同，本文就用 <code>PKPaymentAuthorizationController</code> 举例了，下面介绍一点主要的 API。</p>
+<p><br></p>
+<h4 id="1、-权限判断"><a href="#1、-权限判断" class="headerlink" title="1、 权限判断"></a>1、 权限判断</h4><table>
+<thead>
+<tr>
+<th>API</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open class func canMakePayments() -&gt; Bool</td>
+<td>判断设备是否支持 ApplePay</td>
+</tr>
+<tr>
+<td>open class func canMakePayments(usingNetworks supportedNetworks: [PKPaymentNetwork]) -&gt; Bool</td>
+<td>判断设备是否支持传入的网络的 ApplePay，如果 ApplePay 里没有支持的卡，或者没有卡也会返回 false</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="2、-跳转钱包，设置银行卡，直接跳转到苹果的钱包应用，并唤起添加卡片页面"><a href="#2、-跳转钱包，设置银行卡，直接跳转到苹果的钱包应用，并唤起添加卡片页面" class="headerlink" title="2、 跳转钱包，设置银行卡，直接跳转到苹果的钱包应用，并唤起添加卡片页面"></a>2、 跳转钱包，设置银行卡，直接跳转到苹果的钱包应用，并唤起添加卡片页面</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> wallet = <span class="type">PKPassLibrary</span>()</span><br><span class="line">wallet.openPaymentSetup()</span><br><span class="line">```        </span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">#### <span class="number">3</span>、设置商品信息，并唤起 <span class="type">ApplePay</span> 支付页面</span><br><span class="line"></span><br><span class="line">伪代码如下，注意要点都写在 **注释** 内</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line"><span class="keyword">let</span> request = <span class="type">PKPaymentRequest</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">//国家</span></span><br><span class="line">request.countryCode = <span class="string">"CN"</span></span><br><span class="line"><span class="comment">//币种</span></span><br><span class="line">request.currencyCode = <span class="string">"CNY"</span></span><br><span class="line"><span class="comment">//支持的网络</span></span><br><span class="line"><span class="keyword">var</span> networks: [<span class="type">PKPaymentNetwork</span>] = [.privateLabel]</span><br><span class="line"><span class="keyword">if</span> #available(iOS <span class="number">11.2</span>, *) &#123;</span><br><span class="line">    networks.insert(.chinaUnionPay, at: <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line">request.supportedNetworks = networks</span><br><span class="line"><span class="comment">//商业标识符</span></span><br><span class="line">request.merchantIdentifier = <span class="string">"merchant.com.cmcc.hejiakanhuDevcc"</span></span><br><span class="line"><span class="comment">//capability3DS 必须添加，在大陆 capabilityEMV 也必须添加，否则 didAuthorizePayment 方法不会调用</span></span><br><span class="line">request.merchantCapabilities = [.capability3DS, .capabilityEMV, .capabilityCredit, .capabilityDebit]</span><br><span class="line"></span><br><span class="line"><span class="comment">//快递</span></span><br><span class="line"><span class="keyword">let</span> ship1 = <span class="type">PKShippingMethod</span>(label: <span class="string">"顺丰"</span>, amount: .<span class="keyword">init</span>(value: <span class="number">10</span>))</span><br><span class="line">ship1.detail = <span class="string">"24小时送达"</span></span><br><span class="line">ship1.identifier = <span class="string">"shunfeng"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ship2 = <span class="type">PKShippingMethod</span>(label: <span class="string">"韵达"</span>, amount: .<span class="keyword">init</span>(value: <span class="number">15</span>))</span><br><span class="line">ship2.detail = <span class="string">"隔天送达"</span></span><br><span class="line">ship2.identifier = <span class="string">"yunda"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//快递列表</span></span><br><span class="line">request.shippingMethods = [ship1, ship2]</span><br><span class="line"></span><br><span class="line"><span class="comment">//送货方式</span></span><br><span class="line">request.shippingType = .shipping</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//商品列表</span></span><br><span class="line"><span class="keyword">let</span> firstGoods = <span class="type">PKPaymentSummaryItem</span>(label: <span class="string">"火锅"</span>, amount: .<span class="keyword">init</span>(value: <span class="number">0.00</span>))</span><br><span class="line"><span class="keyword">let</span> secondGoods = <span class="type">PKPaymentSummaryItem</span>(label: <span class="string">"青菜"</span>, amount: .<span class="keyword">init</span>(value: <span class="number">0.00</span>))</span><br><span class="line"></span><br><span class="line">paymentList = [firstGoods, secondGoods]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> list = showSummaryItems(with: ship1)</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加商品列表，最后一个是总计</span></span><br><span class="line">request.paymentSummaryItems = list</span><br><span class="line"></span><br><span class="line"><span class="comment">//商品附加信息，会被传到生成的 PKPaymentToken 中，可用于平台的校验</span></span><br><span class="line">request.applicationData = <span class="string">"goodsId=123456"</span>.data(using: .utf8)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> payment = <span class="type">PKPaymentAuthorizationController</span>(paymentRequest: request)</span><br><span class="line">payment.delegate = <span class="keyword">self</span></span><br><span class="line">payment.present(completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="4、回调处理"><a href="#4、回调处理" class="headerlink" title="4、回调处理"></a>4、回调处理</h4><h5 id="4-1-完成回调（取消支付、支付完成、失败都会调用）"><a href="#4-1-完成回调（取消支付、支付完成、失败都会调用）" class="headerlink" title="4.1 完成回调（取消支付、支付完成、失败都会调用）"></a>4.1 完成回调（取消支付、支付完成、失败都会调用）</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">paymentAuthorizationControllerDidFinish</span><span class="params">(<span class="number">_</span> controller: PKPaymentAuthorizationController)</span></span> &#123;</span><br><span class="line">	<span class="comment">//隐藏支付页面</span></span><br><span class="line">    controller.dismiss(completion: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-2-认证回调"><a href="#4-2-认证回调" class="headerlink" title="4.2 认证回调"></a>4.2 认证回调</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">paymentAuthorizationController</span><span class="params">(<span class="number">_</span> controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment, handler completion: @escaping <span class="params">(PKPaymentAuthorizationResult)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//延时，模拟平台校验订单并且对接金融机构扣款</span></span><br><span class="line">    <span class="type">DispatchQueue</span>.main.asyncAfter(deadline: .now() + <span class="number">4</span>) &#123;</span><br><span class="line">        [<span class="keyword">unowned</span> <span class="keyword">self</span>] <span class="keyword">in</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> ret = arc4random_uniform(<span class="number">4</span>) % <span class="number">2</span> == <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> ret &#123;</span><br><span class="line">            completion(.<span class="keyword">init</span>(status: .success, errors: <span class="literal">nil</span>))</span><br><span class="line">            <span class="keyword">self</span>.lbl.text = <span class="string">"支付成功"</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            completion(.<span class="keyword">init</span>(status: .failure, errors: <span class="literal">nil</span>))</span><br><span class="line">            <span class="keyword">self</span>.lbl.text = <span class="string">"支付失败"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-3-切换送货方式回调"><a href="#4-3-切换送货方式回调" class="headerlink" title="4.3 切换送货方式回调"></a>4.3 切换送货方式回调</h5><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">paymentAuthorizationController</span><span class="params">(<span class="number">_</span> controller: PKPaymentAuthorizationController, didSelectShippingMethod shippingMethod: PKShippingMethod, handler completion: @escaping <span class="params">(PKPaymentRequestShippingMethodUpdate)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> update = <span class="type">PKPaymentRequestShippingMethodUpdate</span>(paymentSummaryItems: showSummaryItems(with: shippingMethod))</span><br><span class="line">    completion(update)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<p>本文所有代码及工具方法在<a href="https://github.com/jiutianhuanpei/ApplePay" target="_blank" rel="noopener">这里</a>。</p>
 
       
 
@@ -240,7 +260,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ApplePay</a>
         		</li>
       		
 		</ul>
@@ -296,7 +316,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/FlutterInstallErrors.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/ApplePayFirstExploration.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +330,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/OTAInstallApp.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          OTA安装App
-        
-      </div>
-    </a>
   
-  
-    <a href="/yueyujiance.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">越狱检测</div>
+    <a href="/CocoapodsMultipleVersions.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cocoapods多版本共存使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -348,7 +359,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、配置环境"><span class="toc-number">1.</span> <span class="toc-text">一、配置环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、开发"><span class="toc-number">2.</span> <span class="toc-text">二、开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、-权限判断"><span class="toc-number">2.1.</span> <span class="toc-text">1、 权限判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、-跳转钱包，设置银行卡，直接跳转到苹果的钱包应用，并唤起添加卡片页面"><span class="toc-number">2.2.</span> <span class="toc-text">2、 跳转钱包，设置银行卡，直接跳转到苹果的钱包应用，并唤起添加卡片页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、回调处理"><span class="toc-number">2.3.</span> <span class="toc-text">4、回调处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-完成回调（取消支付、支付完成、失败都会调用）"><span class="toc-number">2.3.1.</span> <span class="toc-text">4.1 完成回调（取消支付、支付完成、失败都会调用）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-认证回调"><span class="toc-number">2.3.2.</span> <span class="toc-text">4.2 认证回调</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-切换送货方式回调"><span class="toc-number">2.3.3.</span> <span class="toc-text">4.3 切换送货方式回调</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -364,7 +375,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Flutter安装填坑" ></div>
+  <div id="SOHUCS" sid="ApplePay初探" ></div>
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

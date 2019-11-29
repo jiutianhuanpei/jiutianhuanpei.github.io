@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>Flutter环境配置填坑 | 沈红榜的博客</title>
+  <title>Tag: ApplePay | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网上有很多的环境配置教程，但都不在相同，根据其中一个很难走完一整个流程，所以把自己的配置过程作个记录。">
-<meta name="keywords" content="Flutter">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Flutter环境配置填坑">
-<meta property="og:url" content="https://www.shenhongbang.cc/FlutterInstallErrors.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="沈红榜的博客">
+<meta property="og:url" content="https://www.shenhongbang.cc/tags/ApplePay/index.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="网上有很多的环境配置教程，但都不在相同，根据其中一个很难走完一整个流程，所以把自己的配置过程作个记录。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T01:42:21.474Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flutter环境配置填坑">
-<meta name="twitter:description" content="网上有很多的环境配置教程，但都不在相同，根据其中一个很难走完一整个流程，所以把自己的配置过程作个记录。">
+<meta name="twitter:title" content="沈红榜的博客">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -155,233 +150,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Flutter安装填坑" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Flutter环境配置填坑
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/ApplePayFirstExploration.html" class="archive-article-date">
+  	<time datetime="2019-11-29T02:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/ApplePayFirstExploration.html">ApplePay初探</a>
     </h1>
   
 
-        
-        <a href="/FlutterInstallErrors.html" class="archive-article-date">
-  	<time datetime="2019-06-18T01:39:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>网上有很多的环境配置教程，但都不在相同，根据其中一个很难走完一整个流程，所以把自己的配置过程作个记录。</p>
-<a id="more"></a>
-<p>按网上的教程，先用的是下载zip包解压的方法，但报了一个错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The Flutter directory is not a clone of the GitHub project.</span><br><span class="line">       The flutter tool requires Git in order to operate properly;</span><br><span class="line">       to set up Flutter, run the following command:</span><br><span class="line">       git clone -b stable https://github.com/flutter/flutter.git</span><br></pre></td></tr></table></figure>
-<p>这个方法 pass，根据提示，自己从git下载吧，根据自己心情，cd 到自己喜欢的文件夹，我放在了 /opt 文件夹下，放在这儿需要权限，所以下载前加上 sudo。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">sudo git clone https://github.com/flutter/flutter.git</span><br></pre></td></tr></table></figure>
-<p>千辛万苦下载之后，修改 <code>.bash_profile</code> 文件，添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;/opt/flutter/bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line">export PUB_HOSTED_URL=https://pub.flutter-io.cn</span><br><span class="line">export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</span><br></pre></td></tr></table></figure>
-<p>运行 <code>flutter -h</code> 还是提示无权限……</p>
-<p>好吧，虽然网上的教程大都这样写，其实是不能放在这里的，根据安装 cocoapods 的经验，我把 flutter 的文件夹移动到 <code>/usr/local/</code> 下，同时修改 <code>.bash_profile</code> 中的 <code>export PATH=&quot;/opt/flutter/bin:$PATH&quot;</code> 为 <code>export PATH=&quot;/usr/local/flutter/bin:$PATH&quot;</code>。</p>
-<p>需要运行 <code>source ~/.bash_profile</code> 让配置生效，如果用了 zsh，可以在 <code>~/.zshrc</code> 的最后一行添加 <code>source ~/.bash_profile</code>。</p>
-<p>再运行 <code>flutter -h</code> 这回应该就是可以了。再运行 <code>flutter doctor</code> 检测版本信息。</p>
-<p>之后就是网上的各种教程了。</p>
-<p>下面是各种坑：</p>
-<p>一：用 Android Studio 创建 flutter 工程时，一直卡在 <code>Creating flutter project</code> ，刚开始找的资料说是在下载相关的配置文件，所以我就一直傻傻地等……一直等了两个多钟头还在 Creating…… 果断强制退出了 AS，然后用命令行 <code>flutter create name</code> 创建出了一个 Flutter 工程，然后导入 AS，搞定。</p>
-<p>二：AS 添加好连接设备，跑的时候提示 <code>flutter SDK is not found in the specified location</code></p>
-<p>这个在网上有很多教程，但实在是坑人。他们说在 File –&gt; Setting 里有个 <code>Langurage &amp; Frameworks</code> 叭啦叭啦一大堆……其实 File 里根本就没这个选项，要找设置只有一个路径：<code>cmd + ,</code> 快捷键就可以唤出设置页面。</p>
-<p>如果直接设置 <code>Dart</code> 的 <code>Dart SDK path</code> 也是不行的，看着好像已经设置成功了，点击 OK 之后还是原来的样子；其实是要设置 <code>Flutter</code> 的 <code>Flutter SDK path</code> ，这个设置之后应该就好了。</p>
-<p>三：lib/main.dart: Warning: Interpreting this as package URI, ‘package:flutter_app/main.dart’.</p>
-<p>这个我也不太清楚是怎么解决的，就是删除了原工程，重新又建了一个，成功之后又根据终端里的提示运行了 <code>flutter run</code> 命令行，第一遍失败了，又运行了一遍，第二次成功后导入 AS 就可以了。</p>
-<p>四：全部都设置好之后，在连接的iPhone上跑的时候还会报错，这是因为没有设置Xcode工程的 Bundle Identifier 和 证书，打开 ios 文件夹下的 Xcode 工程，设置正确的 BundleID 和证书，再回到 Flutter 工程，运行就可以了。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>你可以请我喝杯咖啡么<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Flutter</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ApplePay</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/FlutterInstallErrors.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/OTAInstallApp.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          OTA安装App
-        
-      </div>
-    </a>
   
   
-    <a href="/yueyujiance.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">越狱检测</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    目录，不存在的…
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Flutter安装填坑" ></div>
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyt8S4D0e",
-        conf: "7669546b28edafeaff3de4926ef9cb6c"
-    });
-</script>
-<style>
-    #feedAv{margin-top:-250px!important;transform:scale(0);}
-</style>
-</script>
-
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -402,9 +224,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

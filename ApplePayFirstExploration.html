@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
   <title>ApplePay初探 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="配置环境代码开发            权限判断        跳转钱包        唤起 ApplePay 支付页面        回调处理                            完成回调                认证回调                切换送货方式回调">
+  <meta name="description" content="配置环境    代码开发 2.1. 权限判断 2.2. 跳转钱包 2.3. 唤起 ApplePay 支付页面 2.4. 回调处理 4.1 完成回调 4.2 认证回调 4.3 切换送货方式回调">
 <meta name="keywords" content="ApplePay">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ApplePay初探">
 <meta property="og:url" content="https://www.shenhongbang.cc/ApplePayFirstExploration.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="配置环境代码开发            权限判断        跳转钱包        唤起 ApplePay 支付页面        回调处理                            完成回调                认证回调                切换送货方式回调">
+<meta property="og:description" content="配置环境    代码开发 2.1. 权限判断 2.2. 跳转钱包 2.3. 唤起 ApplePay 支付页面 2.4. 回调处理 4.1 完成回调 4.2 认证回调 4.3 切换送货方式回调">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration/001.jpg">
 <meta property="og:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration/002.png">
-<meta property="og:updated_time" content="2019-12-09T06:38:22.862Z">
+<meta property="og:updated_time" content="2019-12-09T07:12:12.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ApplePay初探">
-<meta name="twitter:description" content="配置环境代码开发            权限判断        跳转钱包        唤起 ApplePay 支付页面        回调处理                            完成回调                认证回调                切换送货方式回调">
+<meta name="twitter:description" content="配置环境    代码开发 2.1. 权限判断 2.2. 跳转钱包 2.3. 唤起 ApplePay 支付页面 2.4. 回调处理 4.1 完成回调 4.2 认证回调 4.3 切换送货方式回调">
 <meta name="twitter:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
@@ -178,12 +178,30 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul><br><li><a href="#1">配置环境</a></li><br><li><a href="#2">代码开发</a></li><br>    <ul><br>        <dt><a href="#2.1">权限判断</a></dt><br>        <dt><a href="#2.2">跳转钱包</a></dt><br>        <dt><a href="#2.3">唤起 ApplePay 支付页面</a></dt><br>        <dt><a href="#2.4">回调处理</a></dt><br>            <ul><br>                <dt><a href="#4.1">完成回调</a></dt><br>                <dt><a href="#4.2">认证回调</a></dt><br>                <dt><a href="#4.3">切换送货方式回调</a></dt><br>            </ul><br>    </ul><br></ul>
-
-
-
+        <ul>
+<li><ol>
+<li><a href="#1">配置环境</a><p></p></li>
+</ol>
+</li>
+<li><ol start="2">
+<li><a href="#2">代码开发</a><p><ul>
+<li>2.1. <a href="#2.1">权限判断</a><p></p></li>
+<li>2.2. <a href="#2.2">跳转钱包</a><p></p></li>
+<li>2.3. <a href="#2.3">唤起 ApplePay 支付页面</a><p></p></li>
+<li>2.4. <a href="#2.4">回调处理</a><p><ul>
+<li>4.1 <a href="#4.1">完成回调</a><p></p></li>
+<li>4.2 <a href="#4.2">认证回调</a><p></p></li>
+<li>4.3 <a href="#4.3">切换送货方式回调</a><p></p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+</ol>
+</li>
+</ul>
 <a id="more"></a>
-<p>[TOC]</p><h1 id="1">一、配置环境</h1><p></p>
+<h1 id="1">一、配置环境</h1>
+
 <ol>
 <li><p>登录 Apple 开发者页面，申请一个商业标识符 MerchantID，并跟工程的 BundleIdentifier 绑定，具体步骤可以在网上找下。</p>
 </li>
@@ -195,10 +213,12 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <p><br> </p>
-<p>[TOC]</p><h1 id="2">二、开发</h1><p></p>
+<h1 id="2">二、开发</h1>
+
 <p>ApplePay 的 API 在 iOS10 系统前后有些区别，在 iOS10 之前是用 <code>PKPaymentAuthorizationViewController</code> 继承于 <code>UIViewController</code>，在 iOS10 之后用的是 <code>PKPaymentAuthorizationController</code> 继承于 <code>NSObject</code>。它们的 API 基本完全相同，本文就用 <code>PKPaymentAuthorizationController</code> 举例了，下面介绍一点主要的 API。</p>
 <p><br></p>
-<p>[TOC]</p><h3 id="2.1">1、 权限判断</h3><p></p>
+<h3 id="2.1">1、 权限判断</h3>
+
 <table>
 <thead>
 <tr>
@@ -218,14 +238,18 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <p><br></p>
-<p>[TOC]</p><h3 id="2.2">2、 跳转钱包，设置银行卡，直接跳转到苹果的钱包应用，并唤起添加卡片页面</h3><p></p>
+<h3 id="2.2">2、 跳转钱包，设置银行卡，直接跳转到苹果的钱包应用，并唤起添加卡片页面</h3>
+
+
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> wallet = <span class="type">PKPassLibrary</span>()</span><br><span class="line">wallet.openPaymentSetup()</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<p>[TOC]</p><h3 id="2.3">3、设置商品信息，并唤起 ApplePay 支付页面</h3><p></p>
+<h3 id="2.3">3、设置商品信息，并唤起 ApplePay 支付页面</h3>
+
 <p>伪代码如下，注意要点都写在 <strong>注释</strong> 内</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> request = <span class="type">PKPaymentRequest</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">//国家</span></span><br><span class="line">request.countryCode = <span class="string">"CN"</span></span><br><span class="line"><span class="comment">//币种</span></span><br><span class="line">request.currencyCode = <span class="string">"CNY"</span></span><br><span class="line"><span class="comment">//支持的网络</span></span><br><span class="line"><span class="keyword">var</span> networks: [<span class="type">PKPaymentNetwork</span>] = [.privateLabel]</span><br><span class="line"><span class="keyword">if</span> #available(iOS <span class="number">11.2</span>, *) &#123;</span><br><span class="line">    networks.insert(.chinaUnionPay, at: <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line">request.supportedNetworks = networks</span><br><span class="line"><span class="comment">//商业标识符</span></span><br><span class="line">request.merchantIdentifier = <span class="string">"merchant.xxxx"</span></span><br><span class="line"><span class="comment">//capability3DS 必须添加，在大陆 capabilityEMV 也必须添加，否则 didAuthorizePayment 方法不会调用</span></span><br><span class="line">request.merchantCapabilities = [.capability3DS, .capabilityEMV, .capabilityCredit, .capabilityDebit]</span><br><span class="line"></span><br><span class="line"><span class="comment">//快递</span></span><br><span class="line"><span class="keyword">let</span> ship1 = <span class="type">PKShippingMethod</span>(label: <span class="string">"顺丰"</span>, amount: .<span class="keyword">init</span>(value: <span class="number">10</span>))</span><br><span class="line">ship1.detail = <span class="string">"24小时送达"</span></span><br><span class="line">ship1.identifier = <span class="string">"shunfeng"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ship2 = <span class="type">PKShippingMethod</span>(label: <span class="string">"韵达"</span>, amount: .<span class="keyword">init</span>(value: <span class="number">15</span>))</span><br><span class="line">ship2.detail = <span class="string">"隔天送达"</span></span><br><span class="line">ship2.identifier = <span class="string">"yunda"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//快递列表</span></span><br><span class="line">request.shippingMethods = [ship1, ship2]</span><br><span class="line"></span><br><span class="line"><span class="comment">//送货方式</span></span><br><span class="line">request.shippingType = .shipping</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//商品列表</span></span><br><span class="line"><span class="keyword">let</span> firstGoods = <span class="type">PKPaymentSummaryItem</span>(label: <span class="string">"火锅"</span>, amount: .<span class="keyword">init</span>(value: <span class="number">0.00</span>))</span><br><span class="line"><span class="keyword">let</span> secondGoods = <span class="type">PKPaymentSummaryItem</span>(label: <span class="string">"青菜"</span>, amount: .<span class="keyword">init</span>(value: <span class="number">0.00</span>))</span><br><span class="line"></span><br><span class="line">paymentList = [firstGoods, secondGoods]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> list = showSummaryItems(with: ship1)</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加商品列表，最后一个是总计</span></span><br><span class="line">request.paymentSummaryItems = list</span><br><span class="line"></span><br><span class="line"><span class="comment">//商品附加信息，会被传到生成的 PKPaymentToken 中，可用于平台的校验</span></span><br><span class="line">request.applicationData = <span class="string">"goodsId=123456"</span>.data(using: .utf8)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> payment = <span class="type">PKPaymentAuthorizationController</span>(paymentRequest: request)</span><br><span class="line">payment.delegate = <span class="keyword">self</span></span><br><span class="line">payment.present(completion: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<p>[TOC]</p><h3 id="2.4">4、回调处理</h3><p></p>
+<h3 id="2.4">4、回调处理</h3>
+
 <h6 id="4.1">4.1 完成回调（取消支付、支付完成、失败都会调用）</h6>
 
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">paymentAuthorizationControllerDidFinish</span><span class="params">(<span class="number">_</span> controller: PKPaymentAuthorizationController)</span></span> &#123;</span><br><span class="line">	<span class="comment">//隐藏支付页面</span></span><br><span class="line">    controller.dismiss(completion: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -542,15 +566,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Cocoapods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,6 +586,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">KVC</a>
               </li>
              
@@ -570,15 +598,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串搜索</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,6 +634,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -618,15 +650,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,10 +674,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
@@ -658,11 +682,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,6 +698,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">系统版本控制</a>
               </li>
              
@@ -682,19 +710,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
+                <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

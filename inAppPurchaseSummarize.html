@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://www.shenhongbang.cc/inAppPurchaseSummarize/002.png">
 <meta property="og:image" content="https://www.shenhongbang.cc/inAppPurchaseSummarize/001.png">
-<meta property="og:updated_time" content="2019-12-09T06:23:17.212Z">
+<meta property="og:updated_time" content="2019-12-09T06:27:05.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS内购小结">
 <meta name="twitter:description" content="前段时间我们的app上架被拒了，原因是我们有类似开通会员的操作，这个是付费的，之前用的是支付宝、微信支付，一直都可以正常上架，这次被拒了，原因大家都知道–虚拟商品必须用内购 – In-App Purchase（IAP）。虽然苹果大大要抽成30%，但不做这个上不了架就更不好了不是。">
@@ -204,6 +204,7 @@ var _hmt = _hmt || [];
 <p>之所以这样设计，是为了方便跟自己服务器的校验，如果没有自己的服务器或者不需要再跟自己的服务器交换信息，那直接调用结束交易的方法就好；如果需要在自己的服务器上记录这次交易，那在服务器返回成功后再结束这次交易，返回失败则相当于<strong>漏单</strong>了，不能结束交易，这样在下次启动 app 的时候，就可以走漏单流程了。</p>
 <p><br></p>
 <p>最后是漏单的处理了，我把它跟库的初始化放到了一起，也是怕这块的处理遗漏了。在这里，跟购买成功后的回调处理基本上一致的，校验成功之后需要手动结束本次交易。</p>
+<p>Demo 及相关的代码逻辑都<a href="https://github.com/jiutianhuanpei/HBIAPManager" target="_blank" rel="noopener">在这</a>，欢迎大家指正。</p>
 
       
 
@@ -500,11 +501,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,19 +521,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,31 +545,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+                <a href="javascript:void(0)" class="js-tag color2">base64</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">FMDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,7 +569,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">FMDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,23 +609,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">base64</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拼音</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,15 +633,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:description" content="如果你能see到这个教程，说明你已经了解了一些hexo的资料……不了解也没啥，这是个教程，你可以照着来一遍，just this……">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://www.shenhongbang.cc/tongguoHexozaiGithubshangdajianbokeforMac/001.jpg">
-<meta property="og:updated_time" content="2019-06-19T02:21:28.016Z">
+<meta property="og:updated_time" content="2020-02-04T02:29:24.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过Hexo在Github上搭建博客 for Mac">
 <meta name="twitter:description" content="如果你能see到这个教程，说明你已经了解了一些hexo的资料……不了解也没啥，这是个教程，你可以照着来一遍，just this……">
@@ -200,8 +200,12 @@ var _hmt = _hmt || [];
 <h4 id="4、测试"><a href="#4、测试" class="headerlink" title="4、测试"></a>4、测试</h4><p>命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>服务启动后，在浏览器中输入<a href="https://localhost:4000" target="_blank" rel="noopener">https://localhost:4000</a>即可访问。</p>
-<h4 id="5、安装-hexo-deployer-git-自动部署发布工具"><a href="#5、安装-hexo-deployer-git-自动部署发布工具" class="headerlink" title="5、安装 hexo-deployer-git 自动部署发布工具"></a>5、安装 <em>hexo-deployer-git</em> 自动部署发布工具</h4><p>命令</p>
+<h4 id="5、安装插件"><a href="#5、安装插件" class="headerlink" title="5、安装插件"></a>5、安装插件</h4><p>自动部署发布插件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>引用本地图片资源插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
 <h4 id="6、发布"><a href="#6、发布" class="headerlink" title="6、发布"></a>6、发布</h4><p>测试过后，我们就可以把生成的静态网页发布到我们的Github Pages中。</p>
 <p>命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
@@ -344,7 +348,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Node-js-安装"><span class="toc-number">1.</span> <span class="toc-text">一、Node.js 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Hexo安装与设置"><span class="toc-number">2.</span> <span class="toc-text">二、Hexo安装与设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、配置github"><span class="toc-number">3.</span> <span class="toc-text">三、配置github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、编写、发布文章"><span class="toc-number">4.</span> <span class="toc-text">四、编写、发布文章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、创建博客"><span class="toc-number">4.1.</span> <span class="toc-text">1、创建博客</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、更改配置"><span class="toc-number">4.2.</span> <span class="toc-text">2、更改配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主题安装"><span class="toc-number">4.2.1.</span> <span class="toc-text">主题安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基础配置"><span class="toc-number">4.2.2.</span> <span class="toc-text">基础配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#主题配置"><span class="toc-number">4.2.3.</span> <span class="toc-text">主题配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、写文章"><span class="toc-number">4.3.</span> <span class="toc-text">3、写文章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、测试"><span class="toc-number">4.4.</span> <span class="toc-text">4、测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、安装-hexo-deployer-git-自动部署发布工具"><span class="toc-number">4.5.</span> <span class="toc-text">5、安装 hexo-deployer-git 自动部署发布工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、发布"><span class="toc-number">4.6.</span> <span class="toc-text">6、发布</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、Node-js-安装"><span class="toc-number">1.</span> <span class="toc-text">一、Node.js 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Hexo安装与设置"><span class="toc-number">2.</span> <span class="toc-text">二、Hexo安装与设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、配置github"><span class="toc-number">3.</span> <span class="toc-text">三、配置github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、编写、发布文章"><span class="toc-number">4.</span> <span class="toc-text">四、编写、发布文章</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、创建博客"><span class="toc-number">4.1.</span> <span class="toc-text">1、创建博客</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、更改配置"><span class="toc-number">4.2.</span> <span class="toc-text">2、更改配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主题安装"><span class="toc-number">4.2.1.</span> <span class="toc-text">主题安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基础配置"><span class="toc-number">4.2.2.</span> <span class="toc-text">基础配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#主题配置"><span class="toc-number">4.2.3.</span> <span class="toc-text">主题配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、写文章"><span class="toc-number">4.3.</span> <span class="toc-text">3、写文章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、测试"><span class="toc-number">4.4.</span> <span class="toc-text">4、测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、安装插件"><span class="toc-number">4.5.</span> <span class="toc-text">5、安装插件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、发布"><span class="toc-number">4.6.</span> <span class="toc-text">6、发布</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -387,7 +391,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 沈红榜
+    		&copy; 2020 沈红榜
     	</div>
       	
     </div>
@@ -509,15 +513,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">KVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">valueForKeyPath</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,10 +561,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -573,15 +573,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gem</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,14 +606,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gem</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,6 +625,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">系统版本控制</a>
               </li>
              
@@ -629,19 +637,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">

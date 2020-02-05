@@ -17,8 +17,9 @@
 <meta property="og:description" content="一、配置环境 二、代码开发 2.1. 权限判断 2.2. 跳转钱包 2.3. 唤起 ApplePay 支付页面 2.4. 回调处理 4.1 完成回调 4.2 认证回调 4.3 切换送货方式回调">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration.htm/001.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration.htm/001.jpg">
 <meta property="og:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration.htm/002.png">
-<meta property="og:updated_time" content="2019-12-09T07:16:08.000Z">
+<meta property="og:updated_time" content="2020-02-05T06:36:14.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ApplePay初探">
 <meta name="twitter:description" content="一、配置环境 二、代码开发 2.1. 权限判断 2.2. 跳转钱包 2.3. 唤起 ApplePay 支付页面 2.4. 回调处理 4.1 完成回调 4.2 认证回调 4.3 切换送货方式回调">
@@ -255,6 +256,7 @@ var _hmt = _hmt || [];
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">paymentAuthorizationController</span><span class="params">(<span class="number">_</span> controller: PKPaymentAuthorizationController, didSelectShippingMethod shippingMethod: PKShippingMethod, handler completion: @escaping <span class="params">(PKPaymentRequestShippingMethodUpdate)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> update = <span class="type">PKPaymentRequestShippingMethodUpdate</span>(paymentSummaryItems: showSummaryItems(with: shippingMethod))</span><br><span class="line">    completion(update)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br><br></p>
 <p>当然，上面的这些仅仅是 ApplePay 支付的一部分，整体的流程应该是这样的：</p>
+<p><img src="/ApplePayFirstExploration.htm/001.jpg" alt=""></p>
 <p><img src="/ApplePayFirstExploration.htm/001.jpg" alt=""></p>
 <p><br></p>
 <p>在认证回调里，拿到 PaymentToken 之后，需要服务端根据解析的订单信息从支付供应商那里扣款，并取得扣款结果，这个过程就是 demo 里的延时的过程。之后再根据扣款的结果处理下客户端的显示支付结果，就是那个 block 回调。</p>
@@ -560,6 +562,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
               </li>
              
@@ -568,15 +574,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,14 +598,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
@@ -604,23 +606,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gRPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">base64</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,7 +634,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">base64</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,11 +650,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,10 +671,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">

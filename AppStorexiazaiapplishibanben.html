@@ -16,18 +16,18 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="为了研究别人家的app，或者别的原因，有时候要下载app的历史版本，但是App Store只能下载最新版本，所以才有本篇记录😂">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben/001.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben/002.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben/003.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben/004.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben/005.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben/006.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben/007.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben.htm/001.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben.htm/002.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben.htm/003.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben.htm/004.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben.htm/005.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben.htm/006.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben.htm/007.jpg">
 <meta property="og:updated_time" content="2019-06-19T02:35:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="App Store 下载app历史版本">
 <meta name="twitter:description" content="为了研究别人家的app，或者别的原因，有时候要下载app的历史版本，但是App Store只能下载最新版本，所以才有本篇记录😂">
-<meta name="twitter:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben/001.jpg">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/AppStorexiazaiapplishibanben.htm/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -193,22 +193,22 @@ var _hmt = _hmt || [];
 
 <p>本文以 【追书神器】为例。</p>
 <p><strong>一、</strong> 打开Charles，安装证书，以便可以拦截、解析https请求。如下图所示：</p>
-<p><img src="/AppStorexiazaiapplishibanben/001.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farp6c8eunj31kw0jjqdb.jpg)--></p>
+<p><img src="/AppStorexiazaiapplishibanben.htm/001.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farp6c8eunj31kw0jjqdb.jpg)--></p>
 <p>然后要设置这个证书为信任</p>
-<p><img src="/AppStorexiazaiapplishibanben/002.jpg" alt=""><br><!--![](http://ww1.sinaimg.cn/large/006y8lVagw1farp7rhomqj30vs07e0wj.jpg)--></p>
+<p><img src="/AppStorexiazaiapplishibanben.htm/002.jpg" alt=""><br><!--![](http://ww1.sinaimg.cn/large/006y8lVagw1farp7rhomqj30vs07e0wj.jpg)--></p>
 <p><strong>二、</strong> 打开 iTunes ，在AppStore里搜索追书神器，点击获取。这个时候Charles会有一大堆请求，其中p6-buy就是iTunes的下载接口。</p>
-<p><img src="/AppStorexiazaiapplishibanben/003.jpg" alt=""><br><!--![](http://ww2.sinaimg.cn/large/006y8lVagw1farpi7x5vzj313i0lg120.jpg)--></p>
+<p><img src="/AppStorexiazaiapplishibanben.htm/003.jpg" alt=""><br><!--![](http://ww2.sinaimg.cn/large/006y8lVagw1farpi7x5vzj313i0lg120.jpg)--></p>
 <p>可以看到这个解析都是一堆乱码，需要打开ssl代理拦截该请求。</p>
 <p><strong>三、</strong> Charles添加ssl代理 先不添加断点，这一步要获取app的历史版本</p>
-<p><img src="/AppStorexiazaiapplishibanben/004.jpg" alt=""><br><!--![](http://ww4.sinaimg.cn/large/006y8lVagw1farpp2g1caj30nm0xggty.jpg)--></p>
+<p><img src="/AppStorexiazaiapplishibanben.htm/004.jpg" alt=""><br><!--![](http://ww4.sinaimg.cn/large/006y8lVagw1farpp2g1caj30nm0xggty.jpg)--></p>
 <p><strong>四、</strong> 打开iTunes，删除已下载的app，再重新下载；下载成功后打开Charles，展开下载接口，获取app历史版本ID。比如，我要下载追书神器的2.25.1版本，其对应ID是817743478。</p>
-<p><img src="/AppStorexiazaiapplishibanben/005.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farpxtai2jj31f2118wuj.jpg)--></p>
+<p><img src="/AppStorexiazaiapplishibanben.htm/005.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farpxtai2jj31f2118wuj.jpg)--></p>
 <p><strong>五、</strong> 在下载接口添加断点，再删除iTunes里下载好的app🤓，重新再次下载app😁</p>
 <p>Charles会跳出断点，点击 <code>XML Text</code> 解析请求，把要下载的版本ID修改为你要下载的版本号。</p>
-<p><img src="/AppStorexiazaiapplishibanben/006.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farq9nxtamj313y19un9x.jpg)--></p>
+<p><img src="/AppStorexiazaiapplishibanben.htm/006.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farq9nxtamj313y19un9x.jpg)--></p>
 <p>点击Execute执行这个请求，还会来断点2次，一直点Execute就行，直到app下载完成。</p>
 <p><strong>六、</strong> 到这一步已经成功了，打开iTunes资料库，显示app的资料，已经是2.25.1版本了，大功告成👌</p>
-<p><img src="/AppStorexiazaiapplishibanben/007.jpg" alt=""><br><!--![](http://ww1.sinaimg.cn/large/006y8lVagw1farqhjms2jj316c0yggrk.jpg)--></p>
+<p><img src="/AppStorexiazaiapplishibanben.htm/007.jpg" alt=""><br><!--![](http://ww1.sinaimg.cn/large/006y8lVagw1farqhjms2jj316c0yggrk.jpg)--></p>
 <p>然后，ipa文件已经有了，安装到你的手机上就行了。</p>
 <p><br><br>Over!😃</p>
 
@@ -508,15 +508,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
+                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Cocoapods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,6 +521,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">framework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,6 +544,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
@@ -552,15 +556,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gRPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,10 +580,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -596,15 +592,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,15 +620,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,7 +644,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,15 +656,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

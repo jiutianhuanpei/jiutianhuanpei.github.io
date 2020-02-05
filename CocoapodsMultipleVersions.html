@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="由于公司项目比较老，所以依赖的 cocoapods 也有版本要求，如果升级的新的版本可能会引发各种问题。 而自己呢，平时会写一些小工具什么的上传到 cocoapods ，这个又要求 cocoapods-trunk 是最新的，所以每次都要先升级 cocoapods，上传完自己的库之后再把 cocoapods 降级。真的是太麻烦了，一直想找个pod多版本共存的解决方案，但大都是通过多gem版本来做的，">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions/001.png">
-<meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions/002.png">
-<meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions/003.png">
-<meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions/004.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions.htm/001.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions.htm/002.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions.htm/003.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions.htm/004.png">
 <meta property="og:updated_time" content="2019-11-12T07:24:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocoapods多版本共存使用">
 <meta name="twitter:description" content="由于公司项目比较老，所以依赖的 cocoapods 也有版本要求，如果升级的新的版本可能会引发各种问题。 而自己呢，平时会写一些小工具什么的上传到 cocoapods ，这个又要求 cocoapods-trunk 是最新的，所以每次都要先升级 cocoapods，上传完自己的库之后再把 cocoapods 降级。真的是太麻烦了，一直想找个pod多版本共存的解决方案，但大都是通过多gem版本来做的，">
-<meta name="twitter:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions/001.png">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/CocoapodsMultipleVersions.htm/001.png">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -187,10 +187,10 @@ var _hmt = _hmt || [];
 
 <p><br></p>
 <p>用命令 <code>gem list --local | grep cocoapods</code> 还查询已安装的<br>Cocoapods。</p>
-<p><img src="/CocoapodsMultipleVersions/001.png" alt=""></p>
+<p><img src="/CocoapodsMultipleVersions.htm/001.png" alt=""></p>
 <p><br></p>
 <p>再安装另一个版本</p>
-<p><img src="/CocoapodsMultipleVersions/002.png" alt=""></p>
+<p><img src="/CocoapodsMultipleVersions.htm/002.png" alt=""></p>
 <p>这样就说明同时安装了两个版本 <code>1.5.3</code> 及 <code>1.8.4</code>。</p>
 <p>检查一下 Cococapods 版本 <code>pod --version</code>，不出意外，是 <code>1.8.4</code>，更新的那个是默认版本</p>
 <p><br></p>
@@ -199,14 +199,14 @@ var _hmt = _hmt || [];
 <p><code>pod _version</code></p>
 <p>如 <code>pod _1.5.3_ --version</code></p>
 </blockquote>
-<p><img src="/CocoapodsMultipleVersions/003.png" alt=""></p>
+<p><img src="/CocoapodsMultipleVersions.htm/003.png" alt=""></p>
 <p><br></p>
 <p>这样写有点麻烦，所以可以再配置一下</p>
 <p>在 <code>.zshrc</code> 文件里添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias wpod=&quot;pod _1.5.3_&quot;</span><br></pre></td></tr></table></figure>
 <p>运行 <code>source .zshrc</code></p>
 <p>然后就可以这样玩了：</p>
-<p><img src="/CocoapodsMultipleVersions/004.png" alt=""></p>
+<p><img src="/CocoapodsMultipleVersions.htm/004.png" alt=""></p>
 
       
 
@@ -504,15 +504,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
+                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Cocoapods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">App Store</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,6 +517,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">framework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,6 +540,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
@@ -548,15 +552,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gRPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,10 +576,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -592,15 +588,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,15 +616,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -640,7 +640,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,15 +652,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

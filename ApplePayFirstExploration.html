@@ -16,14 +16,13 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="一、配置环境 二、代码开发 2.1. 权限判断 2.2. 跳转钱包 2.3. 唤起 ApplePay 支付页面 2.4. 回调处理 4.1 完成回调 4.2 认证回调 4.3 切换送货方式回调">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration.htm/001.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration.htm/001.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration.htm/002.png">
-<meta property="og:updated_time" content="2020-02-05T06:36:14.957Z">
+<meta property="og:image" content="https://www.shenhongbang.cc/001.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/002.png">
+<meta property="og:updated_time" content="2020-02-05T06:39:18.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ApplePay初探">
 <meta name="twitter:description" content="一、配置环境 二、代码开发 2.1. 权限判断 2.2. 跳转钱包 2.3. 唤起 ApplePay 支付页面 2.4. 回调处理 4.1 完成回调 4.2 认证回调 4.3 切换送货方式回调">
-<meta name="twitter:image" content="https://www.shenhongbang.cc/ApplePayFirstExploration.htm/001.jpg">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -256,12 +255,11 @@ var _hmt = _hmt || [];
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">paymentAuthorizationController</span><span class="params">(<span class="number">_</span> controller: PKPaymentAuthorizationController, didSelectShippingMethod shippingMethod: PKShippingMethod, handler completion: @escaping <span class="params">(PKPaymentRequestShippingMethodUpdate)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> update = <span class="type">PKPaymentRequestShippingMethodUpdate</span>(paymentSummaryItems: showSummaryItems(with: shippingMethod))</span><br><span class="line">    completion(update)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br><br></p>
 <p>当然，上面的这些仅仅是 ApplePay 支付的一部分，整体的流程应该是这样的：</p>
-<p><img src="/ApplePayFirstExploration.htm/001.jpg" alt=""></p>
-<p><img src="/ApplePayFirstExploration.htm/001.jpg" alt=""></p>
+<p><img src="//www.shenhongbang.cc/001.jpg" alt=""></p>
 <p><br></p>
 <p>在认证回调里，拿到 PaymentToken 之后，需要服务端根据解析的订单信息从支付供应商那里扣款，并取得扣款结果，这个过程就是 demo 里的延时的过程。之后再根据扣款的结果处理下客户端的显示支付结果，就是那个 block 回调。</p>
 <p>这个过程可以用不同的三方sdk来处理，可以在官网找到<a href="https://developer.apple.com/apple-pay/payment-platforms/" target="_blank" rel="noopener">这些内容</a>，根据他们的文档对接就好：</p>
-<p><img src="/ApplePayFirstExploration.htm/002.png" alt=""></p>
+<p><img src="//www.shenhongbang.cc/002.png" alt=""></p>
 <p><br></p>
 <p>本文所有代码及工具方法在<a href="https://github.com/jiutianhuanpei/ApplePay" target="_blank" rel="noopener">这里</a>，欢迎 Star。</p>
 <p>官方Demo在<a href="https://applepaydemo.apple.com" target="_blank" rel="noopener">这里</a>。</p>
@@ -586,15 +584,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">KVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">valueForKeyPath</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,7 +616,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">base64</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,27 +652,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">base64</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,6 +672,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
@@ -682,11 +684,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,7 +696,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,15 +712,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wifi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

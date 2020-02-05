@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="前段时间我们的app上架被拒了，原因是我们有类似开通会员的操作，这个是付费的，之前用的是支付宝、微信支付，一直都可以正常上架，这次被拒了，原因大家都知道–虚拟商品必须用内购 – In-App Purchase（IAP）。虽然苹果大大要抽成30%，但不做这个上不了架就更不好了不是。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.shenhongbang.cc/inAppPurchaseSummarize.htm/002.png">
-<meta property="og:image" content="https://www.shenhongbang.cc/inAppPurchaseSummarize.htm/001.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/002.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/001.png">
 <meta property="og:updated_time" content="2019-12-09T06:27:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS内购小结">
 <meta name="twitter:description" content="前段时间我们的app上架被拒了，原因是我们有类似开通会员的操作，这个是付费的，之前用的是支付宝、微信支付，一直都可以正常上架，这次被拒了，原因大家都知道–虚拟商品必须用内购 – In-App Purchase（IAP）。虽然苹果大大要抽成30%，但不做这个上不了架就更不好了不是。">
-<meta name="twitter:image" content="https://www.shenhongbang.cc/inAppPurchaseSummarize.htm/002.png">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/002.png">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -182,11 +182,11 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <p>IAP 跟 ApplePay 相比就简单许多了，起码 IAP 不需要配置证书这些，<code>In-App Purchase</code> 功能在证书里是默认打开的，所以我们只需要在工程配置 <code>Signing &amp; Capabilitese</code> 里添加一个 <code>In-App Purchase</code> 功能项，就可以打开内购功能了。</p>
 <p>唯一需要在苹果后台配置的就是内购的商品信息了，这部分不介绍，网上相关内容很多，app端面需要关注的数据不多，唯一要关注的就是产品ID了，这个是要用于商品查询及商品购买的。</p>
-<div align="center"><img src="/inAppPurchaseSummarize.htm/002.png" width="80%" alt="流程"></div>
+<div align="center"><img src="//www.shenhongbang.cc/002.png" width="80%" alt="流程"></div>
 
 <p>可能是我们产品还没有连续续订的商品，所以这一版的内购开发貌似还是比较简单的，我们的流程大抵是这样的：</p>
 <p><br></p>
-<div align="center"><img src="/inAppPurchaseSummarize.htm/001.png" width="80%" alt="流程"></div>
+<div align="center"><img src="//www.shenhongbang.cc/001.png" width="80%" alt="流程"></div>
 
 <p><br></p>
 <p>流程清楚之后，代码还是比较简单的，我结合几个开放的 IAP 相关的库梳理了一下，自己又写了一个<a href="https://github.com/jiutianhuanpei/HBIAPManager" target="_blank" rel="noopener">轮子</a>，欢迎各位给个 Star，可以用 <code>pod &#39;HBIAPManager&#39;</code> 引入工程。虽然有点重复造轮子，但让自己梳理相关的知识点还是比较好了。</p>
@@ -526,15 +526,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">KVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">valueForKeyPath</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,7 +558,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">base64</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,27 +594,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">base64</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,6 +614,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
@@ -622,11 +626,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,7 +638,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -646,15 +654,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wifi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

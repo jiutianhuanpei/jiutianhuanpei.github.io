@@ -15,15 +15,15 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="XMPPFramework是一个OS X/iOS平台的开源项目，使用Objective-C实现了XMPP协议（RFC-3920），同时还提供了用于读写XML的工具，大大简化了基于XMPP的通信应用的开发。 1.登录和好友上下线">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.shenhongbang.cc/XMPPFrameworkjianjie.htm/001.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/XMPPFrameworkjianjie.htm/002.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/XMPPFrameworkjianjie.htm/003.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/XMPPFrameworkjianjie.htm/004.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/001.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/002.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/003.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/004.jpg">
 <meta property="og:updated_time" content="2019-06-19T03:03:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XMPPFramework 简介">
 <meta name="twitter:description" content="XMPPFramework是一个OS X/iOS平台的开源项目，使用Objective-C实现了XMPP协议（RFC-3920），同时还提供了用于读写XML的工具，大大简化了基于XMPP的通信应用的开发。 1.登录和好友上下线">
-<meta name="twitter:image" content="https://www.shenhongbang.cc/XMPPFrameworkjianjie.htm/001.jpg">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -206,7 +206,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence</span><br></pre></td></tr></table></figure>
 <p>方法，当接收到 presence 标签的内容时，XMPPFramework 框架回调该方法 </p>
 <p>一个 presence 标签的格式一般如下：</p>
-<p><img src="/XMPPFrameworkjianjie.htm/001.jpg" alt=""><br><!--![](http://cc.cocimg.com/api/uploads/20141219/1418958627396229.jpg)
+<p><img src="//www.shenhongbang.cc/001.jpg" alt=""><br><!--![](http://cc.cocimg.com/api/uploads/20141219/1418958627396229.jpg)
 --></p>
 <p>presence 的状态：</p>
 <ul>
@@ -223,7 +223,7 @@ var _hmt = _hmt || [];
 <p>根据 XMPP 协议，消息体的内容存储在标签 body 内</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message &#123;</span><br><span class="line">    NSString *messageBody = [[message elementForName:@&quot;body&quot;] stringValue];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="2-2发送消息"><a href="#2-2发送消息" class="headerlink" title="2.2发送消息"></a>2.2发送消息</h3><p>发送消息，我们需要根据 XMPP 协议，将数据放到标签内，例如：</p>
-<p><img src="/XMPPFrameworkjianjie.htm/002.jpg" alt=""><br><!--![](http://cc.cocimg.com/api/uploads/20141219/1418958664407060.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/002.jpg" alt=""><br><!--![](http://cc.cocimg.com/api/uploads/20141219/1418958664407060.jpg)--></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (void)sendMessage:(NSString *) message toUser:(NSString *) user &#123;</span><br><span class="line">    NSXMLElement *body = [NSXMLElement elementWithName:@&quot;body&quot;];</span><br><span class="line">    [body setStringValue:message];</span><br><span class="line">    NSXMLElement *message = [NSXMLElement elementWithName:@&quot;message&quot;];</span><br><span class="line">    [message addAttributeWithName:@&quot;type&quot; stringValue:@&quot;chat&quot;];</span><br><span class="line">    NSString *to = [NSString stringWithFormat:@&quot;%@@example.com&quot;, user];</span><br><span class="line">    [message addAttributeWithName:@&quot;to&quot; stringValue:to];</span><br><span class="line">    [message addChild:body];</span><br><span class="line">    [self.xmppStream sendElement:message];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="3-获取好友信息和删除好友"><a href="#3-获取好友信息和删除好友" class="headerlink" title="3.获取好友信息和删除好友"></a>3.获取好友信息和删除好友</h2><h3 id="3-1好友列表和好友名片"><a href="#3-1好友列表和好友名片" class="headerlink" title="3.1好友列表和好友名片"></a>3.1好友列表和好友名片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[_xmppRoster fetchRoster];//获取好友列表</span><br><span class="line">//获取到一个好友节点</span><br><span class="line">- (void)xmppRoster:(XMPPRoster *)sender didRecieveRosterItem:(NSXMLElement *)item</span><br><span class="line">//获取完好友列表</span><br><span class="line">- (void)xmppRosterDidEndPopulating:(XMPPRoster *)sender</span><br><span class="line">//到服务器上请求联系人名片信息</span><br><span class="line">- (void)fetchvCardTempForJID:(XMPPJID *)jid;</span><br><span class="line">//请求联系人的名片，如果数据库有就不请求，没有就发送名片请求</span><br><span class="line">- (void)fetchvCardTempForJID:(XMPPJID *)jid ignoreStorage:(BOOL)ignoreStorage;</span><br><span class="line">//获取联系人的名片，如果数据库有就返回，没有返回空，并到服务器上抓取</span><br><span class="line">- (XMPPvCardTemp *)vCardTempForJID:(XMPPJID *)jid shouldFetch:(BOOL)shouldFetch;</span><br><span class="line">//更新自己的名片信息</span><br><span class="line">- (void)updateMyvCardTemp:(XMPPvCardTemp *)vCardTemp;</span><br><span class="line">//获取到一盒联系人的名片信息的回调</span><br><span class="line">- (void)xmppvCardTempModule:(XMPPvCardTempModule *)vCardTempModule </span><br><span class="line">        didReceivevCardTemp:(XMPPvCardTemp *)vCardTemp </span><br><span class="line">                     forJID:(XMPPJID *)jid</span><br></pre></td></tr></table></figure>
 <h3 id="3-2添加好友"><a href="#3-2添加好友" class="headerlink" title="3.2添加好友"></a>3.2添加好友</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//name为用户账号</span><br><span class="line">- (void)XMPPAddFriendSubscribe:(NSString *)name</span><br><span class="line">&#123;</span><br><span class="line">    //XMPPHOST 就是服务器名，  主机名</span><br><span class="line">    XMPPJID *jid = [XMPPJID jidWithString:[NSString stringWithFormat:@&quot;%@@%@&quot;,name,XMPPHOST]];</span><br><span class="line">    //[presence addAttributeWithName:@&quot;subscription&quot; stringValue:@&quot;好友&quot;];</span><br><span class="line">    [xmppRoster subscribePresenceToUser:jid];</span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -254,11 +254,11 @@ var _hmt = _hmt || [];
 <h2 id="5-消息回执"><a href="#5-消息回执" class="headerlink" title="5.消息回执"></a>5.消息回执</h2><p>这个是XEP－0184协议的内容</p>
 <p>协议内容：</p>
 <p>发送消息时附加回执请求</p>
-<p><img src="/XMPPFrameworkjianjie.htm/003.jpg" alt=""><br><!--![](http://cc.cocimg.com/api/uploads/20141219/1418958696827457.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/003.jpg" alt=""><br><!--![](http://cc.cocimg.com/api/uploads/20141219/1418958696827457.jpg)--></p>
 <p>代码实现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSString *siID = [XMPPStream generateUUID];</span><br><span class="line">//发送消息</span><br><span class="line">XMPPMessage *message = [XMPPMessage messageWithType:@&quot;chat&quot; to:jid elementID:siID];</span><br><span class="line">NSXMLElement *receipt = [NSXMLElement elementWithName:@&quot;request&quot; xmlns:@&quot;urn:xmpp:receipts&quot;];</span><br><span class="line">[message addChild:receipt];</span><br><span class="line">[message addBody:@&quot;测试&quot;];</span><br><span class="line">[self.xmppStream sendElement:message];</span><br></pre></td></tr></table></figure>
 <p>收到回执请求的消息，发送回执</p>
-<p><img src="/XMPPFrameworkjianjie.htm/004.jpg" alt=""><br><!--![](http://cc.cocimg.com/api/uploads/20141219/1418958709110093.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/004.jpg" alt=""><br><!--![](http://cc.cocimg.com/api/uploads/20141219/1418958709110093.jpg)--></p>
 <p>代码实现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message</span><br><span class="line">&#123;</span><br><span class="line">    //回执判断</span><br><span class="line">    NSXMLElement *request = [message elementForName:@&quot;request&quot;];</span><br><span class="line">    if (request)</span><br><span class="line">    &#123;</span><br><span class="line">        if ([request.xmlns isEqualToString:@&quot;urn:xmpp:receipts&quot;])//消息回执</span><br><span class="line">        &#123;</span><br><span class="line">            //组装消息回执</span><br><span class="line">            XMPPMessage *msg = [XMPPMessage messageWithType:[message attributeStringValueForName:@&quot;type&quot;] to:message.from elementID:[message attributeStringValueForName:@&quot;id&quot;]];</span><br><span class="line">            NSXMLElement *recieved = [NSXMLElement elementWithName:@&quot;received&quot; xmlns:@&quot;urn:xmpp:receipts&quot;];</span><br><span class="line">            [msg addChild:recieved];</span><br><span class="line">              </span><br><span class="line">            //发送回执</span><br><span class="line">            [self.xmppStream sendElement:msg];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else</span><br><span class="line">    &#123;</span><br><span class="line">        NSXMLElement *received = [message elementForName:@&quot;received&quot;];</span><br><span class="line">        if (received)</span><br><span class="line">        &#123;</span><br><span class="line">            if ([received.xmlns isEqualToString:@&quot;urn:xmpp:receipts&quot;])//消息回执</span><br><span class="line">            &#123;</span><br><span class="line">                //发送成功</span><br><span class="line">                NSLog(@&quot;message send success!&quot;);</span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">    //消息处理  </span><br><span class="line">    //...  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="6-添加AutoPing"><a href="#6-添加AutoPing" class="headerlink" title="6.添加AutoPing"></a>6.添加AutoPing</h2><p>为了监听服务器是否有效，增加心跳监听。用XEP-0199协议，在XMPPFrameWork框架下，封装了 XMPPAutoPing 和 XMPPPing两个类都可以使用，因为XMPPAutoPing已经组合进了XMPPPing类，所以XMPPAutoPing使用起来更方便。</p>
@@ -574,15 +574,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">KVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">valueForKeyPath</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,7 +606,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">base64</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,27 +642,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">base64</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,6 +662,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
@@ -670,11 +674,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,7 +686,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,15 +702,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wifi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

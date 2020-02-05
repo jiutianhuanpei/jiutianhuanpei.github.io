@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="据说 cocoaPods 升级到1.0之后变得使用起来不太方便了，好吧，这段时间公司事儿比较多而且是自己写的sdk就不怎么写demo了，cocoaPods也没用几次…… 前两天朋友说要转战 Carthage 了，在网上搜了些教程还真是不难，但是有一些东西没有写太清楚，我就狗尾续貂再写一篇，也算是备忘">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.shenhongbang.cc/rangzijidexiangmuzhichiCarthage.htm/001.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/rangzijidexiangmuzhichiCarthage.htm/002.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/rangzijidexiangmuzhichiCarthage.htm/003.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/rangzijidexiangmuzhichiCarthage.htm/004.jpg">
-<meta property="og:image" content="https://www.shenhongbang.cc/rangzijidexiangmuzhichiCarthage.htm/005.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/001.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/002.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/003.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/004.jpg">
+<meta property="og:image" content="https://www.shenhongbang.cc/005.jpg">
 <meta property="og:updated_time" content="2019-06-19T02:20:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="让自己的项目支持 Carthage">
 <meta name="twitter:description" content="据说 cocoaPods 升级到1.0之后变得使用起来不太方便了，好吧，这段时间公司事儿比较多而且是自己写的sdk就不怎么写demo了，cocoaPods也没用几次…… 前两天朋友说要转战 Carthage 了，在网上搜了些教程还真是不难，但是有一些东西没有写太清楚，我就狗尾续貂再写一篇，也算是备忘">
-<meta name="twitter:image" content="https://www.shenhongbang.cc/rangzijidexiangmuzhichiCarthage.htm/001.jpg">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/001.jpg">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -187,19 +187,19 @@ var _hmt = _hmt || [];
 <h3 id="一、安装-Carthage。"><a href="#一、安装-Carthage。" class="headerlink" title="一、安装 Carthage。"></a>一、安装 Carthage。</h3><p>这个网上有教程，推荐使用 homebrew 安装，真的不难。</p>
 <h3 id="二、创建工程，就是你要上传的、共享的那个。"><a href="#二、创建工程，就是你要上传的、共享的那个。" class="headerlink" title="二、创建工程，就是你要上传的、共享的那个。"></a>二、创建工程，就是你要上传的、共享的那个。</h3><p>就是一般的创建一个新的工程，把你要上传的功能写好，再简单点说就是，你写个Demo，实现功能，正常编译，可以跑起来就好。</p>
 <h3 id="三、创建一个新的-Target。"><a href="#三、创建一个新的-Target。" class="headerlink" title="三、创建一个新的 Target。"></a>三、创建一个新的 Target。</h3><p>在 Demo 中点击 File–&gt;New–&gt;Target.. 选择下图中的 Cocoa touch Framework， 输入你的Framework名称 ，我就输入 SHBPlayer 喽</p>
-<p><img src="/rangzijidexiangmuzhichiCarthage.htm/001.jpg" alt=""><br><!--![](https://ws1.sinaimg.cn/large/006tNc79ly1fozq45a5haj314k0ss0u3.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/001.jpg" alt=""><br><!--![](https://ws1.sinaimg.cn/large/006tNc79ly1fozq45a5haj314k0ss0u3.jpg)--></p>
 <p>工程里会新建一个以输入名字命名的文件夹， 把里面的.h文件打开，删除自带的代码，引入要暴露的头文件</p>
-<p><img src="/rangzijidexiangmuzhichiCarthage.htm/002.jpg" alt=""><br><!--![](https://ws2.sinaimg.cn/large/006tNc79ly1fozq4glkdwj30rg0feq3u.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/002.jpg" alt=""><br><!--![](https://ws2.sinaimg.cn/large/006tNc79ly1fozq4glkdwj30rg0feq3u.jpg)--></p>
 <p>然后按照这个顺序再配置一下，如下图</p>
-<p><img src="/rangzijidexiangmuzhichiCarthage.htm/003.jpg" alt=""><br><!--![](https://ws3.sinaimg.cn/large/006tNc79ly1fozq4pmjflj31hk0s2dic.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/003.jpg" alt=""><br><!--![](https://ws3.sinaimg.cn/large/006tNc79ly1fozq4pmjflj31hk0s2dic.jpg)--></p>
 <p>再设置一下要分享的framework，点击停止按钮旁边的工程名–&gt;Manage Schemes，如图</p>
-<p><img src="/rangzijidexiangmuzhichiCarthage.htm/004.jpg" alt=""><br><!--![](https://ws3.sinaimg.cn/large/006tNc79ly1fozq55oebej31ak0patae.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/004.jpg" alt=""><br><!--![](https://ws3.sinaimg.cn/large/006tNc79ly1fozq55oebej31ak0patae.jpg)--></p>
 <p>ok， 打开终端神器，输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">carthage build --no-skip-current</span><br></pre></td></tr></table></figure>
 <p>希望是不报错，如果报错了自行度娘，本文不涉及。</p>
 <p>命令运行完成后,你会发现你的项目文件夹里面多了一个Carthage文件夹，Carthage–&gt;Build–&gt;iOS–&gt;SHBPlayer.framework，我们需要的framework就在这了，可以新建一个工程测试一下。</p>
 <p>新建一个工程，把framework拖入工程，再按下面顺序配置一下</p>
-<p><img src="/rangzijidexiangmuzhichiCarthage.htm/005.jpg" alt=""><br><!--![](https://ws4.sinaimg.cn/large/006tNc79ly1fozq5cw9x7j316e106jth.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/005.jpg" alt=""><br><!--![](https://ws4.sinaimg.cn/large/006tNc79ly1fozq5cw9x7j316e106jth.jpg)--></p>
 <p>在工程里测试通过就可以着手上传了！</p>
 <p>还回到我们的framework工程，我习惯用 SourceTree，把工程传到github仓库，这个根据个人习惯了也可以用终端什么的传上就好。</p>
 <p>然后打上 tag，因为 Carthage 就是根据tag来clone的。</p>
@@ -527,15 +527,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">KVC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">valueForKeyPath</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,7 +559,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">base64</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,27 +595,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">base64</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,6 +615,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
@@ -623,11 +627,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,7 +639,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,15 +655,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wifi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

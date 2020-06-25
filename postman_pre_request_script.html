@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="沈红榜的博客">
 <meta property="og:description" content="使用 Postman 进行调试接口是我们常用的方式，但经常参数里会用到时间戳、随机数或者是通过几个参数值进行一系列变形得到的值–比如md5值，本文总结一些我用过的方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-25T07:49:35.227Z">
+<meta property="og:updated_time" content="2020-06-25T07:51:38.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Postman进阶">
 <meta name="twitter:description" content="使用 Postman 进行调试接口是我们常用的方式，但经常参数里会用到时间戳、随机数或者是通过几个参数值进行一系列变形得到的值–比如md5值，本文总结一些我用过的方法。">
@@ -184,8 +184,7 @@ var _hmt = _hmt || [];
 <p>好了，开始本文重点：</p>
 <h4 id="一、取时间戳"><a href="#一、取时间戳" class="headerlink" title="一、取时间戳"></a>一、取时间戳</h4><p><code>var time = Math.round(new Date().getTime());</code>；</p>
 <p>其取值是到如 <code>1593068284598</code> 这个级数。</p>
-<p>####二、随机数</p>
-<p><code>var num = parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);</code>；</p>
+<h4 id="二、随机数"><a href="#二、随机数" class="headerlink" title="二、随机数"></a>二、随机数</h4><p><code>var num = parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);</code>；</p>
 <p>其中 maxNum 是取值的最大值，minNum 是取值的最小值。</p>
 <h4 id="三、md5值"><a href="#三、md5值" class="headerlink" title="三、md5值"></a>三、md5值</h4><p><code>var sign = CryptoJS.MD5(str).toString();</code>；</p>
 <p>str 是需要加密的字符串。</p>
@@ -332,7 +331,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、取时间戳"><span class="toc-number">1.</span> <span class="toc-text">一、取时间戳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、md5值"><span class="toc-number">2.</span> <span class="toc-text">三、md5值</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、取时间戳"><span class="toc-number">1.</span> <span class="toc-text">一、取时间戳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、随机数"><span class="toc-number">2.</span> <span class="toc-text">二、随机数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、md5值"><span class="toc-number">3.</span> <span class="toc-text">三、md5值</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -481,6 +480,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Cocoapods</a>
               </li>
              
@@ -489,15 +492,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,11 +508,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Postman</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装机</a>
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,10 +525,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">字符串搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +537,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">base64</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,27 +568,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">AES加密</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">base64</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,6 +588,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ruby</a>
               </li>
              
@@ -601,7 +600,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">信号量</a>
+                <a href="javascript:void(0)" class="js-tag color1">In-App-Purchase</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,11 +608,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拼音</a>
+                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+                <a href="javascript:void(0)" class="js-tag color3">拼音</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,7 +624,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">视频</a>
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,7 +632,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
+                <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">

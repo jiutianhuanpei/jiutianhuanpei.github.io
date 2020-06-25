@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>SourceTree 许可证书下载地址 | 沈红榜的博客</title>
+  <title>Postman进阶 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="https://my.atlassian.com/products/index?sen=4646570#license_4646570">
+  <meta name="description" content="使用 Postman 进行调试接口是我们常用的方式，但经常参数里会用到时间戳、随机数或者是通过几个参数值进行一系列变形得到的值–比如md5值，本文总结一些我用过的方法。">
+<meta name="keywords" content="Postman">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SourceTree 许可证书下载地址">
-<meta property="og:url" content="https://www.shenhongbang.cc/SourceTreexukezhengshuxiazaidizhi.html">
+<meta property="og:title" content="Postman进阶">
+<meta property="og:url" content="https://www.shenhongbang.cc/postman_pre_request_script.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="https://my.atlassian.com/products/index?sen=4646570#license_4646570">
+<meta property="og:description" content="使用 Postman 进行调试接口是我们常用的方式，但经常参数里会用到时间戳、随机数或者是通过几个参数值进行一系列变形得到的值–比如md5值，本文总结一些我用过的方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-15T14:08:22.000Z">
+<meta property="og:updated_time" content="2020-06-25T07:49:35.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SourceTree 许可证书下载地址">
-<meta name="twitter:description" content="https://my.atlassian.com/products/index?sen=4646570#license_4646570">
+<meta name="twitter:title" content="Postman进阶">
+<meta name="twitter:description" content="使用 Postman 进行调试接口是我们常用的方式，但经常参数里会用到时间戳、随机数或者是通过几个参数值进行一系列变形得到的值–比如md5值，本文总结一些我用过的方法。">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -154,27 +155,40 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SourceTree 许可证书下载地址" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Postman进阶" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SourceTree 许可证书下载地址
+      Postman进阶
     </h1>
   
 
         
-        <a href="/SourceTreexukezhengshuxiazaidizhi.html" class="archive-article-date">
-  	<time datetime="2016-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
+        <a href="/postman_pre_request_script.html" class="archive-article-date">
+  	<time datetime="2020-06-25T07:10:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://my.atlassian.com/products/index?sen=4646570#license_4646570" target="_blank" rel="noopener">https://my.atlassian.com/products/index?sen=4646570#license_4646570</a></p>
+        <p>使用 Postman 进行调试接口是我们常用的方式，但经常参数里会用到时间戳、随机数或者是通过几个参数值进行一系列变形得到的值–比如md5值，本文总结一些我用过的方法。</p>
+<a id="more"></a>
+<p>首先要知道的是，Pre-request Script (后面用 PRS 代替) 是用 js 来实现的，所以可以是里面定义一些变量以及函数调用等。</p>
+<p>然后在 PRS 里定义一个参数 <code>var num = 1000;</code>，并且设置其对外可读 <code>pm.environment.set(&quot;number&quot;, num);</code>；</p>
+<p>对应的，在 Postman 的 body 里如果要用这个值，就需要在 value 里填入 <code></code>，这样就可以在接口请求之前从 PRS 里取到对应的值了。</p>
+<p>另外，调试的时候也支持控制中打印函数 <code>console.log(&quot;a string&quot;);</code>，可以打开 Postman 的控制台来查看打印（mac 版的快捷键是 Option+Command+C，View-&gt;Show Postman Console）。</p>
+<p>好了，开始本文重点：</p>
+<h4 id="一、取时间戳"><a href="#一、取时间戳" class="headerlink" title="一、取时间戳"></a>一、取时间戳</h4><p><code>var time = Math.round(new Date().getTime());</code>；</p>
+<p>其取值是到如 <code>1593068284598</code> 这个级数。</p>
+<p>####二、随机数</p>
+<p><code>var num = parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);</code>；</p>
+<p>其中 maxNum 是取值的最大值，minNum 是取值的最小值。</p>
+<h4 id="三、md5值"><a href="#三、md5值" class="headerlink" title="三、md5值"></a>三、md5值</h4><p><code>var sign = CryptoJS.MD5(str).toString();</code>；</p>
+<p>str 是需要加密的字符串。</p>
 
       
 
@@ -214,6 +228,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Postman</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -264,7 +289,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/SourceTreexukezhengshuxiazaidizhi.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/postman_pre_request_script.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,18 +303,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/naxieyouneirongdewenzhang.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          那些有内容的文章
-        
-      </div>
-    </a>
   
-  
-    <a href="/appleDocshiyong.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">appleDoc 使用</div>
+    <a href="/MacReinstallList.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac重装清单</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -316,7 +332,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、取时间戳"><span class="toc-number">1.</span> <span class="toc-text">一、取时间戳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、md5值"><span class="toc-number">2.</span> <span class="toc-text">三、md5值</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -332,7 +348,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="SourceTree 许可证书下载地址" ></div>
+  <div id="SOHUCS" sid="Postman进阶" ></div>
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

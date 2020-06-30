@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>记 iOS8 下的一个诡异崩溃 | 沈红榜的博客</title>
+  <title>QT网络请求 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="UITableView 应该是项目中绕不开的一个控件了，但最近碰到一个堪称诡异的bug，app只在iOS8下崩溃，而在iOS9、10、11中是正常的，定位崩溃是在 tableView:cellForRowAtIndexPath: 里，简直不能忍啊。">
+  <meta name="description" content="探索一下 QNetworkAccessManager 的使用及封装，目前本人还属于 Qt 刚上手的状态，所以比较初级一些。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记 iOS8 下的一个诡异崩溃">
-<meta property="og:url" content="https://www.shenhongbang.cc/jiiOS8xiadeyigeguiyibengkui.html">
+<meta property="og:title" content="QT网络请求">
+<meta property="og:url" content="https://www.shenhongbang.cc/QTnetrequestfirst.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="UITableView 应该是项目中绕不开的一个控件了，但最近碰到一个堪称诡异的bug，app只在iOS8下崩溃，而在iOS9、10、11中是正常的，定位崩溃是在 tableView:cellForRowAtIndexPath: 里，简直不能忍啊。">
+<meta property="og:description" content="探索一下 QNetworkAccessManager 的使用及封装，目前本人还属于 Qt 刚上手的状态，所以比较初级一些。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.shenhongbang.cc/001.jpg">
-<meta property="og:updated_time" content="2019-06-19T02:13:34.000Z">
+<meta property="og:updated_time" content="2020-06-30T15:45:51.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记 iOS8 下的一个诡异崩溃">
-<meta name="twitter:description" content="UITableView 应该是项目中绕不开的一个控件了，但最近碰到一个堪称诡异的bug，app只在iOS8下崩溃，而在iOS9、10、11中是正常的，定位崩溃是在 tableView:cellForRowAtIndexPath: 里，简直不能忍啊。">
-<meta name="twitter:image" content="https://www.shenhongbang.cc/001.jpg">
+<meta name="twitter:title" content="QT网络请求">
+<meta name="twitter:description" content="探索一下 QNetworkAccessManager 的使用及封装，目前本人还属于 Qt 刚上手的状态，所以比较初级一些。">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -156,43 +154,77 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-记 iOS8 下的一个诡异崩溃" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-QT网络请求" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      记 iOS8 下的一个诡异崩溃
+      QT网络请求
     </h1>
   
 
         
-        <a href="/jiiOS8xiadeyigeguiyibengkui.html" class="archive-article-date">
-  	<time datetime="2018-01-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
+        <a href="/QTnetrequestfirst.html" class="archive-article-date">
+  	<time datetime="2020-06-30T13:46:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>UITableView 应该是项目中绕不开的一个控件了，但最近碰到一个堪称诡异的bug，app只在iOS8下崩溃，而在iOS9、10、11中是正常的，定位崩溃是在 <code>tableView:cellForRowAtIndexPath:</code> 里，简直不能忍啊。</p>
+        <p>探索一下 QNetworkAccessManager 的使用及封装，目前本人还属于 Qt 刚上手的状态，所以比较初级一些。</p>
 <a id="more"></a>
-<p>先看一张崩溃日志：</p>
-<p><img src="//www.shenhongbang.cc/001.jpg" alt=""><br><!--![](https://ws3.sinaimg.cn/large/006tKfTcgy1fnma6m1qa5j31g411gtak.jpg)--></p>
+<h3 id="一、基本使用"><a href="#一、基本使用" class="headerlink" title="一、基本使用"></a>一、基本使用</h3><p>尽量上代码多一些吧，辅以一些解读吧。</p>
+<p>头文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#ifndef HBHTTP_H</span><br><span class="line">#define HBHTTP_H</span><br><span class="line"></span><br><span class="line">#include &lt;QObject&gt;</span><br><span class="line">#include &lt;QNetworkAccessManager&gt;</span><br><span class="line">#include &lt;QMap&gt;</span><br><span class="line">#include &lt;QUrlQuery&gt;</span><br><span class="line"></span><br><span class="line">class HBHttp : public QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">public:</span><br><span class="line">    explicit HBHttp(QObject *parent = nullptr);</span><br><span class="line"></span><br><span class="line">    void Get(QString urlStr, QUrlQuery param);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    QNetworkAccessManager *m_manager;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif // HBHTTP_H</span><br></pre></td></tr></table></figure>
+<p>.m 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;HBHttp.h&quot;</span><br><span class="line">#include &lt;QNetworkRequest&gt;</span><br><span class="line">#include &lt;QNetworkReply&gt;</span><br><span class="line">#include &lt;QUrl&gt;</span><br><span class="line"></span><br><span class="line">HBHttp::HBHttp(QObject *parent) : QObject(parent)</span><br><span class="line">&#123;</span><br><span class="line">    m_manager = new QNetworkAccessManager;</span><br><span class="line"></span><br><span class="line">    connect(m_manager, &amp;QNetworkAccessManager::finished, [=](QNetworkReply *reply) &#123;</span><br><span class="line"></span><br><span class="line">        QString response = reply-&gt;readAll();</span><br><span class="line">        qDebug() &lt;&lt; response;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void HBHttp::Get(QString urlStr, QUrlQuery param)</span><br><span class="line">&#123;</span><br><span class="line">    QUrl url(urlStr);</span><br><span class="line">    url.setQuery(param);</span><br><span class="line"></span><br><span class="line">    QNetworkRequest request(url);</span><br><span class="line"></span><br><span class="line">    m_manager-&gt;get(request);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用也很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m_http = new HBHttp;</span><br><span class="line"></span><br><span class="line">QUrlQuery query;</span><br><span class="line">query.addQueryItem(&quot;stu_name&quot;, &quot;二黑&quot;);</span><br><span class="line">m_http-&gt;Get(&quot;http://api.nnzhp.cn/api/user/stu_info&quot;, query);</span><br></pre></td></tr></table></figure>
+<p>这样就可以获取到数据了；就我在网上找到的资料来看，绝大部分文章都只到这个步骤了，但是，这个并不实用，问题有几个：</p>
+<ul>
+<li><p>一是返回的数据取用问题，虽然可以为 <code>HBHttp</code> 添加一个信号，把数据发送出来，但当有多个接口的时候，并不能很好的区分不同接口返回的数据。</p>
+</li>
+<li><p>二是应用中很难保证所有的网络请求都在同一个线程中，如果是在不同的线程中调用就会报错了，如下：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">m_threadPool = new QThreadPool;</span><br><span class="line"></span><br><span class="line">QtConcurrent::run(m_threadPool, [&amp;] &#123;</span><br><span class="line">	QUrlQuery query;</span><br><span class="line">	query.addQueryItem(&quot;stu_name&quot;, &quot;二黑&quot;);</span><br><span class="line">	m_http-&gt;Get(&quot;http://api.nnzhp.cn/api/user/stu_info&quot;, query);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样就会报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QObject: Cannot create children for a parent that is in a different thread.</span><br><span class="line">(Parent is QNetworkAccessManager(0x7ffbf1d14160), parent&apos;s thread is QThread(0x7ffbf1e027e0), current thread is QThread(0x7ffbf1e6f330)</span><br></pre></td></tr></table></figure>
+<p>所以网上找的那些，只能是让我们熟悉 api 而已，实际应用效用不大。</p>
 <p><br></p>
-<p>就是这样的，app崩溃了，程序猿也很崩溃啊🤣</p>
-<p>有时候也会报这样的一个错误  <code>Terminating app due to uncaught exception &#39;NSInternalInconsistencyException&#39;, reason: &#39;unable to dequeue a cell with identifier UITableViewCell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard&#39;</code></p>
-<p>这样的就非常明显了，就是cell缺少注册，但是其实是注册过了的……这两个问题其实是一样的……</p>
-<p>经过一番爬楼，最后在 <a href="https://juejin.im/entry/57f8a398d203090068a75f5a" target="_blank" rel="noopener">这里</a>找到了引发这个诡异崩溃的原因。</p>
+<h3 id="二、升级使用"><a href="#二、升级使用" class="headerlink" title="二、升级使用"></a>二、升级使用</h3><p>这种方法是类方法，呃，Qt 里是这样称呼吧，反正映射到 iOS 的话，区别于上面的方法，这个可以理解为 <code>HBHttp</code> 的类方法。</p>
+<p>方法定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static QString HBGet(QString urlStr, QUrlQuery param);</span><br></pre></td></tr></table></figure>
+<p>方法实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">QString HBHttp::HBGet(QString urlStr, QUrlQuery param)</span><br><span class="line">&#123;</span><br><span class="line">    QNetworkAccessManager manager;</span><br><span class="line">    QEventLoop loop;</span><br><span class="line">    connect(&amp;manager, &amp;QNetworkAccessManager::finished, &amp;loop, &amp;QEventLoop::quit);</span><br><span class="line"></span><br><span class="line">    QUrl url(urlStr);</span><br><span class="line">    url.setQuery(param);</span><br><span class="line"></span><br><span class="line">    QNetworkRequest request(url);</span><br><span class="line"></span><br><span class="line">    QNetworkReply *reply = manager.get(request);</span><br><span class="line"></span><br><span class="line">    loop.exec();</span><br><span class="line"></span><br><span class="line">    QString response = reply-&gt;readAll();</span><br><span class="line">    return  response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">QUrlQuery query;</span><br><span class="line">query.addQueryItem(&quot;stu_name&quot;, &quot;二黑&quot;);</span><br><span class="line"></span><br><span class="line">QString response = HBHttp::HBGet(&quot;http://api.nnzhp.cn/api/user/stu_info&quot;, query);</span><br><span class="line">qDebug() &lt;&lt; response;</span><br></pre></td></tr></table></figure>
+<p>优点还是很明显的，接口的返回数据直接就返回了，另外还可以再测试一下，在不同的线程里这种方式也是可以正常获取下来数据的。</p>
+<p>但缺点也是有的，可以看到这种方式是同步的、阻塞的，在网速比较好的环境下是看不出来问题的，但是在 <strong>网络环境不好</strong> 或者 <strong>接口返回超时</strong> 的时候，就有问题了，有可能会让 UI 卡住，影响用户体验。</p>
 <p><br></p>
-<p>在初始化 tableView 的时候有三个方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1: _tableView.tableFooterView = [UIView new];</span><br><span class="line">2: _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;</span><br><span class="line">3: [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];</span><br></pre></td></tr></table></figure>
-<p>前面我标记了序号，以序号表明方法，其中方法1 也可以是 <code>_tableView.tableHeaderView = [UIView new];</code></p>
-<p>经测试，只有方法排序为 123 时才会崩溃，213、231、312、321都不会崩，打断点可知，当排序为123时，也就是崩溃排序时，代码走到2后，不会走到3，而是去走  <code>tableView:cellForRowAtIndexPath:</code>  这个方法，这就很明显了，初始化cell之前还没经过注册，肯定崩溃啊😂</p>
-<p>这个应该是系统的问题，只有在编码的时候注意一下了，比如说先注册cell😝</p>
-<p><br></p>
-<p>Over !</p>
+<h3 id="三、再升级使用"><a href="#三、再升级使用" class="headerlink" title="三、再升级使用"></a>三、再升级使用</h3><p>先说结论，这种是我目前水平现在所能找到的最优解了。</p>
+<p>所需要解决的有几个问题：</p>
+<ul>
+<li>跨线程调用</li>
+<li>不能阻塞</li>
+<li>方便对应的获取返回数据</li>
+</ul>
+<p>第三点算是第二点的优化需求吧，因为返回的数据也可以通过信号槽传递出去，但我iOS出身嘛，感觉方便是还是 OC 的 block 或者 Swift 的闭包，所以需要一个类似的实现方式。</p>
+<p>第一个问题，经过查询资料知道，信号与槽，是可以跨线程调用的。所以这次是思路是外部调用方法，在方法内发送一个信号，在接收的槽里进行数据请求，这样应该是可以跨线程调用的。</p>
+<p>第二个问题，不能阻塞，就只能用它本身的信号与槽的方式获取返回数据了，犹如第一块最基本的那种方式。</p>
+<p>第三个问题，lambda 表达式可以解决，它的形式跟 block 很像，用其入参，可以做到一个请求对应一个返回回调，这样就解决了。</p>
+<p>解决方案有了，代码就容易写了。</p>
+<p>头文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//定义回调类型</span><br><span class="line">typedef std::function&lt;void(QString)&gt; callback;</span><br><span class="line"></span><br><span class="line">    void HB_get(QString urlStr, QUrlQuery param, callback func);</span><br><span class="line"></span><br><span class="line">private slots:</span><br><span class="line">    void _HB_get(QString urlStr, QUrlQuery param, callback func);</span><br><span class="line">signals:</span><br><span class="line">    void signal_HB_get(QString urlStr, QUrlQuery param, callback func);</span><br></pre></td></tr></table></figure>
+<p>实现文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//注册类型，用于在 signal/slot 中传递参数</span><br><span class="line">qRegisterMetaType&lt;callback&gt;(&quot;callback&quot;);</span><br><span class="line">qRegisterMetaType&lt;QUrlQuery&gt;(&quot;QUrlQuery&quot;);</span><br><span class="line"></span><br><span class="line">//连接信号与槽</span><br><span class="line">connect(this, &amp;HBHttp::signal_HB_get, this, &amp;HBHttp::_HB_get);</span><br><span class="line"></span><br><span class="line">void HBHttp::HB_get(QString urlStr, QUrlQuery param, callback func)</span><br><span class="line">&#123;</span><br><span class="line">    emit signal_HB_get(urlStr, param, func);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void HBHttp::_HB_get(QString urlStr, QUrlQuery param, callback func)</span><br><span class="line">&#123;</span><br><span class="line">    QUrl url(urlStr);</span><br><span class="line">    url.setQuery(param);</span><br><span class="line"></span><br><span class="line">    QNetworkRequest request(url);</span><br><span class="line">    QNetworkReply *reply = m_manager-&gt;get(request);</span><br><span class="line"></span><br><span class="line">    connect(reply, &amp;QNetworkReply::finished, [&amp;, reply, func] &#123;</span><br><span class="line"></span><br><span class="line">        QString response = reply-&gt;readAll();</span><br><span class="line">        func(response);</span><br><span class="line">        reply-&gt;deleteLater();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m_http-&gt;HB_get(&quot;http://api.nnzhp.cn/api/user/stu_info&quot;, query, [&amp;](QString response) &#123;</span><br><span class="line">	qDebug() &lt;&lt; response;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以再试下，在跨线程调用时，也是可以正常获取数据的。</p>
+<p>有兴趣的可以去我<a href="https://github.com/jiutianhuanpei/Qt_NetRequest" target="_blank" rel="noopener">github</a>里下载下来看看。</p>
 
       
 
@@ -282,7 +314,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/jiiOS8xiadeyigeguiyibengkui.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/QTnetrequestfirst.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +328,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/gitminglingxingzongjie.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git 命令行总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/gRPCgongchengpeizhi.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">gRPC 工程配置</div>
+    <a href="/postman_pre_request_script.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Postman进阶</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -334,7 +357,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、基本使用"><span class="toc-number">1.</span> <span class="toc-text">一、基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、升级使用"><span class="toc-number">2.</span> <span class="toc-text">二、升级使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、再升级使用"><span class="toc-number">3.</span> <span class="toc-text">三、再升级使用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -350,7 +373,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="记 iOS8 下的一个诡异崩溃" ></div>
+  <div id="SOHUCS" sid="QT网络请求" ></div>
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

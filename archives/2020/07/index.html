@@ -6,19 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>音视频合成 | 沈红榜的博客</title>
+  <title>Archives: 2020/7 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近朋友的项目做到了音频合成及识别的功能，工作之余也稍加研究了一番，成果涉及三个方面：  音频前后拼接 音频混合 音视频合成">
-<meta property="og:type" content="article">
-<meta property="og:title" content="音视频合成">
-<meta property="og:url" content="https://www.shenhongbang.cc/yinshipinghecheng.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="沈红榜的博客">
+<meta property="og:url" content="https://www.shenhongbang.cc/archives/2020/07/index.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="最近朋友的项目做到了音频合成及识别的功能，工作之余也稍加研究了一番，成果涉及三个方面：  音频前后拼接 音频混合 音视频合成">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-25T08:37:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="音视频合成">
-<meta name="twitter:description" content="最近朋友的项目做到了音频合成及识别的功能，工作之余也稍加研究了一番，成果涉及三个方面：  音频前后拼接 音频混合 音视频合成">
+<meta name="twitter:title" content="沈红榜的博客">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -154,278 +150,49 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-音视频合成" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      音视频合成
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/QStringwithchinesetoconstchar.html" class="archive-article-date">
+  	<time datetime="2020-07-15T08:15:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/QStringwithchinesetoconstchar.html">QString 含中文时转 const char * 类型</a>
     </h1>
   
 
-        
-        <a href="/yinshipinghecheng.html" class="archive-article-date">
-  	<time datetime="2018-10-25T06:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近朋友的项目做到了音频合成及识别的功能，工作之余也稍加研究了一番，成果涉及三个方面：</p>
-<ul>
-<li><a href="#1">音频前后拼接</a></li>
-<li><a href="#2">音频混合</a></li>
-<li><a href="#3">音视频合成</a></li>
-</ul>
-<a id="more"></a>
-<p><strong><em>前置条件：</em></strong></p>
-<ul>
-<li>先准备两段音频及一段视频资源如下</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NSURL *linhaiUrl = [NSBundle.mainBundle URLForResource:@&quot;linhai&quot; withExtension:@&quot;mp3&quot;];</span><br><span class="line">NSURL *fengyeUrl = [NSBundle.mainBundle URLForResource:@&quot;fengye&quot; withExtension:@&quot;mp3&quot;];</span><br><span class="line">NSURL *videoURL = [NSBundle.mainBundle URLForResource:@&quot;dujie&quot; withExtension:@&quot;mp4&quot;];</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>因为要做音视频的操作所以工程一定要引入 <em><code>AVFoundation</code></em> 的头文件。</p>
-</li>
-<li><p>根据 URL 生成 <em>AVURLAsset</em> 对象，以让开发者可以对媒体资源进行操作。</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AVURLAsset *linhaiAsset = [AVURLAsset assetWithURL:linhaiUrl];</span><br><span class="line">AVURLAsset *fengyeAsset = [AVURLAsset assetWithURL:fengyeUrl];</span><br><span class="line">AVURLAsset *videoAsset = [AVURLAsset assetWithURL:videoURL];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>用到了一个之前没接触过的类 <em><code>AVAssetTrack</code></em> ，官方的注释是 <code>An object that provides the track-level inspection interface for an asset’s media tracks.</code>，可翻译为 “<strong>为资源的媒体轨道提供轨道级检查接口的对象</strong>。”</li>
-</ul>
-<blockquote>
-<p>接触过视频处理或者音频处理的应该知道，视频轨是放置视频片段的地方，而音轨则是放置音频片段的地方，一段音频可以由单个或多个视频组成，一段视频是由视频轨和音频轨组合而成。</p>
-</blockquote>
-<blockquote>
-<p>而 <em><code>AVAssetTrack</code></em> 就可以理解为从音频或视频资源中提取的音轨或视频轨。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AVAssetTrack *linhaiTrack = [linhaiAsset tracksWithMediaType:AVMediaTypeAudio].firstObject;</span><br><span class="line">AVAssetTrack *fengyeTrack = [fengyeAsset tracksWithMediaType:AVMediaTypeAudio].firstObject;</span><br><span class="line">AVAssetTrack *dujieTrack = [videoAsset tracksWithMediaType:AVMediaTypeVideo].firstObject;</span><br></pre></td></tr></table></figure>
-<p><strong>以上：</strong>分别提取出了两段音频的音轨和视频的视频轨，视频的音轨则被弃用。从这也可以引申出另一个小项目：<em>导出一段视频中的音频文件</em>，暂时不做研究。</p>
-<ul>
-<li>创建一个 <em><code>AVMutableComposition</code></em> 对象，用于把已有的资源合成一个新的媒体资源。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AVMutableComposition *composition = AVMutableComposition.composition;</span><br></pre></td></tr></table></figure>
-<p>下面开始正式的工作：</p>
-<h3 id="1">一、音频前后拼接</h3>
+        <div class="article-info info-on-right">
+          
+          
 
-<p>两段或者多段音频的前后拼接，可以在一条音轨上进行操作。</p>
-<p>为 <code>composition</code> 创建一个 <code>AVMutableCompositionTrack</code> 对象，可以理解为是为 <code>composition</code> 创建一个空白的可编辑资源轨道:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AVMutableCompositionTrack *audioTrack = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];</span><br></pre></td></tr></table></figure>
-<p><code>AVMutableCompositionTrack</code> 的对象不能直接 <code>new</code> 一个，而是要用上面的方法从 <code>AVMutableComposition</code> 里生成，在这个方法里指明需要指明这是一个音频轨道还是视频轨道。</p>
-<p>然后通过 <code>AVMutableCompositionTrack</code> 的实例方法 <code>- (BOOL)insertTimeRange:(CMTimeRange)timeRange ofTrack:(AVAssetTrack *)track atTime:(CMTime)startTime error:(NSError * _Nullable * _Nullable)outError;</code> ，向这个空白轨道内添加音频资源:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSError *error = nil;</span><br><span class="line">    </span><br><span class="line">CMTime linhaiDuration = CMTimeMakeWithSeconds(durationTime, linhaiAsset.duration.timescale);</span><br><span class="line">[audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, linhaiDuration) ofTrack:linhaiTrack atTime:kCMTimeZero error:&amp;error];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>第一个参数 <code>timeRang</code> 是 <code>CMTimeRange</code> 类型，指明一个时间段，是截取资源的某一段资源。</li>
-<li>第二个参数 <code>track</code> 是指要插入的资源，这里传入的是第一段音频的音轨。</li>
-<li>第三个参数 <code>startTime</code> 是 <code>CMTime</code> 类型，指明一个时间点，指的是要插入的这段资源在可编辑轨道上的起始时间点。<strong>要注意的一点就是，在同一个可编辑轨道上插入的第二段资源的起始点，如果在第一段资源上，那么它会把第一段资源从这个点分开，中间插入当前资源。</strong></li>
-</ul>
-<p>再插入第二段音频：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMTime fengyeStart = CMTimeMakeWithSeconds(12, fengyeAsset.duration.timescale);</span><br><span class="line">CMTime fengyeDuration = CMTimeMakeWithSeconds(durationTime, fengyeAsset.duration.timescale);</span><br><span class="line">[audioTrack insertTimeRange:CMTimeRangeMake(fengyeStart, fengyeDuration) ofTrack:fengyeTrack atTime:linhaiDuration error:&amp;error];</span><br></pre></td></tr></table></figure>
-<p>第二段音频插到第一段音频的结尾。</p>
-<p>俩段音频资源都写入进去之后，就要把合并后的资源导出了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:composition presetName:AVAssetExportPresetAppleM4A];</span><br><span class="line">    </span><br><span class="line">NSString *outputPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true).firstObject stringByAppendingPathComponent:@&quot;output.m4a&quot;];</span><br><span class="line">    </span><br><span class="line">if ([NSFileManager.defaultManager fileExistsAtPath:outputPath]) &#123;</span><br><span class="line">	[NSFileManager.defaultManager removeItemAtPath:outputPath error:nil];</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;导出路径：\n%@&quot;, outputPath);</span><br><span class="line">    </span><br><span class="line">exportSession.outputURL = [NSURL fileURLWithPath:outputPath];</span><br><span class="line">exportSession.outputFileType = AVFileTypeAppleM4A;</span><br><span class="line">exportSession.shouldOptimizeForNetworkUse = true;</span><br><span class="line">    </span><br><span class="line">[exportSession exportAsynchronouslyWithCompletionHandler:^&#123;</span><br><span class="line">	NSLog(@&quot;error: %@&quot;, exportSession.error);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong> <code>exportSession</code> 定义时的 <code>presetName</code> 和 <code>outputFileType</code> 属性要一致。</p>
-<p><br></p>
-<h3 id="2">音频混合</h3>
-
-<p>这个的需求是有两段音频，比如都是 3 秒，要在 3 秒之内同时播放完成这两段音频。</p>
-<p>这时候就不能再是只有一条可编辑轨道了，如果仅有一条轨道那就量音频拼接了，时长最少会有 6 秒。</p>
-<p>有思路之后，可以开工了，创建两条可编辑轨道，并都指定为音轨：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AVMutableCompositionTrack *audioTrack01 = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];</span><br><span class="line">AVMutableCompositionTrack *audioTrack02 = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];</span><br></pre></td></tr></table></figure>
-<p>然后向两条轨道中分别添加资源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSError *error = nil;</span><br><span class="line">CMTime linhaiDuration = CMTimeMakeWithSeconds(durationTime, linhaiAsset.duration.timescale);</span><br><span class="line">[audioTrack01 insertTimeRange:CMTimeRangeMake(kCMTimeZero, linhaiDuration) ofTrack:linhaiTrack atTime:kCMTimeZero error:&amp;error];</span><br><span class="line">    </span><br><span class="line">CMTime fengyeStart = CMTimeMakeWithSeconds(12, fengyeAsset.duration.timescale);</span><br><span class="line">CMTime fengyeDuration = CMTimeMakeWithSeconds(durationTime, fengyeAsset.duration.timescale);</span><br><span class="line">[audioTrack02 insertTimeRange:CMTimeRangeMake(fengyeStart, fengyeDuration) ofTrack:fengyeTrack atTime:kCMTimeZero error:&amp;error];</span><br></pre></td></tr></table></figure>
-<p>两段音频资源写入之后是导出最终合并后的资源文件，这个和上一步的代码是一致的。</p>
-<p><br></p>
-<h3 id="3">音视频合成</h3>
-
-<p>有了音频混合的经验之后，这个就比较容易理解了，就是创建两条可编辑轨道，一条放视频资源，一条放音频资源，让它们的播放时间重合就好。</p>
-<p>步骤一致，先创建两条可编辑轨道，指定一条为音轨，一条为视频轨：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AVMutableCompositionTrack *audioTrack = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];</span><br><span class="line">AVMutableCompositionTrack *videoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];</span><br></pre></td></tr></table></figure>
-<p>然后在两条可编辑轨道中分别对应添加资源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSError *error = nil;</span><br><span class="line">CMTime linhaiDuration = CMTimeMakeWithSeconds(durationTime, linhaiAsset.duration.timescale);</span><br><span class="line">[audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, linhaiDuration) ofTrack:linhaiTrack atTime:kCMTimeZero error:&amp;error];</span><br><span class="line">[videoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, linhaiDuration) ofTrack:dujieTrack atTime:kCMTimeZero error:&amp;error];</span><br></pre></td></tr></table></figure>
-<p>最后一步，还是在添加资源之后导出咱们最终合并成功的资源：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:composition presetName:AVAssetExportPresetMediumQuality];</span><br><span class="line">    </span><br><span class="line">NSString *outputPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true).firstObject stringByAppendingPathComponent:@&quot;output.mp4&quot;];</span><br><span class="line">    </span><br><span class="line">if ([NSFileManager.defaultManager fileExistsAtPath:outputPath]) &#123;</span><br><span class="line">	[NSFileManager.defaultManager removeItemAtPath:outputPath error:nil];</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;导出路径：\n%@&quot;, outputPath);</span><br><span class="line">    </span><br><span class="line">exportSession.outputURL = [NSURL fileURLWithPath:outputPath];</span><br><span class="line">exportSession.outputFileType = AVFileTypeMPEG4;</span><br><span class="line">exportSession.shouldOptimizeForNetworkUse = true;</span><br><span class="line"></span><br><span class="line">[exportSession exportAsynchronouslyWithCompletionHandler:^&#123;</span><br><span class="line">	NSLog(@&quot;error: %@&quot;, exportSession.error);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>导出方法还都是一样的，唯一要注意的就是要按视频的配置来设置 <code>exportSession</code> 的 <code>presetName</code> 和 <code>outputFileType</code> 属性。</p>
-<p><br></p>
-<p>之上，是音频和视频的简单编辑，之后就可以做一款简易版的音视频编辑小软件了。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>你可以请我喝杯咖啡么<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/yinshipinghecheng.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/UITableViewAndUIScrollViewGesturesConflict.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          UITableView 和 UIScrollView 手势冲突解决方案
-        
-      </div>
-    </a>
   
   
-    <a href="/photokitkuangjiahuoqueshipindeyixiekeng.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PhotoKit框架获取视频的一些坑</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-number">1.</span> <span class="toc-text">一、音频前后拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-number">2.</span> <span class="toc-text">音频混合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-number">3.</span> <span class="toc-text">音视频合成</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="音视频合成" ></div>
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyt8S4D0e",
-        conf: "7669546b28edafeaff3de4926ef9cb6c"
-    });
-</script>
-<style>
-    #feedAv{margin-top:-250px!important;transform:scale(0);}
-</style>
-</script>
-
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -446,8 +213,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

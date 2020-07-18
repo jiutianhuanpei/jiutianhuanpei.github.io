@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>系统自带的语音合成 | 沈红榜的博客</title>
+  <title>让github变快 | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为备忘，直接上代码 1234567891011AVSpeechUtterance *utt = [AVSpeechUtterance speechUtteranceWithString:@&amp;quot;明天晚上吃啥&amp;quot;];NSArray *voices = [AVSpeechSynthesisVoice speechVoices];NSLog(@&amp;quot;%@&amp;quot;, voices)">
+  <meta name="description" content="当在 github 上找到一个优秀的项目，满心欢喜的时候准备 clone 下来学习一下时，有没有被其比蜗牛还要慢的网速困挠过？ 来试试下面的方法吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统自带的语音合成">
-<meta property="og:url" content="https://www.shenhongbang.cc/xitongzidaideyuyinhecheng.html">
+<meta property="og:title" content="让github变快">
+<meta property="og:url" content="https://www.shenhongbang.cc/makegithubclonefaster.html">
 <meta property="og:site_name" content="沈红榜的博客">
-<meta property="og:description" content="为备忘，直接上代码 1234567891011AVSpeechUtterance *utt = [AVSpeechUtterance speechUtteranceWithString:@&amp;quot;明天晚上吃啥&amp;quot;];NSArray *voices = [AVSpeechSynthesisVoice speechVoices];NSLog(@&amp;quot;%@&amp;quot;, voices)">
+<meta property="og:description" content="当在 github 上找到一个优秀的项目，满心欢喜的时候准备 clone 下来学习一下时，有没有被其比蜗牛还要慢的网速困挠过？ 来试试下面的方法吧。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-03-15T14:01:24.000Z">
+<meta property="og:image" content="https://www.shenhongbang.cc/1.png">
+<meta property="og:image" content="https://www.shenhongbang.cc/2.png">
+<meta property="og:updated_time" content="2020-07-18T09:35:48.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系统自带的语音合成">
-<meta name="twitter:description" content="为备忘，直接上代码 1234567891011AVSpeechUtterance *utt = [AVSpeechUtterance speechUtteranceWithString:@&amp;quot;明天晚上吃啥&amp;quot;];NSArray *voices = [AVSpeechSynthesisVoice speechVoices];NSLog(@&amp;quot;%@&amp;quot;, voices)">
+<meta name="twitter:title" content="让github变快">
+<meta name="twitter:description" content="当在 github 上找到一个优秀的项目，满心欢喜的时候准备 clone 下来学习一下时，有没有被其比蜗牛还要慢的网速困挠过？ 来试试下面的方法吧。">
+<meta name="twitter:image" content="https://www.shenhongbang.cc/1.png">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -154,29 +157,40 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-系统自带的语音合成" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-让github变快" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      系统自带的语音合成
+      让github变快
     </h1>
   
 
         
-        <a href="/xitongzidaideyuyinhecheng.html" class="archive-article-date">
-  	<time datetime="2016-07-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-27</time>
+        <a href="/makegithubclonefaster.html" class="archive-article-date">
+  	<time datetime="2020-07-18T09:19:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>为备忘，直接上代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">AVSpeechUtterance *utt = [AVSpeechUtterance speechUtteranceWithString:@&quot;明天晚上吃啥&quot;];</span><br><span class="line"></span><br><span class="line">NSArray *voices = [AVSpeechSynthesisVoice speechVoices];</span><br><span class="line">NSLog(@&quot;%@&quot;, voices);   //打印所有语言</span><br><span class="line"></span><br><span class="line">AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:@&quot;zh-HK&quot;];    //粤语测试</span><br><span class="line">utt.voice = voice;</span><br><span class="line"></span><br><span class="line">AVSpeechSynthesizer *speech = [[AVSpeechSynthesizer alloc] init];</span><br><span class="line"></span><br><span class="line">[speech speakUtterance:utt];</span><br></pre></td></tr></table></figure>
-<p>类需要引用 AVFoundation 框架。需要引用 AVFoundation 框架。需要引用 AVFoundation 框架。</p>
+        <p>当在 github 上找到一个优秀的项目，满心欢喜的时候准备 clone 下来学习一下时，有没有被其比蜗牛还要慢的网速困挠过？</p>
+<p>来试试下面的方法吧。</p>
+<a id="more"></a>
+<blockquote>
+<p>把项目地址中的 <code>github.com</code> 换为 <code>github.com.cnpmjs.org</code>。</p>
+</blockquote>
+<p>比如我的一个项目地址是</p>
+<p> <code>https://github.com/jiutianhuanpei/HBIAPManager.git</code>，</p>
+<p> 转换之后就是</p>
+<p> <code>https://github.com.cnpmjs.org/jiutianhuanpei/HBIAPManager.git</code>。</p>
+<p> 看看我用 Qt-AV 这个项目测试的对方速度吧：</p>
+<p> <img src="//www.shenhongbang.cc/1.png" alt=""></p>
+<p> <img src="//www.shenhongbang.cc/2.png" alt=""></p>
+<p> 转换之后我连图都没截好就已经下载完了，太舒服了 😁</p>
 
       
 
@@ -266,7 +280,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/xitongzidaideyuyinhecheng.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/makegithubclonefaster.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,18 +294,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/DWpojiefangfa.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          DW 破解方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/CGContextRefyongfazongjie.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CGContextRef 用法总结</div>
+    <a href="/QStringwithchinesetoconstchar.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QString 含中文时转 const char * 类型</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -334,7 +339,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="系统自带的语音合成" ></div>
+  <div id="SOHUCS" sid="让github变快" ></div>
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

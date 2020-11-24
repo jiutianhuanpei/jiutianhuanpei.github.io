@@ -16,7 +16,7 @@
 <meta property="og:description" content="如果你能see到这个教程，说明你已经了解了一些hexo的资料……不了解也没啥，这是个教程，你可以照着来一遍，just this……">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://www.shenhongbang.cc/001.jpg">
-<meta property="og:updated_time" content="2020-02-04T02:29:24.346Z">
+<meta property="og:updated_time" content="2020-11-24T14:11:57.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过Hexo在Github上搭建博客 for Mac">
 <meta name="twitter:description" content="如果你能see到这个教程，说明你已经了解了一些hexo的资料……不了解也没啥，这是个教程，你可以照着来一遍，just this……">
@@ -181,12 +181,16 @@ var _hmt = _hmt || [];
 <h3 id="一、Node-js-安装"><a href="#一、Node-js-安装" class="headerlink" title="一、Node.js 安装"></a>一、Node.js 安装</h3><p>通过brew安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">安装命令</span><br><span class="line">brew install node #最新版的node.js包中已经集成了npm包管理工具</span><br><span class="line">使用下面的命令验证是否安装成功</span><br><span class="line">node -v </span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 <h3 id="二、Hexo安装与设置"><a href="#二、Hexo安装与设置" class="headerlink" title="二、Hexo安装与设置"></a>二、Hexo安装与设置</h3><p>命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g  #表示全局安装，npm默认为当前项目安装</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli  #表示全局安装，npm默认为当前项目安装</span><br></pre></td></tr></table></figure>
+<p>npm 可能会特别慢，可以安装国内镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install cnpm -g --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>再用 <code>cnpm</code> 代替 <code>npm</code> 命令就好，如 <code>cnpm install hexo</code>。</p>
+<p><br></p>
 <p>Hexo使用命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;  #执行init命令初始化hexo到你指定的目录</span><br><span class="line">hexo generate       #自动根据当前目录下文件，生成静态网页</span><br><span class="line">hexo server			#运行本地服务</span><br></pre></td></tr></table></figure>
 <h3 id="三、配置github"><a href="#三、配置github" class="headerlink" title="三、配置github"></a>三、配置github</h3><p>如果你有github帐号 ？ 登录 ： 注册再登录；</p>
 <p>创建一个新的仓库，点击 <code>New repository</code> ，在 <code>Repository name</code> 里填入 <code>username.github.io</code> ，这里的 <code>username</code> 必须和 <code>Owner</code> 一样，比如我填的是 <code>jiutianhuanpei.github.io</code> 。<br>然后点击 <code>Create repository</code> 确认创建。</p>
-<p><img src="//www.shenhongbang.cc/001.jpg" alt=""><br><!--![](https://ws3.sinaimg.cn/large/006tNc79gy1fjibsfo8btj31300wm43x.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/001.jpg" alt><br><!--![](https://ws3.sinaimg.cn/large/006tNc79gy1fjibsfo8btj31300wm43x.jpg)--></p>
 <h3 id="四、编写、发布文章"><a href="#四、编写、发布文章" class="headerlink" title="四、编写、发布文章"></a>四、编写、发布文章</h3><h4 id="1、创建博客"><a href="#1、创建博客" class="headerlink" title="1、创建博客"></a>1、创建博客</h4><p>命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init username.github.io</span><br></pre></td></tr></table></figure>
 <h4 id="2、更改配置"><a href="#2、更改配置" class="headerlink" title="2、更改配置"></a>2、更改配置</h4><h5 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h5><p>博客的样式是可以随我心意更改的，命令</p>
@@ -315,15 +319,20 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/shengchengweiyidesuijizifuchuan.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/SourceTreexukezhengshuxiazaidizhi.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          生成唯一的随机字符串
+          SourceTree 许可证书下载地址
         
       </div>
     </a>
   
+  
+    <a href="/Pycharm2016zhucema.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pycharm 2016 注册码</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -505,11 +514,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,6 +538,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Postman</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
@@ -538,10 +551,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Postman</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,10 +578,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -585,11 +590,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,6 +607,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,15 +642,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">系统版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">通知权限</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,11 +666,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">越狱</a>
+                <a href="javascript:void(0)" class="js-tag color5">lame</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lame</a>
+                <a href="javascript:void(0)" class="js-tag color3">越狱</a>
               </li>
             
             <div class="clearfix"></div>

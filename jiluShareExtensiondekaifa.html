@@ -183,18 +183,18 @@ var _hmt = _hmt || [];
         <p>最近要做从相册分享图片到 app，记录下开发过程，以备后用。</p>
 <p>新建工程，添加一个 Share Extension 的 target。弹窗出现的时候选择激活<activate>，如图：</activate></p>
 <a id="more"></a>
-<p><img src="//www.shenhongbang.cc/001.jpg" alt=""><br><!--<img src='http://ww4.sinaimg.cn/large/006tNbRwgy1ffab72p5yqj30te0g6n0r.jpg' width=500></img>--></p>
+<p><img src="//www.shenhongbang.cc/001.jpg" alt><br><!--<img src='http://ww4.sinaimg.cn/large/006tNbRwgy1ffab72p5yqj30te0g6n0r.jpg' width=500></img>--></p>
 <p>分享扩展需要证书才可以开发，如果是付费开发者就去申请证书，如果是免费开发者，就选择Xcode的自动签名，它会自动配置证书以供开发。</p>
-<p><img src="//www.shenhongbang.cc/002.jpg" alt=""><br><!--<img src='http://ww4.sinaimg.cn/large/006tNbRwgy1ffab943y5sj31280letbz.jpg' width = 500></img>
+<p><img src="//www.shenhongbang.cc/002.jpg" alt><br><!--<img src='http://ww4.sinaimg.cn/large/006tNbRwgy1ffab943y5sj31280letbz.jpg' width = 500></img>
 --><br>展开工程目录下分享 tartget 的目录，默认会有四个文件：<code>ShareViewController.h/.m</code>、<code>MainInterface.storyboard</code>、<code>Info.plist</code>。</p>
 <p>运行主工程，打开相册–&gt;分享，打开对应开关，已经可以调出分享界面。</p>
-<p><img src="//www.shenhongbang.cc/003.jpg" alt=""><br><!--<img src = 'http://ww2.sinaimg.cn/large/006tNbRwgy1ffabg6ezjfj30ku1124gd.jpg' width = 500></img>--></p>
+<p><img src="//www.shenhongbang.cc/003.jpg" alt><br><!--<img src = 'http://ww2.sinaimg.cn/large/006tNbRwgy1ffabg6ezjfj30ku1124gd.jpg' width = 500></img>--></p>
 <p><br><br><br></p>
 <h3>Info.plist 的配置</h3>
 
 
 <p>先看下 Info.plist 的配置：</p>
-<p><img src="//www.shenhongbang.cc/004.jpg" alt=""><br><!--<img src = 'http://ww4.sinaimg.cn/large/006tNbRwgy1ffabj1eo9cj30te0h2wid.jpg' width = 500></img>--></p>
+<p><img src="//www.shenhongbang.cc/004.jpg" alt><br><!--<img src = 'http://ww4.sinaimg.cn/large/006tNbRwgy1ffabj1eo9cj30te0h2wid.jpg' width = 500></img>--></p>
 <p>我们需要关注以下字段的设置：</p>
 <!-- 表开始 -->
 <table>
@@ -285,7 +285,7 @@ var _hmt = _hmt || [];
 <p>上传一点粗糙代码，代表实现思路 <em>这些都是<code>ShareViewController</code>里的方法</em>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - 在 willAppear 里把 UI 隐藏掉。</span><br><span class="line">- (void)viewWillAppear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillAppear:animated];</span><br><span class="line">    self.view.alpha = 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [self.extensionContext.inputItems enumerateObjectsUsingBlock:^(NSExtensionItem*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) &#123;</span><br><span class="line">        </span><br><span class="line">        [obj.attachments enumerateObjectsUsingBlock:^(NSItemProvider*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) &#123;</span><br><span class="line">            </span><br><span class="line">            BOOL flag = [obj hasItemConformingToTypeIdentifier:@&quot;public.image&quot;];</span><br><span class="line">            if (flag) &#123;</span><br><span class="line">                [obj loadItemForTypeIdentifier:@&quot;public.image&quot; options:nil completionHandler:^(UIImage *  _Nullable item, NSError * _Null_unspecified error) &#123;</span><br><span class="line">                    dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                        </span><br><span class="line">#pragma mark - 先获取要分享的图片，然后直接无动画跳转到自定义的 VC。注意要在主线程                        </span><br><span class="line">                        ShareMainViewController *mainVC = [[ShareMainViewController alloc] init];</span><br><span class="line"></span><br><span class="line">#pragma mark - 不明白为啥在系统提供的 VC 里可以对 self.extensionContext 进行操作，而在自定义的 VC 里却不行，所以要把这个传到自定义的 VC 里，以便调用其方法。</span><br><span class="line">                        mainVC.shareExtensionContext = self.extensionContext;</span><br><span class="line">                        mainVC.image = item;</span><br><span class="line">                        [self presentViewController:mainVC animated:false completion:nil];</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>效果图：</p>
-<p><img src="//www.shenhongbang.cc/005.jpg" alt=""><br><!--<img src='http://ww4.sinaimg.cn/large/006tNbRwgy1ffe0eqkclqj30ku1124qp.jpg' width = 500></img>--></p>
+<p><img src="//www.shenhongbang.cc/005.jpg" alt><br><!--<img src='http://ww4.sinaimg.cn/large/006tNbRwgy1ffe0eqkclqj30ku1124qp.jpg' width = 500></img>--></p>
 <p><br><br><br></p>
 <p>然后通过模态方式跳转到下一个页面就是ok 的了。</p>
 <p>注意两个<code>NSExtensionContext</code>的方法：</p>
@@ -593,11 +593,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,6 +617,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Postman</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
@@ -626,10 +630,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Postman</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,10 +657,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -673,11 +669,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,6 +686,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,15 +721,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">系统版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">通知权限</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,11 +745,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">越狱</a>
+                <a href="javascript:void(0)" class="js-tag color5">lame</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lame</a>
+                <a href="javascript:void(0)" class="js-tag color3">越狱</a>
               </li>
             
             <div class="clearfix"></div>

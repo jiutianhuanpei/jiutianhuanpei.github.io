@@ -193,22 +193,22 @@ var _hmt = _hmt || [];
 
 <p>本文以 【追书神器】为例。</p>
 <p><strong>一、</strong> 打开Charles，安装证书，以便可以拦截、解析https请求。如下图所示：</p>
-<p><img src="//www.shenhongbang.cc/001.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farp6c8eunj31kw0jjqdb.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/001.jpg" alt><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farp6c8eunj31kw0jjqdb.jpg)--></p>
 <p>然后要设置这个证书为信任</p>
-<p><img src="//www.shenhongbang.cc/002.jpg" alt=""><br><!--![](http://ww1.sinaimg.cn/large/006y8lVagw1farp7rhomqj30vs07e0wj.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/002.jpg" alt><br><!--![](http://ww1.sinaimg.cn/large/006y8lVagw1farp7rhomqj30vs07e0wj.jpg)--></p>
 <p><strong>二、</strong> 打开 iTunes ，在AppStore里搜索追书神器，点击获取。这个时候Charles会有一大堆请求，其中p6-buy就是iTunes的下载接口。</p>
-<p><img src="//www.shenhongbang.cc/003.jpg" alt=""><br><!--![](http://ww2.sinaimg.cn/large/006y8lVagw1farpi7x5vzj313i0lg120.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/003.jpg" alt><br><!--![](http://ww2.sinaimg.cn/large/006y8lVagw1farpi7x5vzj313i0lg120.jpg)--></p>
 <p>可以看到这个解析都是一堆乱码，需要打开ssl代理拦截该请求。</p>
 <p><strong>三、</strong> Charles添加ssl代理 先不添加断点，这一步要获取app的历史版本</p>
-<p><img src="//www.shenhongbang.cc/004.jpg" alt=""><br><!--![](http://ww4.sinaimg.cn/large/006y8lVagw1farpp2g1caj30nm0xggty.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/004.jpg" alt><br><!--![](http://ww4.sinaimg.cn/large/006y8lVagw1farpp2g1caj30nm0xggty.jpg)--></p>
 <p><strong>四、</strong> 打开iTunes，删除已下载的app，再重新下载；下载成功后打开Charles，展开下载接口，获取app历史版本ID。比如，我要下载追书神器的2.25.1版本，其对应ID是817743478。</p>
-<p><img src="//www.shenhongbang.cc/005.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farpxtai2jj31f2118wuj.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/005.jpg" alt><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farpxtai2jj31f2118wuj.jpg)--></p>
 <p><strong>五、</strong> 在下载接口添加断点，再删除iTunes里下载好的app🤓，重新再次下载app😁</p>
 <p>Charles会跳出断点，点击 <code>XML Text</code> 解析请求，把要下载的版本ID修改为你要下载的版本号。</p>
-<p><img src="//www.shenhongbang.cc/006.jpg" alt=""><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farq9nxtamj313y19un9x.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/006.jpg" alt><br><!--![](http://ww3.sinaimg.cn/large/006y8lVagw1farq9nxtamj313y19un9x.jpg)--></p>
 <p>点击Execute执行这个请求，还会来断点2次，一直点Execute就行，直到app下载完成。</p>
 <p><strong>六、</strong> 到这一步已经成功了，打开iTunes资料库，显示app的资料，已经是2.25.1版本了，大功告成👌</p>
-<p><img src="//www.shenhongbang.cc/007.jpg" alt=""><br><!--![](http://ww1.sinaimg.cn/large/006y8lVagw1farqhjms2jj316c0yggrk.jpg)--></p>
+<p><img src="//www.shenhongbang.cc/007.jpg" alt><br><!--![](http://ww1.sinaimg.cn/large/006y8lVagw1farqhjms2jj316c0yggrk.jpg)--></p>
 <p>然后，ipa文件已经有了，安装到你的手机上就行了。</p>
 <p><br><br>Over!😃</p>
 
@@ -520,11 +520,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,6 +544,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Postman</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">富文本</a>
               </li>
              
@@ -553,10 +557,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Postman</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,10 +584,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -600,11 +596,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,6 +613,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,15 +648,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">系统版本控制</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">通知权限</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图片颜色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,11 +672,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">越狱</a>
+                <a href="javascript:void(0)" class="js-tag color5">lame</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lame</a>
+                <a href="javascript:void(0)" class="js-tag color3">越狱</a>
               </li>
             
             <div class="clearfix"></div>

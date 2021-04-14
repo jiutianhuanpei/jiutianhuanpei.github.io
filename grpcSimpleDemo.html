@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://www.shenhongbang.cc">
-  <title>Tag: cocoapods | 沈红榜的博客</title>
+  <title>gRPC 简单应用（二） | 沈红榜的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="沈红榜的博客">
-<meta property="og:url" content="https://www.shenhongbang.cc/tags/cocoapods/index.html">
+  <meta name="description" content="这里我们先实现一个简单的客户端与服务端的连接。 首先，我们需要使用 protocol buffers 去定义 gRPC service 及相关的 request 及 response 。 一、proto 定义">
+<meta name="keywords" content="gRPC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gRPC 简单应用（二）">
+<meta property="og:url" content="https://www.shenhongbang.cc/grpcSimpleDemo.html">
 <meta property="og:site_name" content="沈红榜的博客">
+<meta property="og:description" content="这里我们先实现一个简单的客户端与服务端的连接。 首先，我们需要使用 protocol buffers 去定义 gRPC service 及相关的 request 及 response 。 一、proto 定义">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-04-14T12:51:09.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="沈红榜的博客">
+<meta name="twitter:title" content="gRPC 简单应用（二）">
+<meta name="twitter:description" content="这里我们先实现一个简单的客户端与服务端的连接。 首先，我们需要使用 protocol buffers 去定义 gRPC service 及相关的 request 及 response 。 一、proto 定义">
   
     <link rel="alternative" href="/atom.xml" title="沈红榜的博客" type="application/atom+xml">
   
@@ -150,116 +155,264 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-gRPC 简单应用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/CocoapodsMultipleVersions.html" class="archive-article-date">
-  	<time datetime="2019-11-10T08:00:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/CocoapodsMultipleVersions.html">Cocoapods多版本共存使用</a>
+    <h1 class="article-title" itemprop="name">
+      gRPC 简单应用（二）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/grpcSimpleDemo.html" class="archive-article-date">
+  	<time datetime="2021-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里我们先实现一个简单的客户端与服务端的连接。</p>
+<p>首先，我们需要使用 <code>protocol buffers</code> 去定义 <code>gRPC service</code> 及相关的 <code>request</code> 及 <code>response</code> 。</p>
+<h3 id="一、proto-定义"><a href="#一、proto-定义" class="headerlink" title="一、proto 定义"></a>一、proto 定义</h3><a id="more"></a>
+<p>创建一个 <code>HBService.proto</code> 文件如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line"></span><br><span class="line">package SHB;</span><br><span class="line"></span><br><span class="line">enum MessageType &#123;</span><br><span class="line">	Chat_Msg = 0;</span><br><span class="line">	Group_Msg = 1;</span><br><span class="line">	Push_Msg = 2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">service HBService &#123;</span><br><span class="line">	rpc request(HBRequest) returns (HBResponse)&#123;&#125;</span><br><span class="line">	rpc streamRequest(stream HBRequest) returns (stream HBResponse) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">message HBRequest &#123;</span><br><span class="line">	string phone = 1;</span><br><span class="line">	string data = 2;</span><br><span class="line">&#125;</span><br><span class="line">message HBResponse &#123;</span><br><span class="line">	</span><br><span class="line">	MessageType type = 1;</span><br><span class="line">	string from = 2;</span><br><span class="line">	string data = 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可见，定义了一个名为 <code>HBService</code> 的服务，两个方法，其中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpc request(HBRequest) returns (HBResponse)&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>是一个简单 RPC，客户端使用存根发送请求到服务器并等待响应返回，就像平常的函数调用一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpc streamRequest(stream HBRequest) returns (stream HBResponse) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>是一个双向流式 RPC， 是双方使用读写流去发送一个消息序列，可以用作长链接。</p>
+<p>还有两个 message，为 <code>HBRequest</code> 和 <code>HBResponse</code>，分别是请求及返回结果的消息定义。</p>
+<p>二、生成服务端及客户端代码</p>
+<p>可以参考<a href="http://doc.oschina.net/grpc?t=57966" target="_blank" rel="noopener">官方文档</a> 通过 <code>protoc</code>命令用 proto 文件来生成对应语言的代码文件。</p>
+<p>我就依 C++ 来举例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protoc -I protos --grpc_out=outdir --cpp_out=outdir --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` HBService.proto</span><br></pre></td></tr></table></figure>
+<p>命令解析：</p>
+<ul>
+<li>protos 为 <code>.proto</code> 所在的路径，若为命令行所在的目录可用 <code>.</code> 一个点代替；</li>
+<li>outdir 为生成的代码文件存放的目录，若为命令行所在的目录也可用 <code>.</code> 一个点代替；</li>
+<li>–grpc_out 表明生成的 <code>*.grpc.pb.{h,cc}</code> 文件所在路径，为服务类的相关头及实现</li>
+<li>–cpp_out 表明生成的 <code>*.pb.{h,cc}</code> 文件所在路径，为消息类的相关头及实现</li>
+<li><code>which grpc_cpp_plugin</code> 也是一个命令，用以查找 <code>grpc_cpp_plugin</code> 插件所在的路径，这里是生成 C++ 文件的插件，若是生成 oc 文件可换为 <code>grpc_objective_c_plugin</code>，其它语言自查。</li>
+<li>HBService.proto 为需要转换的 proto 文件，若需要把所有的 proto 文件都转换掉，一般使用通配符 <code>*.proto</code> 表示。</li>
+</ul>
+<h3 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h3><p>我已经把 demo 上传到了 <a href="https://github.com/jiutianhuanpei/HBGrpcDemo" target="_blank" rel="noopener">github</a> ，可以对比着理解。</p>
+<h4 id="1）服务端实现"><a href="#1）服务端实现" class="headerlink" title="1）服务端实现"></a>1）服务端实现</h4><p>服务端需要新建一个类继承自 <code>SHB::HBService::Service</code>，并重写它的两个方法 （在<code>HBService.proto</code> 内定义的方法）。</p>
+<p>服务端在收到客户端的请求后，会回调到对应的方法内，然后服务端根据收到的数据进行处理，再回复给客户端。</p>
+<p>1、一对一请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grpc::Status SimpleService::request(grpc::ServerContext *context, const HBRequest *request, HBResponse *response)</span><br></pre></td></tr></table></figure>
+<p>直接对 <code>response</code> 赋值，然后整个方法 <code>return Status::OK;</code> 即可把数据回复到客户端。</p>
+<p>2、流请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grpc::Status SimpleService::streamRequest(grpc::ServerContext *context, ::grpc::ServerReaderWriter&lt;SHB::HBResponse, SHB::HBRequest&gt; *stream)</span><br></pre></td></tr></table></figure>
+<p>有一点个人理解：这里回调的 <code>stream</code> 需要保存起来，否则无法在别的方法使用以对客户端发送消息。</p>
+<p>参考我的demo，内部是 <code>while (stream-&gt;Read(&amp;request))</code> ，这里会阻塞，以等待客户端向服务端发送消息，当于客户端之间的流断开后，<code>stream-&gt;Read(&amp;request)</code> 返回 false ，退出循环。</p>
+<p>3、启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">grpc::EnableDefaultHealthCheckService(true);</span><br><span class="line">grpc::reflection::InitProtoReflectionServerBuilderPlugin();</span><br><span class="line"></span><br><span class="line">ServerBuilder builder;</span><br><span class="line">builder.AddListeningPort(host, grpc::InsecureServerCredentials());</span><br><span class="line">builder.RegisterService(this);</span><br><span class="line"></span><br><span class="line">std::unique_ptr&lt;Server&gt; server(builder.BuildAndStart());</span><br><span class="line">server-&gt;Wait();</span><br></pre></td></tr></table></figure>
+<p>简单的一个服务启动方法，看代码就好了。</p>
+<p><br></p>
+<h4 id="2）客户端实现"><a href="#2）客户端实现" class="headerlink" title="2）客户端实现"></a>2）客户端实现</h4><p>1、创建通道</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::shared_ptr&lt;Channel&gt; channel = grpc::CreateChannel(&quot;localhost:50051&quot;, grpc::InsecureChannelCredentials());</span><br></pre></td></tr></table></figure>
+<p>2、创建存根</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::unique_ptr&lt;HBService::Stub&gt; stub_(HBService::NewStub(channel));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注：存根需要保存起来，因为调用一对一方法时需要用到它。</li>
+</ul>
+<p>3、创建双向流（非必选）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ClientContext context;</span><br><span class="line">std::unique_ptr&lt; ::grpc::ClientReaderWriter&lt;HBRequest, HBResponse&gt; &gt;  m_stream  = stub_-&gt;streamRequest(&amp;context);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注：<code>m_stream</code> 也需要保存起来，因为调用流方法时需要用到它。</li>
+</ul>
+<p>4、发送一对一请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HBResponse response;</span><br><span class="line">ClientContext context;</span><br><span class="line">Status status = stub_-&gt;request(&amp;context, request, &amp;response);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注：<code>request</code> 内包含请求参数，<code>response</code> 内包含平台返回数据。</li>
+</ul>
+<p>4、发送、接收流消息</p>
+<p>发送流消息比较简单，通过 <code>m_stream-&gt;Write(request);</code>  这个方法就可以向服务端发送一条消息了。</p>
+<p>接收流消息类似，通过 <code>m_stream-&gt;Read(&amp;response)</code> 这个方法来接收服务端向客户端推送的消息，但些消息也是阻塞的，所以需要把它放在线程内执行，类似如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">std::thread th([&amp;]&#123;</span><br><span class="line"></span><br><span class="line">    qDebug() &lt;&lt; &quot;In thread&quot;;</span><br><span class="line">    HBResponse response;</span><br><span class="line">    while (m_stream-&gt;Read(&amp;response)) &#123;</span><br><span class="line">        qDebug() &lt;&lt; &quot;Did received msg from server: &quot; &lt;&lt; QString::fromStdString(response.data());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">th.detach();</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p>至此，一个简单的 gRPC 服务端及客户端就算完成了，详细的demo可在我的<a href="https://github.com/jiutianhuanpei/HBGrpcDemo" target="_blank" rel="noopener">github</a>里下载。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你可以请我喝杯咖啡么<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cocoapods</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gRPC</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.shenhongbang.cc/grpcSimpleDemo.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+<nav id="article-nav">
+  
+  
+    <a href="/gPRCForMac.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gPRC for mac 环境搭建（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/anzhuangzuixinbanRuby.html" class="archive-article-date">
-  	<time datetime="2017-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
-</a>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、proto-定义"><span class="toc-number">1.</span> <span class="toc-text">一、proto 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、代码实现"><span class="toc-number">2.</span> <span class="toc-text">二、代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1）服务端实现"><span class="toc-number">2.1.</span> <span class="toc-text">1）服务端实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2）客户端实现"><span class="toc-number">2.2.</span> <span class="toc-text">2）客户端实现</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/anzhuangzuixinbanRuby.html">安装最新版 Ruby</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cocoapods</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Ruby</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gem</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="gRPC 简单应用" ></div>
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyt8S4D0e",
+        conf: "7669546b28edafeaff3de4926ef9cb6c"
+    });
+</script>
+<style>
+    #feedAv{margin-top:-250px!important;transform:scale(0);}
+</style>
+</script>
+
   
 
-    
+  
+
+  
 
 
           </div>
@@ -280,9 +433,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -577,115 +730,6 @@ MathJax.Hub.Queue(function() {
               <span q-text="date|dateformat"></span>
             </p>
             <p class="search-tag">
-              <i class="icon-price-tags icon"></i>
-              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
-            </p>
-          </li>
-        </ul>
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://www.cnblogs.com/shenhongbang" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>博客园</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://github.com/jiutianhuanpei" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>github</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://www.jianshu.com/u/10874016321f" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>简书</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一个帅帅哒Coder 😏</div>
-  	  	
-    	</section>
-    
-  </div>
-  
-</div>
-    <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-  </div>
-</body>
-</html>="search-tag">
               <i class="icon-price-tags icon"></i>
               <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
             </p>

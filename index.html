@@ -152,31 +152,29 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-gRPC 简单应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-自动同步Github到Gitee" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/grpcSimpleDemo.html">gRPC 简单应用（二）</a>
+      <a class="article-title" href="/autoSyncToGitee.html">自动同步Github到Gitee</a>
     </h1>
   
 
         
-        <a href="/grpcSimpleDemo.html" class="archive-article-date">
-  	<time datetime="2021-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-14</time>
+        <a href="/autoSyncToGitee.html" class="archive-article-date">
+  	<time datetime="2021-06-07T06:40:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里我们先实现一个简单的客户端与服务端的连接。</p>
-<p>首先，我们需要使用 <code>protocol buffers</code> 去定义 <code>gRPC service</code> 及相关的 <code>request</code> 及 <code>response</code> 。</p>
-<h3 id="一、proto-定义"><a href="#一、proto-定义" class="headerlink" title="一、proto 定义"></a>一、proto 定义</h3>
+        <p>   很久没更新了，原因就是自从转到 QT 之后，一直处于边学习边实践的过程，中间有所得，但于 QT 来说就是比较基础的了，也无所谓记录下来了。最近工作重心似乎要重新回到 iOS 了，就提前温习了一下，同时也写了写 Swift ，在用到 Swift Package Manager (SPM) 的时候发现了一个问题：国内访问 github 实在不稳定……</p>
         
-          <a class="article-more-a" href="/grpcSimpleDemo.html#more">更多 >></a>
+          <a class="article-more-a" href="/autoSyncToGitee.html#more">更多 >></a>
         
       
 
@@ -190,7 +188,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gRPC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Swift Package Manager</a>
         		</li>
       		
 		</ul>
@@ -200,7 +198,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/grpcSimpleDemo.html">展开全文 >></a>
+          <a class="article-more-a" href="/autoSyncToGitee.html">展开全文 >></a>
         </p>
       
 
@@ -279,6 +277,84 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/gPRCForMac.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-gRPC 简单应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/grpcSimpleDemo.html">gRPC 简单应用（二）</a>
+    </h1>
+  
+
+        
+        <a href="/grpcSimpleDemo.html" class="archive-article-date">
+  	<time datetime="2021-04-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里我们先实现一个简单的客户端与服务端的连接。</p>
+<p>首先，我们需要使用 <code>protocol buffers</code> 去定义 <code>gRPC service</code> 及相关的 <code>request</code> 及 <code>response</code> 。</p>
+<h3 id="一、proto-定义"><a href="#一、proto-定义" class="headerlink" title="一、proto 定义"></a>一、proto 定义</h3>
+        
+          <a class="article-more-a" href="/grpcSimpleDemo.html#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gRPC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/grpcSimpleDemo.html">展开全文 >></a>
         </p>
       
 
@@ -1195,72 +1271,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-验证码自动填充" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/securitycodeautofill.html">验证码自动填充</a>
-    </h1>
-  
-
-        
-        <a href="/securitycodeautofill.html" class="archive-article-date">
-  	<time datetime="2019-01-14T02:54:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>iOS 12 之后开放了验证码的自动填充功能，就是下面的这个：</p>
-<p><img src="//www.shenhongbang.cc/001.jpg" alt><br><!--<img src="https://ws3.sinaimg.cn/large/006tNc79ly1fz5xhu1ty1j30ku112jt4.jpg" width="375px">--></p>
-        
-          <a class="article-more-a" href="/securitycodeautofill.html#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/securitycodeautofill.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1381,35 +1391,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Cocoapods</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color4">ApplePay</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">cocoapods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">KVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">valueForKeyPath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1425,11 +1415,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gRPC</a>
+                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">装机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gRPC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1453,10 +1451,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">drawRect</a>
               </li>
              
@@ -1469,7 +1463,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Flutter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">系统版本</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">废弃方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1489,10 +1491,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">sqlite</a>
               </li>
              
@@ -1505,11 +1503,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">指纹识别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拼音</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">科大讯飞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Swift Package Manager</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1525,19 +1531,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">视频</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
+                <a href="javascript:void(0)" class="js-tag color5">wifi</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">WKWebView</a>
+                <a href="javascript:void(0)" class="js-tag color4">Carthage</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1546,6 +1548,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lame</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">KVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">valueForKeyPath</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
               </li>
             
             <div class="clearfix"></div>
